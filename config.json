@@ -5,15 +5,46 @@
   },
   "topic": {
     "description": "Official posts about the 81st session of the UN General Assembly and its high-level week",
-    "hashtags": ["#UNGA81", "#UNGA"],
-    "keywords": ["General Assembly", "General Debate"]
+    "hashtags": [
+      "#UNGA81",
+      "#UNGA"
+    ],
+    "keywords": [
+      "General Assembly",
+      "General Debate"
+    ]
   },
   "accounts": [
-    { "handle": "UN", "name": "United Nations", "type": "un-official", "country": "" },
-    { "handle": "antonioguterres", "name": "Secretary-General", "type": "un-official", "country": "" },
-    { "handle": "UN_PGA", "name": "President of the General Assembly", "type": "un-official", "country": "" },
-    { "handle": "UN_Spokesperson", "name": "UN Spokesperson", "type": "un-official", "country": "" },
-    { "handle": "UN_News_Centre", "name": "UN News", "type": "un-official", "country": "" }
+    {
+      "handle": "UN",
+      "name": "United Nations",
+      "type": "un-official",
+      "country": ""
+    },
+    {
+      "handle": "antonioguterres",
+      "name": "Secretary-General",
+      "type": "un-official",
+      "country": ""
+    },
+    {
+      "handle": "UN_PGA",
+      "name": "President of the General Assembly",
+      "type": "un-official",
+      "country": ""
+    },
+    {
+      "handle": "UN_Spokesperson",
+      "name": "UN Spokesperson",
+      "type": "un-official",
+      "country": ""
+    },
+    {
+      "handle": "UN_News_Centre",
+      "name": "UN News",
+      "type": "un-official",
+      "country": ""
+    }
   ],
   "sweep": {
     "every_hours": 2,
