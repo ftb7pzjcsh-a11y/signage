@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Réglages de l'écran</title>
+<style>
+  :root {
+    --navy: #0A2342;
+    --navy-deep: #06172D;
+    --panel: #0F2C50;
+    --field: #0A2342;
+    --un-blue: #009EDB;
+    --paper: #F4F7FA;
+    --muted: #9DB3C8;
+    --rule: #1E3D63;
+    --gold: #F2B53A;
+    --red: #FF7A6B;
+    --green: #4CD3A5;
+    --font: Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--navy-deep); color: var(--paper); font-family: var(--font); font-size: 16px; line-height: 1.5; }
+  main { max-width: 980px; margin: 0 auto; padding: 40px 24px 140px; }
+  h1 { font-size: 34px; font-weight: 700; margin: 0 0 6px; letter-spacing: -.5px; }
+  .lede { color: var(--muted); margin: 0 0 32px; max-width: 640px; }
+  section { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  h2 { font-size: 20px; margin: 0 0 4px; }
+  .hint { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+  input, select, textarea {
+    width: 100%; background: var(--field); color: var(--paper); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 10px 12px; font: inherit;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px solid var(--un-blue); outline-offset: 1px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+
+  button { font: inherit; cursor: pointer; border-radius: 8px; padding: 10px 16px; border: 1px solid var(--rule); background: var(--field); color: var(--paper); }
+  button.primary { background: var(--un-blue); border-color: var(--un-blue); color: #fff; font-weight: 500; }
+  button.ghost { background: transparent; }
+  button.icon { padding: 6px 10px; color: var(--muted); background: transparent; border-color: transparent; }
+  button.icon:hover { color: var(--red); }
+  button:disabled { opacity: .5; cursor: default; }
+
+  /* Preview of the screen header */
+  .preview { background: var(--navy); border-radius: 10px; padding: 22px 26px; margin-top: 18px; border: 1px solid var(--rule); }
+  .preview b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+  .preview span { color: var(--muted); font-size: 15px; }
+
+  /* Chips for hashtags / keywords */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; background: var(--field); border: 1px solid var(--rule); border-radius: 8px; min-height: 48px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--rule); border-radius: 16px; padding: 4px 6px 4px 12px; font-size: 14px; }
+  .chip button { border: 0; background: transparent; color: var(--muted); padding: 0 6px; font-size: 16px; line-height: 1; }
+  .chip button:hover { color: var(--red); }
+  .chips input { flex: 1; min-width: 160px; border: 0; background: transparent; padding: 4px; }
+  .chips input:focus { outline: none; }
+
+  /* Accounts table */
+  .acc-head, .acc-row { display: grid; grid-template-columns: 1.1fr 1.4fr 1fr 70px 40px; gap: 10px; align-items: center; }
+  .acc-head { font-size: 13px; color: var(--muted); padding: 0 2px 8px; }
+  .acc-row { padding: 6px 0; border-top: 1px solid var(--rule); }
+  .acc-row input, .acc-row select { padding: 8px 10px; }
+  .acc-row input.bad { border-color: var(--red); }
+  .handle-wrap { position: relative; }
+  .handle-wrap::before { content: "@"; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+  .handle-wrap input { padding-left: 26px; }
+  .acc-tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .count { color: var(--muted); font-size: 14px; margin-left: auto; align-self: center; }
+  details { margin-top: 14px; }
+  summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+  details textarea { margin-top: 10px; }
+
+  .toggle { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--paper); font-size: 15px; }
+  .toggle input { width: auto; }
+  .estimate { margin-top: 16px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(242,181,58,.08); font-size: 14px; color: var(--muted); border-radius: 0 8px 8px 0; }
+  .estimate strong { color: var(--paper); }
+
+  /* Save bar */
+  .savebar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--navy); border-top: 1px solid var(--rule); }
+  .savebar-inner { max-width: 980px; margin: 0 auto; padding: 14px 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  #status { font-size: 14px; color: var(--muted); margin-right: auto; }
+  #status.ok { color: var(--green); }
+  #status.err { color: var(--red); }
+  #status.dirty { color: var(--gold); }
+
+  @media (max-width: 720px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .acc-head { display: none; }
+    .acc-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Réglages de l'écran</h1>
+  <p class="lede">Titre affiché, sujet suivi et comptes X à surveiller. Les comptes et le sujet seront utilisés par la recherche automatique ; le titre s'applique à l'écran dès l'enregistrement.</p>
+
+  <section>
+    <h2>Affichage</h2>
+    <p class="hint">Ce qui apparaît en haut de l'écran.</p>
+    <div class="grid2">
+      <div class="field"><label for="title">Titre</label><input id="title" maxlength="24" placeholder="UNGA81"></div>
+      <div class="field"><label for="subtitle">Sous-titre</label><input id="subtitle" maxlength="80"></div>
+    </div>
+    <div class="preview" aria-hidden="true"><b id="pv-title"></b><span id="pv-sub"></span></div>
+  </section>
+
+  <section>
+    <h2>Sujet</h2>
+    <p class="hint">Décrit ce que la recherche doit garder. Tape un hashtag ou un mot-clé puis Entrée.</p>
+    <div class="field"><label for="description">Description du sujet</label><textarea id="description" placeholder="Official posts about the United Nations"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label for="hashtags-input">Hashtags</label><div class="chips" id="hashtags"></div></div>
+      <div class="field"><label for="keywords-input">Mots-clés</label><div class="chips" id="keywords"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Comptes à surveiller</h2>
+    <p class="hint">Missions, ministères, dirigeants, comptes ONU. Le code pays (deux lettres, ex. fr, ke) affiche le drapeau.</p>
+    <div class="acc-head"><span>Compte X</span><span>Nom affiché</span><span>Type</span><span>Pays</span><span></span></div>
+    <div id="accounts"></div>
+    <div class="acc-tools">
+      <button type="button" id="add-account">Ajouter un compte</button>
+      <span class="count" id="acc-count"></span>
+    </div>
+    <details>
+      <summary>Coller plusieurs comptes d'un coup</summary>
+      <textarea id="bulk" placeholder="Un compte par ligne, par exemple :&#10;@francediplo&#10;https://x.com/UN_PGA&#10;UNGeneva"></textarea>
+      <button type="button" id="bulk-add" style="margin-top:10px">Ajouter ces comptes</button>
+    </details>
+  </section>
+
+  <section>
+    <h2>Recherche</h2>
+    <p class="hint">Fréquence et volume de la recherche automatique sur X.</p>
+    <div class="grid2">
+      <div class="field">
+        <label for="every">Fréquence</label>
+        <select id="every">
+          <option value="1">Toutes les heures</option>
+          <option value="2">Toutes les 2 heures</option>
+          <option value="3">Toutes les 3 heures</option>
+          <option value="4">Toutes les 4 heures</option>
+          <option value="6">Toutes les 6 heures</option>
+          <option value="12">Deux fois par jour</option>
+        </select>
+      </div>
+      <div class="field"><label for="maxposts">Posts maximum par recherche</label><input id="maxposts" type="number" min="5" max="500" step="5"></div>
+    </div>
+    <label class="toggle"><input type="checkbox" id="hashsearch"> Chercher aussi les hashtags et mots-clés, en plus des comptes listés</label>
+    <label class="toggle"><input type="checkbox" id="officialonly"> Ne garder que les comptes officiels vérifiables</label>
+    <p class="estimate" id="estimate"></p>
+  </section>
+
+  <section>
+    <h2>Connexion GitHub</h2>
+    <p class="hint">Nécessaire seulement pour enregistrer directement. Le jeton reste dans ce navigateur et n'est envoyé qu'à GitHub.</p>
+    <div class="grid2">
+      <div class="field"><label for="owner">Compte GitHub</label><input id="owner" autocomplete="off"></div>
+      <div class="field"><label for="repo">Dépôt</label><input id="repo" autocomplete="off"></div>
+    </div>
+    <div class="field"><label for="token">Jeton d'accès (fine-grained, accès Contents en lecture et écriture sur ce dépôt uniquement)</label><input id="token" type="password" autocomplete="off" placeholder="github_pat_…"></div>
+    <label class="toggle"><input type="checkbox" id="remember"> Se souvenir du jeton sur cet ordinateur</label>
+  </section>
+</main>
+
+<div class="savebar">
+  <div class="savebar-inner">
+    <span id="status">Chargement…</span>
+    <button type="button" class="ghost" id="download">Télécharger config.json</button>
+    <button type="button" class="primary" id="save">Enregistrer sur GitHub</button>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const CONFIG_PATH = 'config.json';
+const BRANCH = 'main';
+const PRICE_PER_1000_POSTS = 5; // xAI X Search, USD, per posts fetched (check current pricing)
+const TOKEN_KEY = 'signage-editor:token';
+const TYPES = [
+  ['un-official', 'ONU'],
+  ['mission', 'Mission'],
+  ['government', 'Gouvernement / ministère'],
+  ['leader', 'Dirigeant'],
+  ['correspondent', 'Correspondant'],
+  ['other', 'Autre']
+];
+const DEFAULTS = {
+  display: { title: 'UNGA81', subtitle: 'Verified official accounts on X, collected automatically' },
+  topic: { description: '', hashtags: [], keywords: [] },
+  accounts: [],
+  sweep: { every_hours: 2, max_posts_per_sweep: 50, include_hashtag_search: true, official_accounts_only: true }
+};
+
+let config = structuredClone(DEFAULTS);
+let fileSha = null;
+let dirty = false;
+
+const $ = id => document.getElementById(id);
+const el = (tag, props = {}) => Object.assign(document.createElement(tag), props);
+
+/* ---------- Status ---------- */
+function setStatus(text, kind = '') { const s = $('status'); s.textContent = text; s.className = kind; }
+function markDirty() { dirty = true; setStatus('Modifications non enregistrées', 'dirty'); }
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ---------- Helpers ---------- */
+function cleanHandle(raw) {
+  let h = String(raw || '').trim();
+  const m = h.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]{1,15})/i);
+  if (m) h = m[1];
+  return h.replace(/^@/, '').replace(/[^A-Za-z0-9_]/g, '').slice(0, 15);
+}
+const validHandle = h => /^[A-Za-z0-9_]{1,15}$/.test(h);
+const validCountry = c => c === '' || /^[a-z]{2}$/.test(c);
+
+function merge(base, data) {
+  const out = structuredClone(base);
+  if (!data || typeof data !== 'object') return out;
+  for (const k of Object.keys(out)) {
+    if (Array.isArray(out[k])) out[k] = Array.isArray(data[k]) ? data[k] : out[k];
+    else if (typeof out[k] === 'object') out[k] = { ...out[k], ...(data[k] || {}) };
+  }
+  return out;
+}
+
+/* ---------- Chips ---------- */
+function setupChips(boxId, key, normalize) {
+  const box = $(boxId);
+  const render = () => {
+    box.replaceChildren();
+    config.topic[key].forEach((value, i) => {
+      const chip = el('span', { className: 'chip', textContent: value });
+      const x = el('button', { type: 'button', textContent: '×', ariaLabel: `Retirer ${value}` });
+      x.onclick = () => { config.topic[key].splice(i, 1); render(); markDirty(); };
+      chip.append(x);
+      box.append(chip);
+    });
+    const input = el('input', { id: `${boxId}-input`, placeholder: key === 'hashtags' ? '#UN80' : 'Security Council' });
+    input.onkeydown = e => {
+      if ((e.key === 'Enter' || e.key === ',') && input.value.trim()) {
+        e.preventDefault();
+        const v = normalize(input.value);
+        if (v && !config.topic[key].includes(v)) { config.topic[key].push(v); markDirty(); }
+        render();
+        $(`${boxId}-input`).focus();
+      } else if (e.key === 'Backspace' && !input.value && config.topic[key].length) {
+        config.topic[key].pop(); render(); markDirty(); $(`${boxId}-input`).focus();
+      }
+    };
+    box.append(input);
+  };
+  box.onclick = e => { if (e.target === box) $(`${boxId}-input`).focus(); };
+  return render;
+}
+const renderHashtags = setupChips('hashtags', 'hashtags', v => {
+  const t = v.trim().replace(/[\s,]+/g, '');
+  return t ? (t.startsWith('#') ? t : `#${t}`) : '';
+});
+const renderKeywords = setupChips('keywords', 'keywords', v => v.trim().replace(/,$/, ''));
+
+/* ---------- Accounts ---------- */
+function renderAccounts() {
+  const box = $('accounts');
+  box.replaceChildren();
+  config.accounts.forEach((acc, i) => {
+    const row = el('div', { className: 'acc-row' });
+
+    const hw = el('div', { className: 'handle-wrap' });
+    const handle = el('input', { value: acc.handle || '', ariaLabel: 'Compte X', placeholder: 'compte' });
+    const checkHandle = () => handle.classList.toggle('bad', !validHandle(handle.value));
+    handle.oninput = () => { acc.handle = cleanHandle(handle.value); checkHandle(); markDirty(); };
+    handle.onblur = () => { handle.value = acc.handle; checkHandle(); };
+    checkHandle();
+    hw.append(handle);
+
+    const name = el('input', { value: acc.name || '', ariaLabel: 'Nom affiché', placeholder: 'Nom affiché' });
+    name.oninput = () => { acc.name = name.value; markDirty(); };
+
+    const type = el('select', { ariaLabel: 'Type' });
+    TYPES.forEach(([v, label]) => type.append(el('option', { value: v, textContent: label, selected: acc.type === v })));
+    type.onchange = () => { acc.type = type.value; markDirty(); };
+
+    const country = el('input', { value: acc.country || '', ariaLabel: 'Code pays', placeholder: 'fr', maxLength: 2 });
+    country.oninput = () => {
+      country.value = country.value.toLowerCase().replace(/[^a-z]/g, '');
+      acc.country = country.value;
+      country.classList.toggle('bad', !validCountry(acc.country) || (acc.country.length === 1));
+      markDirty();
+    };
+
+    const del = el('button', { type: 'button', className: 'icon', textContent: '✕', ariaLabel: `Supprimer @${acc.handle}` });
+    del.onclick = () => { config.accounts.splice(i, 1); renderAccounts(); markDirty(); };
+
+    row.append(hw, name, type, country, del);
+    box.append(row);
+  });
+  $('acc-count').textContent = `${config.accounts.length} compte${config.accounts.length > 1 ? 's' : ''}`;
+  renderEstimate();
+}
+
+$('add-account').onclick = () => {
+  config.accounts.push({ handle: '', name: '', type: 'mission', country: '' });
+  renderAccounts();
+  markDirty();
+  const rows = $('accounts').querySelectorAll('.acc-row input');
+  rows[rows.length - 3]?.focus();
+};
+
+$('bulk-add').onclick = () => {
+  const existing = new Set(config.accounts.map(a => a.handle.toLowerCase()));
+  let added = 0;
+  $('bulk').value.split(/[\n,;]+/).map(l => l.trim()).filter(l => l && !/\s/.test(l)).map(cleanHandle).filter(validHandle).forEach(h => {
+    if (existing.has(h.toLowerCase())) return;
+    existing.add(h.toLowerCase());
+    config.accounts.push({ handle: h, name: '', type: 'mission', country: '' });
+    added++;
+  });
+  $('bulk').value = '';
+  renderAccounts();
+  if (added) markDirty();
+  setStatus(added ? `${added} compte${added > 1 ? 's' : ''} ajouté${added > 1 ? 's' : ''}` : 'Aucun nouveau compte valide', added ? 'dirty' : 'err');
+};
+
+/* ---------- Simple fields ---------- */
+function bindFields() {
+  const bind = (id, get, set) => { $(id).value = get(); $(id).oninput = () => { set($(id).value); markDirty(); renderPreview(); renderEstimate(); }; };
+  bind('title', () => config.display.title, v => config.display.title = v);
+  bind('subtitle', () => config.display.subtitle, v => config.display.subtitle = v);
+  bind('description', () => config.topic.description, v => config.topic.description = v);
+  bind('maxposts', () => config.sweep.max_posts_per_sweep, v => config.sweep.max_posts_per_sweep = Math.max(1, parseInt(v, 10) || 0));
+  $('every').value = String(config.sweep.every_hours);
+  $('every').onchange = () => { config.sweep.every_hours = Number($('every').value); markDirty(); renderEstimate(); };
+  $('hashsearch').checked = !!config.sweep.include_hashtag_search;
+  $('hashsearch').onchange = () => { config.sweep.include_hashtag_search = $('hashsearch').checked; markDirty(); };
+  $('officialonly').checked = !!config.sweep.official_accounts_only;
+  $('officialonly').onchange = () => { config.sweep.official_accounts_only = $('officialonly').checked; markDirty(); };
+}
+
+function renderPreview() {
+  $('pv-title').textContent = config.display.title || ' ';
+  $('pv-sub').textContent = config.display.subtitle || '';
+}
+
+function renderEstimate() {
+  const runs = 24 / (config.sweep.every_hours || 2);
+  const posts = runs * (config.sweep.max_posts_per_sweep || 0);
+  const day = posts / 1000 * PRICE_PER_1000_POSTS;
+  $('estimate').innerHTML = '';
+  $('estimate').append(
+    'Au maximum ', el('strong', { textContent: `${Math.round(posts)} posts par jour` }),
+    ', soit environ ', el('strong', { textContent: `${day.toFixed(2)} $ par jour` }),
+    ` (${(day * 7).toFixed(0)} $ par semaine) pour la recherche X, hors coût du modèle. Estimation au tarif xAI de ${PRICE_PER_1000_POSTS} $ pour 1 000 posts, à vérifier.`
+  );
+}
+
+function renderAll() {
+  bindFields();
+  renderPreview();
+  renderHashtags();
+  renderKeywords();
+  renderAccounts();
+}
+
+/* ---------- Validation & export ---------- */
+function buildConfig() {
+  const out = structuredClone(config);
+  out.accounts = out.accounts
+    .map(a => ({ handle: cleanHandle(a.handle), name: (a.name || '').trim(), type: a.type || 'other', country: (a.country || '').toLowerCase() }))
+    .filter(a => a.handle);
+  const bad = out.accounts.filter(a => !validHandle(a.handle) || !validCountry(a.country));
+  if (bad.length) throw new Error(`Compte ou code pays invalide : @${bad[0].handle}`);
+  const seen = new Set();
+  for (const a of out.accounts) {
+    const k = a.handle.toLowerCase();
+    if (seen.has(k)) throw new Error(`@${a.handle} est présent deux fois`);
+    seen.add(k);
+  }
+  out.display.title = (out.display.title || '').trim() || 'UNGA81';
+  return out;
+}
+
+$('download').onclick = () => {
+  try {
+    const blob = new Blob([JSON.stringify(buildConfig(), null, 2) + '\n'], { type: 'application/json' });
+    const a = el('a', { href: URL.createObjectURL(blob), download: 'config.json' });
+    a.click();
+    URL.revokeObjectURL(a.href);
+    setStatus('config.json téléchargé. Dépose-le dans le dépôt pour l\'appliquer.', 'ok');
+  } catch (err) { setStatus(err.message, 'err'); }
+};
+
+/* ---------- GitHub ---------- */
+function guessRepo() {
+  const host = location.hostname;
+  if (host.endsWith('.github.io')) {
+    $('owner').value ||= host.split('.')[0];
+    $('repo').value ||= location.pathname.split('/').filter(Boolean)[0] || '';
+  }
+}
+const b64encode = str => { const bytes = new TextEncoder().encode(str); let bin = ''; bytes.forEach(b => bin += String.fromCharCode(b)); return btoa(bin); };
+const b64decode = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\n/g, '')), c => c.charCodeAt(0)));
+
+function ghUrl() {
+  const owner = $('owner').value.trim(), repo = $('repo').value.trim();
+  if (!owner || !repo) throw new Error('Indique le compte GitHub et le dépôt');
+  return `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${CONFIG_PATH}`;
+}
+function ghHeaders() {
+  const token = $('token').value.trim();
+  if (!token) throw new Error('Colle ton jeton d\'accès GitHub pour enregistrer');
+  return { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+}
+
+async function fetchFromGitHub() {
+  const res = await fetch(`${ghUrl()}?ref=${BRANCH}`, { headers: ghHeaders(), cache: 'no-store' });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(ghError(res.status));
+  const data = await res.json();
+  fileSha = data.sha;
+  return JSON.parse(b64decode(data.content));
+}
+
+function ghError(status) {
+  if (status === 401) return 'Jeton refusé par GitHub : vérifie qu\'il est complet et pas expiré';
+  if (status === 403) return 'Le jeton n\'a pas le droit d\'écrire : accorde Contents en lecture et écriture';
+  if (status === 404) return 'Dépôt introuvable : vérifie le compte, le nom du dépôt et l\'accès du jeton';
+  if (status === 409) return 'Le fichier a changé entre-temps : recharge la page';
+  return `GitHub a répondu ${status}`;
+}
+
+$('save').onclick = async () => {
+  const btn = $('save');
+  try {
+    const out = buildConfig();
+    btn.disabled = true;
+    setStatus('Enregistrement…');
+    if (fileSha === null) { try { await fetchFromGitHub(); } catch (_) { /* first save or read issue, try anyway */ } }
+    const body = { message: 'Update screen settings', content: b64encode(JSON.stringify(out, null, 2) + '\n'), branch: BRANCH };
+    if (fileSha) body.sha = fileSha;
+    const res = await fetch(ghUrl(), { method: 'PUT', headers: { ...ghHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!res.ok) throw new Error(ghError(res.status));
+    const data = await res.json();
+    fileSha = data.content.sha;
+    config = out;
+    dirty = false;
+    rememberToken();
+    const t = new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(new Date());
+    setStatus(`Enregistré à ${t}. L'écran l'affichera d'ici quelques minutes.`, 'ok');
+  } catch (err) {
+    setStatus(err.message, 'err');
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+function rememberToken() {
+  try {
+    if ($('remember').checked) localStorage.setItem(TOKEN_KEY, $('token').value.trim());
+    else localStorage.removeItem(TOKEN_KEY);
+  } catch (_) {}
+}
+$('remember').onchange = rememberToken;
+
+/* ---------- Boot ---------- */
+async function boot() {
+  guessRepo();
+  try {
+    const saved = localStorage.getItem(TOKEN_KEY);
+    if (saved) { $('token').value = saved; $('remember').checked = true; }
+  } catch (_) {}
+
+  let data = null;
+  // Prefer the live copy from GitHub (always current), fall back to the published file
+  if ($('token').value && $('owner').value && $('repo').value) {
+    try { data = await fetchFromGitHub(); } catch (err) { console.warn(err); }
+  }
+  if (!data) {
+    try {
+      const res = await fetch(`${CONFIG_PATH}?t=${Date.now()}`, { cache: 'no-store' });
+      if (res.ok) data = await res.json();
+    } catch (err) { console.warn(err); }
+  }
+  config = merge(DEFAULTS, data);
+  renderAll();
+  dirty = false;
+  setStatus(data ? 'Réglages chargés' : 'Aucun config.json trouvé : valeurs par défaut', data ? '' : 'dirty');
+}
+boot();
+</script>
+</body>
+</html>
