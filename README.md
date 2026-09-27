@@ -1,6 +1,6 @@
-# UNGA81 — écran vertical
+# écran vertical
 
-Page de signalétique 1080×1920 qui lit `wire.json` (même format que le Wire de Gabriel Elizondo) et fait tourner les derniers développements.
+Page de signalétique 1080×1920 qui lit `wire.json` et fait tourner les derniers développements.
 
 ## Fichiers
 
@@ -10,7 +10,7 @@ Page de signalétique 1080×1920 qui lit `wire.json` (même format que le Wire d
 
 ## Mise en ligne
 
-1. Crée un dépôt GitHub public, par exemple `unga-signage`, et dépose les trois fichiers à la racine.
+1. Crée un dépôt GitHub public, par exemple `signage`, et dépose les trois fichiers à la racine.
 2. Settings → Pages → Source : « Deploy from a branch », branche `main`, dossier `/ (root)`.
 3. L'adresse sera `https://TON-COMPTE.github.io/unga-signage/`. Colle-la dans AbleSign en mode « display a website ».
 
