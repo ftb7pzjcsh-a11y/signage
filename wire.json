@@ -1,0 +1,165 @@
+{
+  "sample": true,
+  "monitor": {
+    "state": "successful",
+    "run_id": "sample-run-012",
+    "started_at": "2026-09-27T18:00:00Z",
+    "last_completed_at": "2026-09-27T18:04:00Z",
+    "next_sweep_at": "2026-09-27T20:00:00Z",
+    "sweep_schedule": "Every 2 hours"
+  },
+  "items": [
+    {
+      "id": "sample-001",
+      "run_id": "sample-run-012",
+      "occurred_at": "2026-09-27T17:42:00Z",
+      "headline": "Ministers from small island states press for faster access to climate finance on the sidelines of the General Debate",
+      "summary": "A ministerial meeting co-hosted by several delegations called for simpler procedures to reach adaptation funds already pledged.",
+      "category": "diplomatic-meeting",
+      "entities": ["fj", "no"],
+      "evidence": [
+        {
+          "display_name": "Sample mission account",
+          "handle": "sample_mission_fj",
+          "posted_at": "2026-09-27T17:40:00Z",
+          "source_type": "mission",
+          "country": "fj",
+          "x_url": "https://x.com/sample_mission_fj/status/1000000000000000001",
+          "original_language": "en"
+        },
+        {
+          "display_name": "Sample ministry account",
+          "handle": "sample_mfa_no",
+          "posted_at": "2026-09-27T17:44:00Z",
+          "source_type": "government",
+          "country": "no",
+          "x_url": "https://x.com/sample_mfa_no/status/1000000000000000002",
+          "original_language": "en"
+        }
+      ]
+    },
+    {
+      "id": "sample-002",
+      "run_id": "sample-run-012",
+      "occurred_at": "2026-09-27T16:55:00Z",
+      "headline": "Foreign minister holds bilateral meetings on regional water security",
+      "summary": "The ministry reported a series of meetings focused on shared river basins and drought preparedness.",
+      "category": "diplomatic-meeting",
+      "entities": ["br"],
+      "evidence": [
+        {
+          "display_name": "Sample ministry account",
+          "handle": "sample_mfa_br",
+          "posted_at": "2026-09-27T16:55:00Z",
+          "source_type": "government",
+          "country": "br",
+          "x_url": "https://x.com/sample_mfa_br/status/1000000000000000003",
+          "original_language": "pt",
+          "translation": "Productive meetings today in New York on water security in our region."
+        }
+      ]
+    },
+    {
+      "id": "sample-003",
+      "run_id": "sample-run-012",
+      "occurred_at": "2026-09-27T15:30:00Z",
+      "headline": "Delegation announces new contribution to humanitarian pooled funds",
+      "summary": "The announcement was made during a high-level side event on humanitarian financing.",
+      "category": "campaign-development",
+      "entities": ["jp"],
+      "evidence": [
+        {
+          "display_name": "Sample mission account",
+          "handle": "sample_mission_jp",
+          "posted_at": "2026-09-27T15:30:00Z",
+          "source_type": "mission",
+          "country": "jp",
+          "x_url": "https://x.com/sample_mission_jp/status/1000000000000000004",
+          "original_language": "ja",
+          "translation": "Today we announced an additional contribution to humanitarian pooled funds."
+        }
+      ]
+    },
+    {
+      "id": "sample-004",
+      "run_id": "sample-run-011",
+      "occurred_at": "2026-09-27T14:10:00Z",
+      "headline": "President of the General Assembly meets youth delegates ahead of the afternoon session",
+      "summary": "The discussion covered youth participation in the Assembly's work over the coming session.",
+      "category": "diplomatic-meeting",
+      "entities": [],
+      "evidence": [
+        {
+          "display_name": "Sample PGA account",
+          "handle": "sample_pga",
+          "posted_at": "2026-09-27T14:10:00Z",
+          "source_type": "un-official",
+          "x_url": "https://x.com/sample_pga/status/1000000000000000005",
+          "original_language": "en"
+        }
+      ]
+    },
+    {
+      "id": "sample-005",
+      "run_id": "sample-run-011",
+      "occurred_at": "2026-09-27T13:20:00Z",
+      "headline": "Head of government addresses the General Debate on digital cooperation and AI governance",
+      "summary": "The statement focused on capacity building and shared standards.",
+      "category": "interview",
+      "entities": ["ke"],
+      "evidence": [
+        {
+          "display_name": "Sample leader account",
+          "handle": "sample_leader_ke",
+          "posted_at": "2026-09-27T13:20:00Z",
+          "source_type": "leader",
+          "country": "ke",
+          "x_url": "https://x.com/sample_leader_ke/status/1000000000000000006",
+          "original_language": "en"
+        }
+      ]
+    },
+    {
+      "id": "sample-006",
+      "run_id": "sample-run-011",
+      "occurred_at": "2026-09-27T12:05:00Z",
+      "headline": "Ministers sign joint declaration on ocean protection",
+      "summary": "The declaration was signed at a side event with several coastal states.",
+      "category": "diplomatic-meeting",
+      "entities": ["fr", "cl"],
+      "evidence": [
+        {
+          "display_name": "Sample ministry account",
+          "handle": "sample_mfa_fr",
+          "posted_at": "2026-09-27T12:05:00Z",
+          "source_type": "government",
+          "country": "fr",
+          "x_url": "https://x.com/sample_mfa_fr/status/1000000000000000007",
+          "original_language": "fr",
+          "translation": "Joint declaration signed today for the protection of the ocean."
+        }
+      ]
+    },
+    {
+      "id": "sample-007",
+      "run_id": "sample-run-010",
+      "occurred_at": "2026-09-27T10:45:00Z",
+      "headline": "Security Council members meet on the margins of high-level week",
+      "summary": "Informal consultations were held ahead of scheduled Council meetings.",
+      "category": "security-council",
+      "entities": ["mx"],
+      "evidence": [
+        {
+          "display_name": "Sample mission account",
+          "handle": "sample_mission_mx",
+          "posted_at": "2026-09-27T10:45:00Z",
+          "source_type": "mission",
+          "country": "mx",
+          "x_url": "https://x.com/sample_mission_mx/status/1000000000000000008",
+          "original_language": "es",
+          "translation": "Consultations today with Council members on the margins of high-level week."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNGA81 on X — Signage</title>
+<style>
+  :root {
+    --navy: #0A2342;
+    --navy-deep: #06172D;
+    --un-blue: #009EDB;
+    --paper: #F4F7FA;
+    --muted: #9DB3C8;
+    --rule: #1E3D63;
+    --gold: #F2B53A;
+    --font: Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--navy-deep); overflow: hidden; }
+  body { font-family: var(--font); color: var(--paper); -webkit-font-smoothing: antialiased; }
+
+  /* Fixed 1080×1920 canvas, scaled to whatever screen AbleSign gives us */
+  #stage {
+    position: absolute; top: 0; left: 0;
+    width: 1080px; height: 1920px;
+    transform-origin: 0 0;
+    background: var(--navy);
+    display: grid;
+    grid-template-rows: 270px minmax(0, 1fr) 620px 150px;
+  }
+
+  /* Header */
+  .head {
+    padding: 60px 72px 0;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
+    border-bottom: 2px solid var(--rule);
+    padding-bottom: 36px;
+  }
+  .brand h1 { font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: .9; }
+  .brand p { font-size: 30px; max-width: 560px; line-height: 1.3; color: var(--muted); margin-top: 14px; font-weight: 400; }
+  .status { text-align: right; font-size: 26px; color: var(--muted); line-height: 1.45; white-space: nowrap; }
+  .status strong { color: var(--paper); font-weight: 500; }
+  .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--un-blue); margin-right: 12px; vertical-align: 1px; }
+  .status[data-state="stale"] .dot { background: var(--gold); }
+  .status[data-state="stale"] strong { color: var(--gold); }
+
+  /* Featured development */
+  .feature { padding: 56px 72px 40px; display: flex; flex-direction: column; position: relative; min-height: 0; overflow: hidden; }
+  .feature-body { flex: 1; display: flex; flex-direction: column; transition: opacity .6s ease; }
+  .feature-body.out { opacity: 0; }
+  .source { display: flex; align-items: center; gap: 20px; font-size: 34px; }
+  .flag { font-size: 58px; line-height: 1; }
+  .un-mark { width: 58px; height: 58px; border-radius: 50%; background: var(--un-blue); display: grid; place-items: center; font-size: 22px; font-weight: 700; }
+  .source-name { font-weight: 500; }
+  .source-meta { color: var(--muted); font-size: 28px; margin-top: 4px; }
+  .headline {
+    font-size: 76px; font-weight: 700; line-height: 1.08; letter-spacing: -1.2px;
+    margin-top: 48px;
+    display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .summary {
+    font-size: 36px; line-height: 1.4; color: #C9D6E3; margin-top: 36px; max-width: 900px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .foot-row { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .translation { font-size: 26px; color: var(--muted); max-width: 640px; line-height: 1.4; }
+  .translation em { font-style: normal; color: var(--paper); }
+  .qr { display: flex; align-items: center; gap: 24px; }
+  .qr-code { width: 190px; height: 190px; background: #fff; padding: 12px; border-radius: 8px; }
+  .qr-code svg { width: 100%; height: 100%; display: block; }
+  .qr-label { font-size: 24px; color: var(--muted); width: 170px; line-height: 1.35; text-align: right; }
+  .progress { position: absolute; left: 72px; right: 72px; bottom: 0; height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+  .progress i { display: block; height: 100%; width: 0; background: var(--un-blue); }
+
+  /* Queue of other developments */
+  .queue { background: var(--navy-deep); padding: 44px 72px 0; overflow: hidden; }
+  .queue h2 { font-size: 30px; font-weight: 500; color: var(--muted); margin-bottom: 20px; }
+  .q-item { display: grid; grid-template-columns: 64px 1fr 120px; gap: 24px; align-items: center; padding: 22px 0; border-top: 2px solid var(--rule); }
+  .q-item .flag { font-size: 44px; }
+  .q-item .un-mark { width: 44px; height: 44px; font-size: 17px; }
+  .q-head { font-size: 32px; line-height: 1.25; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .q-time { font-size: 26px; color: var(--muted); text-align: right; }
+
+  /* Clocks */
+  .clocks { background: var(--navy-deep); border-top: 2px solid var(--rule); padding: 0 72px; display: flex; align-items: center; justify-content: space-between; }
+  .clocks .clock + .clock { padding-left: 40px; border-left: 2px solid var(--rule); }
+  .clock { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+  .clock b { font-size: 56px; font-weight: 300; font-variant-numeric: tabular-nums; }
+  .clock span { font-size: 26px; color: var(--muted); }
+  .credit { font-size: 22px; color: var(--muted); max-width: 300px; text-align: right; line-height: 1.35; }
+
+  .sample-badge { position: absolute; top: 28px; right: 72px; background: var(--gold); color: var(--navy-deep); font-size: 22px; font-weight: 700; padding: 8px 18px; border-radius: 20px; }
+  .empty { font-size: 48px; color: var(--muted); line-height: 1.3; margin-top: 80px; }
+
+  @media (prefers-reduced-motion: reduce) { .feature-body { transition: none; } }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header class="head">
+    <div class="brand">
+      <h1>UNGA81</h1>
+      <p>Verified official accounts on X, collected automatically</p>
+    </div>
+    <div class="status" id="status"><span class="dot"></span><strong id="status-main">Loading…</strong><br><span id="status-sub"></span></div>
+  </header>
+
+  <section class="feature">
+    <div class="feature-body" id="feature"></div>
+    <div class="progress"><i id="progress"></i></div>
+  </section>
+
+  <section class="queue">
+    <h2>More from the wire</h2>
+    <div id="queue"></div>
+  </section>
+
+  <footer class="clocks">
+    <div class="clock"><b data-tz="America/New_York">--:--</b><span>New York</span></div>
+    <div class="clock"><b data-tz="Europe/Zurich">--:--</b><span>Geneva</span></div>
+    <div class="clock"><b data-tz="Africa/Nairobi">--:--</b><span>Nairobi</span></div>
+  </footer>
+
+  <div class="sample-badge" id="sample-badge" hidden>Sample data, not live</div>
+</div>
+
+<script src="qrcode.js"></script>
+<script>
+'use strict';
+
+/* ---------- Settings ---------- */
+const FEED_URL = 'wire.json';
+const REFRESH_EVERY_MS = 2 * 60 * 1000;   // re-read the JSON every 2 minutes
+const ROTATE_EVERY_MS = 15 * 1000;        // each featured development stays 15 s
+const ROTATION_SIZE = 6;                  // how many recent developments rotate in the big slot
+const QUEUE_SIZE = 4;                     // rows shown below
+const STALE_AFTER_HOURS = 5;              // amber status if no sweep since then
+const TZ = 'America/New_York';
+
+/* ---------- Stage scaling ---------- */
+const stage = document.getElementById('stage');
+function fit() {
+  const s = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+  stage.style.transform = `scale(${s})`;
+  stage.style.left = `${(window.innerWidth - 1080 * s) / 2}px`;
+  stage.style.top = `${(window.innerHeight - 1920 * s) / 2}px`;
+}
+window.addEventListener('resize', fit);
+fit();
+
+/* ---------- Helpers ---------- */
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const hm = (d, tz = TZ) => new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(d);
+const LANG = { ar: 'Arabic', es: 'Spanish', fr: 'French', pt: 'Portuguese', ru: 'Russian', zh: 'Chinese', ja: 'Japanese', de: 'German', it: 'Italian', ko: 'Korean', tr: 'Turkish' };
+
+function ago(iso) {
+  const m = Math.max(0, Math.round((Date.now() - new Date(iso)) / 60000));
+  if (m < 1) return 'just now';
+  if (m < 60) return `${m} min ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h} h ago`;
+  const d = Math.floor(h / 24);
+  return `${d} day${d > 1 ? 's' : ''} ago`;
+}
+
+// Emoji flag from a two-letter code: no external image service needed
+function flagNode(code) {
+  if (code && /^[a-z]{2}$/i.test(code)) {
+    const chars = code.toUpperCase().split('').map(c => String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65));
+    return el('span', 'flag', chars.join(''));
+  }
+  return el('span', 'un-mark', 'UN');
+}
+
+function qrSvg(url) {
+  if (typeof qrcode !== 'function') return null;
+  try {
+    const q = qrcode(0, 'M');
+    q.addData(url);
+    q.make();
+    const wrap = el('div', 'qr-code');
+    wrap.innerHTML = q.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    return wrap;
+  } catch (_) { return null; }
+}
+
+function isUsable(item) {
+  return item && item.id && item.headline && item.occurred_at && !isNaN(Date.parse(item.occurred_at))
+    && Array.isArray(item.evidence) && item.evidence.length && item.evidence[0].x_url;
+}
+
+/* ---------- State ---------- */
+let items = [];
+let monitor = null;
+let lastFetchOk = false;
+let current = 0;
+let rotateTimer = null;
+let rotateStartedAt = 0;
+
+/* ---------- Rendering ---------- */
+function renderStatus() {
+  const box = document.getElementById('status');
+  const main = document.getElementById('status-main');
+  const sub = document.getElementById('status-sub');
+  const last = monitor && monitor.last_completed_at ? new Date(monitor.last_completed_at) : null;
+  const tooOld = !last || (Date.now() - last) > STALE_AFTER_HOURS * 3600 * 1000;
+  const stale = !lastFetchOk || tooOld || (monitor && ['stale', 'degraded'].includes(monitor.state));
+  box.dataset.state = stale ? 'stale' : 'ok';
+
+  if (monitor && monitor.state === 'running') main.textContent = 'Checking X now';
+  else if (stale) main.textContent = last ? `Last update ${hm(last)}` : 'Waiting for first update';
+  else main.textContent = `Updated ${hm(last)} NY`;
+
+  const next = monitor && monitor.next_sweep_at ? new Date(monitor.next_sweep_at) : null;
+  sub.textContent = next && next > Date.now() ? `Next check ${hm(next)}` : '';
+}
+
+function renderFeature() {
+  const box = document.getElementById('feature');
+  box.replaceChildren();
+  if (!items.length) {
+    const next = monitor && monitor.next_sweep_at ? ` The next check is at ${hm(new Date(monitor.next_sweep_at))}.` : '';
+    box.append(el('p', 'empty', `No developments filed yet today.${next}`));
+    return;
+  }
+  const item = items[current % Math.min(items.length, ROTATION_SIZE)];
+  const ev = item.evidence[0];
+
+  const source = el('div', 'source');
+  source.append(flagNode(['mission', 'government', 'leader'].includes(ev.source_type) ? ev.country : null));
+  const who = el('div');
+  who.append(el('div', 'source-name', ev.display_name));
+  const extra = item.evidence.length > 1 ? `, plus ${item.evidence.length - 1} other source${item.evidence.length > 2 ? 's' : ''}` : '';
+  who.append(el('div', 'source-meta', `@${String(ev.handle).replace(/^@/, '')}, ${ago(ev.posted_at || item.occurred_at)}${extra}`));
+  source.append(who);
+
+  box.append(source, el('h2', 'headline', item.headline));
+  if (item.summary) box.append(el('p', 'summary', item.summary));
+
+  const row = el('div', 'foot-row');
+  const note = el('p', 'translation');
+  if (ev.original_language && ev.original_language !== 'en' && ev.translation) {
+    note.append(document.createTextNode(`Machine translation from ${LANG[ev.original_language] || ev.original_language.toUpperCase()}: `));
+    note.append(el('em', null, `“${ev.translation}”`));
+  }
+  row.append(note);
+  const code = qrSvg(ev.x_url);
+  if (code) {
+    const qr = el('div', 'qr');
+    qr.append(el('p', 'qr-label', 'Scan to read the original post'), code);
+    row.append(qr);
+  }
+  box.append(row);
+}
+
+function renderQueue() {
+  const box = document.getElementById('queue');
+  box.replaceChildren();
+  const pool = items.slice(0, Math.max(ROTATION_SIZE, QUEUE_SIZE + 1));
+  const start = (current % Math.min(items.length || 1, ROTATION_SIZE)) + 1;
+  for (let i = 0; i < Math.min(QUEUE_SIZE, pool.length - 1); i++) {
+    const item = pool[(start + i) % pool.length];
+    const ev = item.evidence[0];
+    const row = el('div', 'q-item');
+    row.append(flagNode(['mission', 'government', 'leader'].includes(ev.source_type) ? ev.country : null));
+    row.append(el('div', 'q-head', item.headline));
+    row.append(el('div', 'q-time', hm(new Date(item.occurred_at))));
+    box.append(row);
+  }
+}
+
+function renderAll() {
+  renderStatus();
+  renderFeature();
+  renderQueue();
+}
+
+/* ---------- Rotation ---------- */
+function startRotation() {
+  clearInterval(rotateTimer);
+  rotateStartedAt = Date.now();
+  rotateTimer = setInterval(() => {
+    const body = document.getElementById('feature');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const swap = () => { current++; renderFeature(); renderQueue(); body.classList.remove('out'); rotateStartedAt = Date.now(); };
+    if (items.length < 2) { rotateStartedAt = Date.now(); return; }
+    if (reduce) swap();
+    else { body.classList.add('out'); setTimeout(swap, 600); }
+  }, ROTATE_EVERY_MS);
+}
+
+function tickProgress() {
+  const p = Math.min(1, (Date.now() - rotateStartedAt) / ROTATE_EVERY_MS);
+  document.getElementById('progress').style.width = items.length > 1 ? `${p * 100}%` : '0';
+  requestAnimationFrame(tickProgress);
+}
+
+/* ---------- Clocks ---------- */
+function tickClocks() {
+  const now = new Date();
+  document.querySelectorAll('[data-tz]').forEach(n => { n.textContent = hm(now, n.dataset.tz); });
+}
+
+/* ---------- Data ---------- */
+async function load() {
+  try {
+    const res = await fetch(`${FEED_URL}?t=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!Array.isArray(data.items)) throw new Error('No items array');
+    const previousFirst = items[0] && items[0].id;
+    items = data.items.filter(isUsable).sort((a, b) => new Date(b.occurred_at) - new Date(a.occurred_at));
+    monitor = data.monitor || null;
+    lastFetchOk = true;
+    document.getElementById('sample-badge').hidden = !data.sample;
+    // A new development arrived: show it right away
+    if (items[0] && items[0].id !== previousFirst) { current = 0; rotateStartedAt = Date.now(); }
+  } catch (err) {
+    console.warn('Feed not reachable, keeping what is on screen', err);
+    lastFetchOk = false;
+  }
+  renderAll();
+}
+
+load().then(startRotation);
+setInterval(load, REFRESH_EVERY_MS);
+setInterval(tickClocks, 1000);
+tickClocks();
+requestAnimationFrame(tickProgress);
+// Full reload once a night keeps long-running screens healthy
+setTimeout(() => location.reload(), 12 * 3600 * 1000);
+</script>
+</body>
+</html>
