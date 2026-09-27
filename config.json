@@ -1,55 +1,28 @@
 {
   "display": {
     "title": "UNGA81",
-    "subtitle": "Verified official accounts on X, collected automatically"
-  },
-  "topic": {
-    "description": "Official posts about the 81st session of the UN General Assembly and its high-level week",
-    "hashtags": [
-      "#UNGA81",
-      "#UNGA"
-    ],
-    "keywords": [
-      "General Assembly",
-      "General Debate"
-    ]
+    "subtitle": "Official posts from the UN family on Bluesky"
   },
   "accounts": [
-    {
-      "handle": "UN",
-      "name": "United Nations",
-      "type": "un-official",
-      "country": ""
-    },
-    {
-      "handle": "antonioguterres",
-      "name": "Secretary-General",
-      "type": "un-official",
-      "country": ""
-    },
-    {
-      "handle": "UN_PGA",
-      "name": "President of the General Assembly",
-      "type": "un-official",
-      "country": ""
-    },
-    {
-      "handle": "UN_Spokesperson",
-      "name": "UN Spokesperson",
-      "type": "un-official",
-      "country": ""
-    },
-    {
-      "handle": "UN_News_Centre",
-      "name": "UN News",
-      "type": "un-official",
-      "country": ""
-    }
+    { "handle": "un.org", "name": "United Nations", "country": "" },
+    { "handle": "unicef.org", "name": "UNICEF", "country": "" },
+    { "handle": "unhcr.org", "name": "UNHCR", "country": "" },
+    { "handle": "undp.org", "name": "UNDP", "country": "" },
+    { "handle": "unep.org", "name": "UN Environment Programme", "country": "" },
+    { "handle": "fao.org", "name": "FAO", "country": "" },
+    { "handle": "unesco.org", "name": "UNESCO", "country": "" },
+    { "handle": "iom.int", "name": "IOM", "country": "" }
   ],
-  "sweep": {
-    "every_hours": 2,
-    "max_posts_per_sweep": 50,
-    "include_hashtag_search": true,
-    "official_accounts_only": true
+  "filter": {
+    "enabled": false,
+    "hashtags": ["#UNGA81", "#UNGA"],
+    "keywords": ["General Assembly"]
+  },
+  "feed": {
+    "refresh_minutes": 5,
+    "rotate_seconds": 15,
+    "max_age_hours": 48,
+    "include_reposts": false,
+    "show_images": true
   }
 }

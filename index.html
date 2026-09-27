@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>UNGA81 on X — Signage</title>
+<title>Signage</title>
 <style>
   :root {
     --navy: #0A2342;
     --navy-deep: #06172D;
     --un-blue: #009EDB;
     --paper: #F4F7FA;
+    --soft: #C9D6E3;
     --muted: #9DB3C8;
     --rule: #1E3D63;
     --gold: #F2B53A;
@@ -20,81 +21,73 @@
   html, body { height: 100%; background: var(--navy-deep); overflow: hidden; }
   body { font-family: var(--font); color: var(--paper); -webkit-font-smoothing: antialiased; }
 
-  /* Fixed 1080×1920 canvas, scaled to whatever screen AbleSign gives us */
   #stage {
     position: absolute; top: 0; left: 0;
     width: 1080px; height: 1920px;
     transform-origin: 0 0;
     background: var(--navy);
     display: grid;
-    grid-template-rows: 270px minmax(0, 1fr) 620px 150px;
+    grid-template-rows: 250px minmax(0, 1fr) 500px 140px;
   }
 
   /* Header */
-  .head {
-    padding: 60px 72px 0;
-    display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
-    border-bottom: 2px solid var(--rule);
-    padding-bottom: 36px;
-  }
-  .brand h1 { font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: .9; white-space: nowrap; }
+  .head { padding: 56px 72px 32px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; border-bottom: 2px solid var(--rule); }
   .brand { min-width: 0; }
-  .brand p { font-size: 30px; max-width: 560px; line-height: 1.3; color: var(--muted); margin-top: 14px; font-weight: 400; }
+  .brand h1 { font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: .9; white-space: nowrap; }
+  .brand p { font-size: 30px; color: var(--muted); margin-top: 16px; line-height: 1.3; max-width: 600px; }
   .status { text-align: right; font-size: 26px; color: var(--muted); line-height: 1.45; white-space: nowrap; }
   .status strong { color: var(--paper); font-weight: 500; }
-  .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--un-blue); margin-right: 12px; vertical-align: 1px; }
-  .status[data-state="stale"] .dot { background: var(--gold); }
-  .status[data-state="stale"] strong { color: var(--gold); }
+  .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--un-blue); margin-right: 12px; vertical-align: 1px; animation: pulse 2.4s ease-in-out infinite; }
+  .status[data-state="offline"] .dot { background: var(--gold); animation: none; }
+  .status[data-state="offline"] strong { color: var(--gold); }
+  @keyframes pulse { 50% { opacity: .35; } }
 
-  /* Featured development */
-  .feature { padding: 56px 72px 40px; display: flex; flex-direction: column; position: relative; min-height: 0; overflow: hidden; }
-  .feature-body { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; transition: opacity .6s ease; }
-  .feature-body.out { opacity: 0; }
-  .source { display: flex; align-items: center; gap: 20px; font-size: 34px; }
-  .flag { font-size: 58px; line-height: 1; }
-  .un-mark { width: 58px; height: 58px; border-radius: 50%; background: var(--un-blue); display: grid; place-items: center; font-size: 22px; font-weight: 700; }
-  .source-name { font-weight: 500; }
-  .source-meta { color: var(--muted); font-size: 28px; margin-top: 4px; }
-  .headline {
-    font-size: 76px; font-weight: 700; line-height: 1.08; letter-spacing: -1.2px;
-    margin-top: 48px; flex-shrink: 0;
-  }
-  .summary {
-    font-size: 36px; line-height: 1.4; color: #C9D6E3; margin-top: 36px; max-width: 900px; flex-shrink: 0;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .foot-row { margin-top: auto; padding-top: 24px; flex-shrink: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
-  .translation { font-size: 26px; color: var(--muted); max-width: 640px; line-height: 1.4; }
-  .translation em { font-style: normal; color: var(--paper); }
-  .qr { display: flex; align-items: center; gap: 24px; }
-  .qr-code { width: 190px; height: 190px; background: #fff; padding: 12px; border-radius: 8px; }
+  /* Featured post */
+  .feature { padding: 52px 72px 40px; display: flex; flex-direction: column; position: relative; min-height: 0; overflow: hidden; }
+  .post { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; transition: opacity .6s ease, transform .6s ease; }
+  .post.out { opacity: 0; transform: translateY(12px); }
+  .repost { font-size: 26px; color: var(--muted); margin-bottom: 18px; flex-shrink: 0; }
+  .author { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
+  .avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; background: var(--rule); flex-shrink: 0; }
+  .avatar-fallback { display: grid; place-items: center; font-size: 34px; font-weight: 700; color: var(--paper); background: var(--un-blue); }
+  .who { min-width: 0; }
+  .name { font-size: 38px; font-weight: 700; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .name .flag { margin-right: 12px; }
+  .meta { font-size: 27px; color: var(--muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .media { position: relative; margin-top: 36px; border-radius: 18px; overflow: hidden; background: var(--navy-deep); flex-shrink: 0; }
+  .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media .tag { position: absolute; top: 18px; left: 18px; background: rgba(6,23,45,.82); color: var(--paper); font-size: 22px; font-weight: 500; padding: 6px 16px; border-radius: 20px; }
+  .media .card { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 26px 22px; background: linear-gradient(transparent, rgba(6,23,45,.92)); }
+  .media .card b { display: block; font-size: 30px; line-height: 1.25; font-weight: 500; }
+  .media .card span { font-size: 22px; color: var(--muted); }
+  .text { font-size: 64px; font-weight: 500; line-height: 1.22; letter-spacing: -.4px; margin-top: 36px; white-space: pre-line; overflow-wrap: anywhere; flex-shrink: 0; }
+  .text .tagword { color: #5CC8F5; }
+  .foot { margin-top: auto; padding-top: 24px; display: flex; justify-content: flex-end; align-items: center; gap: 22px; flex-shrink: 0; }
+  .qr-label { font-size: 23px; color: var(--muted); text-align: right; line-height: 1.35; }
+  .qr-code { width: 170px; height: 170px; background: #fff; padding: 11px; border-radius: 10px; }
   .qr-code svg { width: 100%; height: 100%; display: block; }
-  .qr-label { font-size: 24px; color: var(--muted); width: 170px; line-height: 1.35; text-align: right; }
   .progress { position: absolute; left: 72px; right: 72px; bottom: 0; height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
   .progress i { display: block; height: 100%; width: 0; background: var(--un-blue); }
+  .empty { font-size: 46px; color: var(--muted); line-height: 1.3; margin-top: 60px; }
 
-  /* Queue of other developments */
-  .queue { background: var(--navy-deep); padding: 44px 72px 0; overflow: hidden; }
-  .queue h2 { font-size: 30px; font-weight: 500; color: var(--muted); margin-bottom: 20px; }
-  .q-item { display: grid; grid-template-columns: 64px 1fr 120px; gap: 24px; align-items: center; padding: 22px 0; border-top: 2px solid var(--rule); }
-  .q-item .flag { font-size: 44px; }
-  .q-item .un-mark { width: 44px; height: 44px; font-size: 17px; }
-  .q-head { font-size: 32px; line-height: 1.25; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  /* Queue */
+  .queue { background: var(--navy-deep); padding: 30px 72px 0; overflow: hidden; }
+  .queue h2 { font-size: 26px; font-weight: 500; color: var(--muted); margin-bottom: 8px; line-height: 1.4; }
+  .q { display: grid; grid-template-columns: 56px 1fr 110px; gap: 22px; align-items: center; padding: 14px 0; border-top: 2px solid var(--rule); }
+  .q .avatar { width: 56px; height: 56px; }
+  .q .avatar-fallback { font-size: 24px; }
+  .q-name { font-size: 22px; line-height: 1.4; color: var(--muted); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .q-text { font-size: 28px; line-height: 1.25; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
   .q-time { font-size: 26px; color: var(--muted); text-align: right; }
 
   /* Clocks */
   .clocks { background: var(--navy-deep); border-top: 2px solid var(--rule); padding: 0 72px; display: flex; align-items: center; justify-content: space-between; }
-  .clocks .clock + .clock { padding-left: 40px; border-left: 2px solid var(--rule); }
   .clock { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
-  .clock b { font-size: 56px; font-weight: 300; font-variant-numeric: tabular-nums; }
+  .clock + .clock { padding-left: 40px; border-left: 2px solid var(--rule); }
+  .clock b { font-size: 54px; font-weight: 300; font-variant-numeric: tabular-nums; }
   .clock span { font-size: 26px; color: var(--muted); }
-  .credit { font-size: 22px; color: var(--muted); max-width: 300px; text-align: right; line-height: 1.35; }
 
-  .sample-badge[hidden] { display: none; }
-  .sample-badge { display: table; margin: 0 0 14px auto; background: var(--gold); color: var(--navy-deep); font-size: 22px; font-weight: 700; padding: 8px 18px; border-radius: 20px; }
-  .empty { font-size: 48px; color: var(--muted); line-height: 1.3; margin-top: 80px; }
-
-  @media (prefers-reduced-motion: reduce) { .feature-body { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .post { transition: none; } .dot { animation: none; } }
 </style>
 </head>
 <body>
@@ -102,18 +95,18 @@
   <header class="head">
     <div class="brand">
       <h1 id="screen-title">UNGA81</h1>
-      <p id="screen-subtitle">Verified official accounts on X, collected automatically</p>
+      <p id="screen-subtitle">Official posts from the UN family on Bluesky</p>
     </div>
-    <div class="status" id="status"><div class="sample-badge" id="sample-badge" hidden>Sample data, not live</div><span class="dot"></span><strong id="status-main">Loading…</strong><br><span id="status-sub"></span></div>
+    <div class="status" id="status"><span class="dot"></span><strong id="status-main">Connecting…</strong><br><span id="status-sub">Live from Bluesky</span></div>
   </header>
 
   <section class="feature">
-    <div class="feature-body" id="feature"></div>
+    <div class="post" id="post"></div>
     <div class="progress"><i id="progress"></i></div>
   </section>
 
   <section class="queue">
-    <h2>More from the wire</h2>
+    <h2>Latest posts</h2>
     <div id="queue"></div>
   </section>
 
@@ -122,41 +115,47 @@
     <div class="clock"><b data-tz="Europe/Zurich">--:--</b><span>Geneva</span></div>
     <div class="clock"><b data-tz="Africa/Nairobi">--:--</b><span>Nairobi</span></div>
   </footer>
-
 </div>
 
 <script src="qrcode.js"></script>
 <script>
 'use strict';
 
-/* ---------- Settings ---------- */
-const FEED_URL = 'wire.json';
-const CONFIG_URL = 'config.json';        // title and subtitle, edited with editor.html
-const REFRESH_EVERY_MS = 2 * 60 * 1000;   // re-read the JSON every 2 minutes
-const ROTATE_EVERY_MS = 15 * 1000;        // each featured development stays 15 s
-const ROTATION_SIZE = 6;                  // how many recent developments rotate in the big slot
-const QUEUE_SIZE = 4;                     // rows shown below
-const STALE_AFTER_HOURS = 5;              // amber status if no sweep since then
+/* ---------- Settings (the rest lives in config.json, edited with editor.html) ---------- */
+const API = 'https://public.api.bsky.app/xrpc';
+const CONFIG_URL = 'config.json';
+const POSTS_PER_ACCOUNT = 15;
+const ROTATION_SIZE = 8;     // posts that take turns in the big slot
+const QUEUE_SIZE = 3;        // rows in the list below
+const MIN_POSTS = 6;         // if the age limit leaves fewer, keep the newest anyway
 const TZ = 'America/New_York';
+
+const DEFAULTS = {
+  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky' },
+  accounts: [],
+  filter: { enabled: false, hashtags: [], keywords: [] },
+  feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true }
+};
 
 /* ---------- Stage scaling ---------- */
 const stage = document.getElementById('stage');
 function fit() {
-  const s = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+  const s = Math.min(innerWidth / 1080, innerHeight / 1920);
   stage.style.transform = `scale(${s})`;
-  stage.style.left = `${(window.innerWidth - 1080 * s) / 2}px`;
-  stage.style.top = `${(window.innerHeight - 1920 * s) / 2}px`;
+  stage.style.left = `${(innerWidth - 1080 * s) / 2}px`;
+  stage.style.top = `${(innerHeight - 1920 * s) / 2}px`;
 }
-window.addEventListener('resize', fit);
+addEventListener('resize', fit);
 fit();
 
 /* ---------- Helpers ---------- */
+const $ = id => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
-const hm = (d, tz = TZ) => new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(d);
-const LANG = { ar: 'Arabic', es: 'Spanish', fr: 'French', pt: 'Portuguese', ru: 'Russian', zh: 'Chinese', ja: 'Japanese', de: 'German', it: 'Italian', ko: 'Korean', tr: 'Turkish' };
+const hm = (t, tz = TZ) => new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(t));
+const overflows = n => n.scrollHeight > n.clientHeight + 1;
 
-function ago(iso) {
-  const m = Math.max(0, Math.round((Date.now() - new Date(iso)) / 60000));
+function ago(t) {
+  const m = Math.max(0, Math.round((Date.now() - t) / 60000));
   if (m < 1) return 'just now';
   if (m < 60) return `${m} min ago`;
   const h = Math.floor(m / 60);
@@ -165,16 +164,37 @@ function ago(iso) {
   return `${d} day${d > 1 ? 's' : ''} ago`;
 }
 
-// Emoji flag from a two-letter code: no external image service needed
-function flagNode(code) {
-  if (code && /^[a-z]{2}$/i.test(code)) {
-    const chars = code.toUpperCase().split('').map(c => String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65));
-    return el('span', 'flag', chars.join(''));
-  }
-  return el('span', 'un-mark', 'UN');
+function flag(code) {
+  if (!code || !/^[a-z]{2}$/i.test(code)) return '';
+  return code.toUpperCase().split('').map(c => String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65)).join('');
 }
 
-function qrSvg(url) {
+function avatarNode(post) {
+  const initials = (post.name || post.handle || '?').replace(/^the\s+/i, '').trim().charAt(0).toUpperCase();
+  const fallback = () => el('div', 'avatar avatar-fallback', initials);
+  if (!post.avatar) return fallback();
+  const img = el('img', 'avatar');
+  img.alt = '';
+  img.src = post.avatar;
+  img.onerror = () => img.replaceWith(fallback());
+  return img;
+}
+
+// Hashtags, mentions and links in UN blue, everything else as plain text
+function richText(text, cls) {
+  const p = el('p', cls);
+  const re = /(#[\p{L}\p{N}_]+|@[a-z0-9-]+(?:\.[a-z0-9-]+)+|https?:\/\/\S+)/giu;
+  let last = 0, m;
+  while ((m = re.exec(text))) {
+    if (m.index > last) p.append(document.createTextNode(text.slice(last, m.index)));
+    p.append(el('span', 'tagword', m[0].replace(/^https?:\/\//, '')));
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) p.append(document.createTextNode(text.slice(last)));
+  return p;
+}
+
+function qrNode(url) {
   if (typeof qrcode !== 'function') return null;
   try {
     const q = qrcode(0, 'M');
@@ -186,191 +206,287 @@ function qrSvg(url) {
   } catch (_) { return null; }
 }
 
-function isUsable(item) {
-  return item && item.id && item.headline && item.occurred_at && !isNaN(Date.parse(item.occurred_at))
-    && Array.isArray(item.evidence) && item.evidence.length && item.evidence[0].x_url;
+/* ---------- Config ---------- */
+let cfg = structuredClone(DEFAULTS);
+
+function mergeConfig(data) {
+  const out = structuredClone(DEFAULTS);
+  if (!data || typeof data !== 'object') return out;
+  out.display = { ...out.display, ...(data.display || {}) };
+  out.filter = { ...out.filter, ...(data.filter || {}) };
+  out.feed = { ...out.feed, ...(data.feed || {}) };
+  out.accounts = Array.isArray(data.accounts) ? data.accounts.filter(a => a && a.handle) : [];
+  return out;
+}
+
+async function loadConfig() {
+  try {
+    const res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
+    if (res.ok) cfg = mergeConfig(await res.json());
+  } catch (_) { /* keep previous settings */ }
+  $('screen-title').textContent = cfg.display.title || 'UNGA81';
+  $('screen-subtitle').textContent = cfg.display.subtitle || '';
+  document.title = cfg.display.title || 'Signage';
+  fitTitle();
+}
+
+function fitTitle() {
+  const h = $('screen-title');
+  let size = 104;
+  h.style.fontSize = size + 'px';
+  while (h.scrollWidth > h.clientWidth + 1 && size > 48) { size -= 4; h.style.fontSize = size + 'px'; }
+}
+
+/* ---------- Bluesky ---------- */
+function hostOf(uri) { try { return new URL(uri).hostname.replace(/^www\./, ''); } catch (_) { return ''; } }
+
+function extractMedia(e) {
+  if (!e) return null;
+  const t = e.$type || '';
+  const ratio = r => (r && r.width && r.height ? r.width / r.height : null);
+  if (t.startsWith('app.bsky.embed.images')) {
+    const img = e.images && e.images[0];
+    return img ? { src: img.fullsize || img.thumb, alt: img.alt || '', ratio: ratio(img.aspectRatio), more: e.images.length - 1 } : null;
+  }
+  if (t.startsWith('app.bsky.embed.video')) return e.thumbnail ? { src: e.thumbnail, ratio: ratio(e.aspectRatio), video: true } : null;
+  if (t.startsWith('app.bsky.embed.external')) {
+    const x = e.external;
+    return x && x.thumb ? { src: x.thumb, ratio: 1.91, card: { title: x.title || '', domain: hostOf(x.uri) } } : null;
+  }
+  if (t.startsWith('app.bsky.embed.recordWithMedia')) return extractMedia(e.media);
+  return null;
+}
+
+function normalize(item, account, byHandle) {
+  const p = item && item.post;
+  if (!p || !p.record || !p.author || !p.uri) return null;
+  const reason = item.reason && item.reason.$type || '';
+  if (reason.endsWith('#reasonPin')) return null;
+  const isRepost = reason.endsWith('#reasonRepost');
+  if (isRepost && !cfg.feed.include_reposts) return null;
+
+  const created = Date.parse(p.record.createdAt);
+  const indexed = Date.parse(p.indexedAt);
+  // Post dates can be set by the client; never trust a date in the future
+  let time = isRepost ? Date.parse(item.reason.indexedAt) : (Number.isFinite(created) && created <= Date.now() + 300000 ? created : indexed);
+  if (!Number.isFinite(time)) return null;
+
+  const known = byHandle.get(p.author.handle.toLowerCase());
+  return {
+    id: p.uri,
+    time,
+    text: (p.record.text || '').trim(),
+    handle: p.author.handle,
+    name: (known && known.name) || p.author.displayName || p.author.handle,
+    avatar: p.author.avatar || '',
+    country: known ? known.country : '',
+    repostedBy: isRepost ? (account.name || account.handle) : null,
+    media: cfg.feed.show_images ? extractMedia(p.embed) : null,
+    url: `https://bsky.app/profile/${p.author.handle}/post/${p.uri.split('/').pop()}`
+  };
+}
+
+async function fetchAccount(account, byHandle) {
+  const url = `${API}/app.bsky.feed.getAuthorFeed?actor=${encodeURIComponent(account.handle)}&limit=${POSTS_PER_ACCOUNT}&filter=posts_no_replies`;
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`${account.handle}: HTTP ${res.status}`);
+  const data = await res.json();
+  return (data.feed || []).map(item => normalize(item, account, byHandle)).filter(Boolean);
+}
+
+function matchesFilter(post) {
+  if (!cfg.filter.enabled) return true;
+  const terms = [...(cfg.filter.hashtags || []), ...(cfg.filter.keywords || [])].map(t => t.toLowerCase()).filter(Boolean);
+  if (!terms.length) return true;
+  const hay = `${post.text} ${post.media && post.media.card ? post.media.card.title : ''}`.toLowerCase();
+  return terms.some(t => hay.includes(t));
 }
 
 /* ---------- State ---------- */
-let items = [];
-let monitor = null;
-let lastFetchOk = false;
+let posts = [];
+let lastSuccess = 0;
 let current = 0;
+let rotateStartedAt = Date.now();
 let rotateTimer = null;
-let rotateStartedAt = 0;
+let refreshTimer = null;
+
+async function refresh() {
+  await loadConfig();
+  const byHandle = new Map(cfg.accounts.map(a => [String(a.handle).toLowerCase(), a]));
+  if (!cfg.accounts.length) { posts = []; renderAll('No Bluesky accounts yet. Add some in the editor.'); return; }
+
+  const results = await Promise.allSettled(cfg.accounts.map(a => fetchAccount(a, byHandle)));
+  const ok = results.filter(r => r.status === 'fulfilled');
+  results.filter(r => r.status === 'rejected').forEach(r => console.warn(r.reason));
+  if (!ok.length) { renderStatus(false); if (!posts.length) renderAll('Connecting to Bluesky…'); return; }
+
+  // Merge, drop duplicates (the same post reposted by several accounts), newest first
+  const seen = new Map();
+  ok.flatMap(r => r.value).filter(matchesFilter).forEach(p => {
+    const prev = seen.get(p.id);
+    if (!prev || (prev.repostedBy && !p.repostedBy)) seen.set(p.id, p);
+  });
+  let fresh = [...seen.values()].sort((a, b) => b.time - a.time);
+  const cutoff = Date.now() - (cfg.feed.max_age_hours || 48) * 3600000;
+  const recent = fresh.filter(p => p.time >= cutoff);
+  fresh = recent.length >= MIN_POSTS ? recent : fresh.slice(0, MIN_POSTS);
+
+  const previousTop = posts[0] && posts[0].id;
+  posts = fresh;
+  lastSuccess = Date.now();
+  if (posts[0] && posts[0].id !== previousTop) { current = 0; rotateStartedAt = Date.now(); }
+  renderAll(cfg.filter.enabled ? 'No recent posts match the topic filter.' : 'No recent posts.');
+}
 
 /* ---------- Rendering ---------- */
-function renderStatus() {
-  const box = document.getElementById('status');
-  const main = document.getElementById('status-main');
-  const sub = document.getElementById('status-sub');
-  const last = monitor && monitor.last_completed_at ? new Date(monitor.last_completed_at) : null;
-  const tooOld = !last || (Date.now() - last) > STALE_AFTER_HOURS * 3600 * 1000;
-  const stale = !lastFetchOk || tooOld || (monitor && ['stale', 'degraded'].includes(monitor.state));
-  box.dataset.state = stale ? 'stale' : 'ok';
-
-  if (monitor && monitor.state === 'running') main.textContent = 'Checking X now';
-  else if (stale) main.textContent = last ? `Last update ${hm(last)}` : 'Waiting for first update';
-  else main.textContent = `Updated ${hm(last)} NY`;
-
-  const next = monitor && monitor.next_sweep_at ? new Date(monitor.next_sweep_at) : null;
-  sub.textContent = next && next > Date.now() ? `Next check ${hm(next)}` : '';
+function renderStatus(online) {
+  const box = $('status');
+  box.dataset.state = online ? 'live' : 'offline';
+  if (online) {
+    $('status-main').textContent = 'Live';
+    $('status-sub').textContent = `Updated ${hm(lastSuccess)} NY`;
+  } else {
+    $('status-main').textContent = 'Connection lost';
+    $('status-sub').textContent = lastSuccess ? `Last update ${hm(lastSuccess)} NY` : 'Retrying…';
+  }
 }
 
-function renderFeature() {
-  const box = document.getElementById('feature');
+function rotationLength() { return Math.min(posts.length, ROTATION_SIZE); }
+function currentPost() { return posts.length ? posts[current % rotationLength()] : null; }
+
+function renderPost(emptyMessage) {
+  const box = $('post');
   box.replaceChildren();
-  if (!items.length) {
-    const next = monitor && monitor.next_sweep_at ? ` The next check is at ${hm(new Date(monitor.next_sweep_at))}.` : '';
-    box.append(el('p', 'empty', `No developments filed yet today.${next}`));
-    return;
-  }
-  const item = items[current % Math.min(items.length, ROTATION_SIZE)];
-  const ev = item.evidence[0];
+  const p = currentPost();
+  if (!p) { box.append(el('p', 'empty', emptyMessage || '')); return; }
 
-  const source = el('div', 'source');
-  source.append(flagNode(['mission', 'government', 'leader'].includes(ev.source_type) ? ev.country : null));
-  const who = el('div');
-  who.append(el('div', 'source-name', ev.display_name));
-  const extra = item.evidence.length > 1 ? `, plus ${item.evidence.length - 1} other source${item.evidence.length > 2 ? 's' : ''}` : '';
-  who.append(el('div', 'source-meta', `@${String(ev.handle).replace(/^@/, '')}, ${ago(ev.posted_at || item.occurred_at)}${extra}`));
-  source.append(who);
+  if (p.repostedBy) box.append(el('p', 'repost', `Reposted by ${p.repostedBy}`));
 
-  box.append(source, el('h2', 'headline', item.headline));
-  if (item.summary) box.append(el('p', 'summary', item.summary));
+  const author = el('div', 'author');
+  author.append(avatarNode(p));
+  const who = el('div', 'who');
+  const name = el('div', 'name');
+  const f = flag(p.country);
+  if (f) name.append(el('span', 'flag', f));
+  name.append(document.createTextNode(p.name));
+  who.append(name, el('div', 'meta', `@${p.handle}  ·  ${ago(p.time)}`));
+  author.append(who);
+  box.append(author);
 
-  const row = el('div', 'foot-row');
-  const note = el('p', 'translation');
-  if (ev.original_language && ev.original_language !== 'en' && ev.translation) {
-    note.append(document.createTextNode(`Machine translation from ${LANG[ev.original_language] || ev.original_language.toUpperCase()}: `));
-    note.append(el('em', null, `“${ev.translation}”`));
+  let media = null;
+  if (p.media && p.media.src) {
+    media = el('div', 'media');
+    const h = Math.round(Math.min(700, Math.max(380, 936 / (p.media.ratio || 1.6))));
+    media.style.height = `${h}px`;
+    const img = el('img');
+    img.alt = p.media.alt || '';
+    img.src = p.media.src;
+    img.onerror = () => { media.remove(); fitPost(box, false); };
+    media.append(img);
+    if (p.media.video) media.append(el('span', 'tag', 'Video'));
+    else if (p.media.more > 0) media.append(el('span', 'tag', `+${p.media.more} photo${p.media.more > 1 ? 's' : ''}`));
+    if (p.media.card) {
+      const card = el('div', 'card');
+      if (p.media.card.title) card.append(el('b', null, p.media.card.title));
+      if (p.media.card.domain) card.append(el('span', null, p.media.card.domain));
+      media.append(card);
+    }
+    box.append(media);
   }
-  row.append(note);
-  const code = qrSvg(ev.x_url);
-  if (code) {
-    const qr = el('div', 'qr');
-    qr.append(el('p', 'qr-label', 'Scan to read the original post'), code);
-    row.append(qr);
-  }
-  box.append(row);
-  fitHeadline(box);
+
+  if (p.text) box.append(richText(p.text, 'text'));
+
+  const foot = el('div', 'foot');
+  const code = qrNode(p.url);
+  if (code) { foot.append(el('p', 'qr-label', 'Scan to open\non Bluesky')); foot.lastChild.style.whiteSpace = 'pre-line'; foot.append(code); }
+  box.append(foot);
+
+  fitPost(box, !!media);
 }
 
-// Long headlines shrink step by step until the QR code fits on screen
-function fitHeadline(box) {
-  const h = box.querySelector('.headline');
-  if (!h) return;
-  let size = 76;
-  h.style.fontSize = size + 'px';
-  while (box.scrollHeight > box.clientHeight + 1 && size > 50) {
-    size -= 4;
-    h.style.fontSize = size + 'px';
+// Shrink the text, then the picture, until everything fits above the progress bar
+function fitPost(box, hasMedia) {
+  const text = box.querySelector('.text');
+  const media = box.querySelector('.media');
+  let size = hasMedia && media ? 46 : 64;
+  const min = hasMedia && media ? 30 : 34;
+  if (text) {
+    text.style.fontSize = `${size}px`;
+    while (overflows(box) && size > min) { size -= 2; text.style.fontSize = `${size}px`; }
+  }
+  if (media) {
+    let h = parseInt(media.style.height, 10);
+    while (overflows(box) && h > 260) { h -= 20; media.style.height = `${h}px`; }
   }
 }
 
 function renderQueue() {
-  const box = document.getElementById('queue');
+  const box = $('queue');
   box.replaceChildren();
-  if (!items.length) return;
-  const shown = items[current % Math.min(items.length, ROTATION_SIZE)];
-  items.filter(i => i !== shown).slice(0, QUEUE_SIZE).forEach(item => {
-    const ev = item.evidence[0];
-    const row = el('div', 'q-item');
-    row.append(flagNode(['mission', 'government', 'leader'].includes(ev.source_type) ? ev.country : null));
-    row.append(el('div', 'q-head', item.headline));
-    row.append(el('div', 'q-time', hm(new Date(item.occurred_at))));
+  const shown = currentPost();
+  posts.filter(p => p !== shown).slice(0, QUEUE_SIZE).forEach(p => {
+    const row = el('div', 'q');
+    row.append(avatarNode(p));
+    const mid = el('div');
+    mid.append(el('div', 'q-name', `${flag(p.country) ? flag(p.country) + ' ' : ''}${p.name}`));
+    mid.append(el('div', 'q-text', p.text || (p.media && p.media.card ? p.media.card.title : 'Photo')));
+    row.append(mid, el('div', 'q-time', hm(p.time)));
     box.append(row);
   });
 }
 
-function renderAll() {
-  renderStatus();
-  renderFeature();
+function renderAll(emptyMessage) {
+  renderStatus(!!lastSuccess && Date.now() - lastSuccess < 3 * 60000 + (cfg.feed.refresh_minutes || 5) * 60000);
+  renderPost(emptyMessage);
   renderQueue();
 }
 
 /* ---------- Rotation ---------- */
 function startRotation() {
   clearInterval(rotateTimer);
+  const every = Math.max(6, cfg.feed.rotate_seconds || 15) * 1000;
   rotateStartedAt = Date.now();
   rotateTimer = setInterval(() => {
-    const body = document.getElementById('feature');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const swap = () => { current++; renderFeature(); renderQueue(); body.classList.remove('out'); rotateStartedAt = Date.now(); };
-    if (items.length < 2) { rotateStartedAt = Date.now(); return; }
-    if (reduce) swap();
-    else { body.classList.add('out'); setTimeout(swap, 600); }
-  }, ROTATE_EVERY_MS);
+    if (rotationLength() < 2) { rotateStartedAt = Date.now(); return; }
+    const box = $('post');
+    const swap = () => { current = (current + 1) % rotationLength(); renderPost(); renderQueue(); box.classList.remove('out'); rotateStartedAt = Date.now(); };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) swap();
+    else { box.classList.add('out'); setTimeout(swap, 600); }
+  }, every);
 }
 
 function tickProgress() {
-  const p = Math.min(1, (Date.now() - rotateStartedAt) / ROTATE_EVERY_MS);
-  document.getElementById('progress').style.width = items.length > 1 ? `${p * 100}%` : '0';
+  const every = Math.max(6, cfg.feed.rotate_seconds || 15) * 1000;
+  const p = Math.min(1, (Date.now() - rotateStartedAt) / every);
+  $('progress').style.width = rotationLength() > 1 ? `${p * 100}%` : '0';
   requestAnimationFrame(tickProgress);
 }
 
-/* ---------- Clocks ---------- */
 function tickClocks() {
-  const now = new Date();
-  document.querySelectorAll('[data-tz]').forEach(n => { n.textContent = hm(now, n.dataset.tz); });
+  document.querySelectorAll('[data-tz]').forEach(n => { n.textContent = hm(Date.now(), n.dataset.tz); });
 }
 
-/* ---------- Settings from config.json ---------- */
-// Long titles ("United Nations") shrink until they fit beside the status
-function fitTitle() {
-  const h = document.getElementById('screen-title');
-  let size = 104;
-  h.style.fontSize = size + 'px';
-  while (h.scrollWidth > h.clientWidth + 1 && size > 48) {
-    size -= 4;
-    h.style.fontSize = size + 'px';
-  }
+/* ---------- Start ---------- */
+async function start() {
+  await refresh();
+  startRotation();
+  const schedule = () => {
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(async () => {
+      const before = cfg.feed.rotate_seconds;
+      await refresh();
+      if (cfg.feed.rotate_seconds !== before) startRotation();
+      schedule();
+    }, Math.max(2, cfg.feed.refresh_minutes || 5) * 60000);
+  };
+  schedule();
 }
 
-async function loadConfig() {
-  try {
-    const res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) return;
-    const cfg = await res.json();
-    const d = cfg && cfg.display ? cfg.display : {};
-    if (typeof d.title === 'string' && d.title.trim()) {
-      document.getElementById('screen-title').textContent = d.title.trim();
-      document.title = `${d.title.trim()} on X`;
-    }
-    if (typeof d.subtitle === 'string') document.getElementById('screen-subtitle').textContent = d.subtitle;
-    fitTitle();
-  } catch (_) { /* keep current title */ }
-}
-
-/* ---------- Data ---------- */
-async function load() {
-  loadConfig();
-  try {
-    const res = await fetch(`${FEED_URL}?t=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (!Array.isArray(data.items)) throw new Error('No items array');
-    const previousFirst = items[0] && items[0].id;
-    items = data.items.filter(isUsable).sort((a, b) => new Date(b.occurred_at) - new Date(a.occurred_at));
-    monitor = data.monitor || null;
-    lastFetchOk = true;
-    document.getElementById('sample-badge').hidden = !data.sample;
-    // A new development arrived: show it right away
-    if (items[0] && items[0].id !== previousFirst) { current = 0; rotateStartedAt = Date.now(); }
-  } catch (err) {
-    console.warn('Feed not reachable, keeping what is on screen', err);
-    lastFetchOk = false;
-  }
-  renderAll();
-}
-
-load().then(startRotation);
-setInterval(load, REFRESH_EVERY_MS);
+start();
 setInterval(tickClocks, 1000);
 tickClocks();
 requestAnimationFrame(tickProgress);
-// Full reload once a night keeps long-running screens healthy
-setTimeout(() => location.reload(), 12 * 3600 * 1000);
+setTimeout(() => location.reload(), 12 * 3600 * 1000); // fresh start twice a day
 </script>
 </body>
 </html>

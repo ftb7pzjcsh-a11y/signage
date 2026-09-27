@@ -7,7 +7,6 @@
 <title>Réglages de l'écran</title>
 <style>
   :root {
-    --navy: #0A2342;
     --navy-deep: #06172D;
     --panel: #0F2C50;
     --field: #0A2342;
@@ -23,22 +22,20 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--navy-deep); color: var(--paper); font-family: var(--font); font-size: 16px; line-height: 1.5; }
   main { max-width: 980px; margin: 0 auto; padding: 40px 24px 140px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 28px; }
   h1 { font-size: 34px; font-weight: 700; margin: 0 0 6px; letter-spacing: -.5px; }
-  .lede { color: var(--muted); margin: 0 0 32px; max-width: 640px; }
+  .lede { color: var(--muted); margin: 0; max-width: 620px; }
+  a.open { color: var(--un-blue); text-decoration: none; white-space: nowrap; border: 1px solid var(--rule); padding: 9px 14px; border-radius: 8px; }
   section { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
   h2 { font-size: 20px; margin: 0 0 4px; }
   .hint { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
   label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-  input, select, textarea {
-    width: 100%; background: var(--field); color: var(--paper); border: 1px solid var(--rule);
-    border-radius: 8px; padding: 10px 12px; font: inherit;
-  }
-  textarea { min-height: 90px; resize: vertical; }
+  input, select { width: 100%; background: var(--field); color: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; font: inherit; }
+  textarea { width: 100%; background: var(--field); color: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; font: inherit; min-height: 90px; resize: vertical; }
   input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px solid var(--un-blue); outline-offset: 1px; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .field { margin-bottom: 16px; }
-  .field:last-child { margin-bottom: 0; }
-
   button { font: inherit; cursor: pointer; border-radius: 8px; padding: 10px 16px; border: 1px solid var(--rule); background: var(--field); color: var(--paper); }
   button.primary { background: var(--un-blue); border-color: var(--un-blue); color: #fff; font-weight: 500; }
   button.ghost { background: transparent; }
@@ -46,115 +43,156 @@
   button.icon:hover { color: var(--red); }
   button:disabled { opacity: .5; cursor: default; }
 
-  /* Preview of the screen header */
-  .preview { background: var(--navy); border-radius: 10px; padding: 22px 26px; margin-top: 18px; border: 1px solid var(--rule); }
+  .preview { background: #0A2342; border-radius: 10px; padding: 22px 26px; margin-top: 4px; border: 1px solid var(--rule); }
   .preview b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
   .preview span { color: var(--muted); font-size: 15px; }
 
-  /* Chips for hashtags / keywords */
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; background: var(--field); border: 1px solid var(--rule); border-radius: 8px; min-height: 48px; }
-  .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--rule); border-radius: 16px; padding: 4px 6px 4px 12px; font-size: 14px; }
-  .chip button { border: 0; background: transparent; color: var(--muted); padding: 0 6px; font-size: 16px; line-height: 1; }
-  .chip button:hover { color: var(--red); }
-  .chips input { flex: 1; min-width: 160px; border: 0; background: transparent; padding: 4px; }
-  .chips input:focus { outline: none; }
+  /* Search */
+  .search { position: relative; margin-bottom: 18px; }
+  .results { position: absolute; left: 0; right: 0; top: calc(100% + 6px); background: var(--field); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; z-index: 5; box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+  .results[hidden] { display: none; }
+  .result { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 10px 14px; cursor: pointer; border-top: 1px solid var(--rule); }
+  .result:first-child { border-top: 0; }
+  .result:hover, .result.active { background: var(--panel); }
+  .result small { display: block; color: var(--muted); }
+  .result em { font-style: normal; font-size: 13px; color: var(--muted); }
+  .results p { margin: 0; padding: 12px 14px; color: var(--muted); font-size: 14px; }
 
-  /* Accounts table */
-  .acc-head, .acc-row { display: grid; grid-template-columns: 1.1fr 1.4fr 1fr 70px 40px; gap: 10px; align-items: center; }
-  .acc-head { font-size: 13px; color: var(--muted); padding: 0 2px 8px; }
-  .acc-row { padding: 6px 0; border-top: 1px solid var(--rule); }
-  .acc-row input, .acc-row select { padding: 8px 10px; }
+  /* Accounts */
+  .acc-head, .acc-row { display: grid; grid-template-columns: 40px 1.3fr 1.3fr 64px 110px 36px; gap: 10px; align-items: center; }
+  .acc-head { font-size: 13px; color: var(--muted); padding: 0 0 8px; }
+  .acc-row { padding: 7px 0; border-top: 1px solid var(--rule); }
+  .acc-row input { padding: 8px 10px; }
   .acc-row input.bad { border-color: var(--red); }
-  .handle-wrap { position: relative; }
-  .handle-wrap::before { content: "@"; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); }
-  .handle-wrap input { padding-left: 26px; }
-  .acc-tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-  .count { color: var(--muted); font-size: 14px; margin-left: auto; align-self: center; }
+  .av { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: var(--rule); display: block; }
+  .av-empty { display: grid; place-items: center; font-size: 15px; font-weight: 700; color: var(--muted); }
+  .check { font-size: 13px; line-height: 1.3; }
+  .check.ok { color: var(--green); }
+  .check.warn { color: var(--gold); }
+  .check.err { color: var(--red); }
+  .acc-tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+  .count { color: var(--muted); font-size: 14px; margin-left: auto; }
   details { margin-top: 14px; }
   summary { cursor: pointer; color: var(--muted); font-size: 14px; }
   details textarea { margin-top: 10px; }
 
-  .toggle { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--paper); font-size: 15px; }
+  /* Chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; background: var(--field); border: 1px solid var(--rule); border-radius: 8px; min-height: 48px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--rule); border-radius: 16px; padding: 4px 6px 4px 12px; font-size: 14px; }
+  .chip button { border: 0; background: transparent; color: var(--muted); padding: 0 6px; font-size: 16px; line-height: 1; }
+  .chip button:hover { color: var(--red); }
+  .chips input { flex: 1; min-width: 150px; border: 0; background: transparent; padding: 4px; }
+  .chips input:focus { outline: none; }
+  .toggle { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; color: var(--paper); font-size: 15px; }
   .toggle input { width: auto; }
-  .estimate { margin-top: 16px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(242,181,58,.08); font-size: 14px; color: var(--muted); border-radius: 0 8px 8px 0; }
-  .estimate strong { color: var(--paper); }
+  .filter-body.off { opacity: .45; }
 
-  /* Save bar */
-  .savebar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--navy); border-top: 1px solid var(--rule); }
+  .savebar { position: fixed; left: 0; right: 0; bottom: 0; background: #0A2342; border-top: 1px solid var(--rule); }
   .savebar-inner { max-width: 980px; margin: 0 auto; padding: 14px 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   #status { font-size: 14px; color: var(--muted); margin-right: auto; }
   #status.ok { color: var(--green); }
   #status.err { color: var(--red); }
   #status.dirty { color: var(--gold); }
 
-  @media (max-width: 720px) {
-    .grid2 { grid-template-columns: 1fr; }
+  @media (max-width: 760px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
     .acc-head { display: none; }
-    .acc-row { grid-template-columns: 1fr 1fr; }
+    .acc-row { grid-template-columns: 40px 1fr 36px; }
+    .acc-row > :nth-child(3), .acc-row > :nth-child(4), .acc-row > :nth-child(5) { grid-column: 2 / 3; }
+    .top { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 <main>
-  <h1>Réglages de l'écran</h1>
-  <p class="lede">Titre affiché, sujet suivi et comptes X à surveiller. Les comptes et le sujet seront utilisés par la recherche automatique ; le titre s'applique à l'écran dès l'enregistrement.</p>
+  <div class="top">
+    <div>
+      <h1>Réglages de l'écran</h1>
+      <p class="lede">Les changements s'appliquent aux écrans au prochain rafraîchissement, quelques minutes après l'enregistrement.</p>
+    </div>
+    <a class="open" href="./" target="_blank" rel="noopener">Voir l'écran ↗</a>
+  </div>
 
   <section>
     <h2>Affichage</h2>
     <p class="hint">Ce qui apparaît en haut de l'écran.</p>
     <div class="grid2">
-      <div class="field"><label for="title">Titre</label><input id="title" maxlength="24" placeholder="UNGA81"></div>
+      <div class="field"><label for="title">Titre</label><input id="title" maxlength="24"></div>
       <div class="field"><label for="subtitle">Sous-titre</label><input id="subtitle" maxlength="80"></div>
     </div>
     <div class="preview" aria-hidden="true"><b id="pv-title"></b><span id="pv-sub"></span></div>
   </section>
 
   <section>
-    <h2>Sujet</h2>
-    <p class="hint">Décrit ce que la recherche doit garder. Tape un hashtag ou un mot-clé puis Entrée.</p>
-    <div class="field"><label for="description">Description du sujet</label><textarea id="description" placeholder="Official posts about the United Nations"></textarea></div>
-    <div class="grid2">
-      <div class="field"><label for="hashtags-input">Hashtags</label><div class="chips" id="hashtags"></div></div>
-      <div class="field"><label for="keywords-input">Mots-clés</label><div class="chips" id="keywords"></div></div>
+    <h2>Comptes Bluesky</h2>
+    <p class="hint">Cherche un compte par nom, ou colle son identifiant (ex. un.org). Un identifiant en nom de domaine, comme unicef.org, prouve que le compte appartient bien à l'organisation.</p>
+    <div class="search">
+      <label for="search">Rechercher sur Bluesky</label>
+      <input id="search" placeholder="UNICEF, mission permanente, ministère…" autocomplete="off">
+      <div class="results" id="results" hidden></div>
     </div>
-  </section>
-
-  <section>
-    <h2>Comptes à surveiller</h2>
-    <p class="hint">Missions, ministères, dirigeants, comptes ONU. Le code pays (deux lettres, ex. fr, ke) affiche le drapeau.</p>
-    <div class="acc-head"><span>Compte X</span><span>Nom affiché</span><span>Type</span><span>Pays</span><span></span></div>
+    <div class="acc-head"><span></span><span>Identifiant</span><span>Nom affiché</span><span>Pays</span><span>Vérification</span><span></span></div>
     <div id="accounts"></div>
     <div class="acc-tools">
-      <button type="button" id="add-account">Ajouter un compte</button>
+      <button type="button" id="add-account">Ajouter une ligne vide</button>
+      <button type="button" class="ghost" id="recheck">Revérifier tous les comptes</button>
       <span class="count" id="acc-count"></span>
     </div>
     <details>
       <summary>Coller plusieurs comptes d'un coup</summary>
-      <textarea id="bulk" placeholder="Un compte par ligne, par exemple :&#10;@francediplo&#10;https://x.com/UN_PGA&#10;UNGeneva"></textarea>
+      <textarea id="bulk" placeholder="Un compte par ligne, par exemple :&#10;un.org&#10;@unicef.org&#10;https://bsky.app/profile/unhcr.org"></textarea>
       <button type="button" id="bulk-add" style="margin-top:10px">Ajouter ces comptes</button>
     </details>
   </section>
 
   <section>
-    <h2>Recherche</h2>
-    <p class="hint">Fréquence et volume de la recherche automatique sur X.</p>
-    <div class="grid2">
+    <h2>Filtre par sujet</h2>
+    <p class="hint">Désactivé, l'écran montre tous les posts des comptes listés. Activé, seulement ceux qui contiennent au moins un hashtag ou mot-clé.</p>
+    <label class="toggle"><input type="checkbox" id="filter-on"> N'afficher que les posts sur ce sujet</label>
+    <div class="filter-body" id="filter-body">
+      <div class="grid2">
+        <div class="field"><label for="hashtags-input">Hashtags</label><div class="chips" id="hashtags"></div></div>
+        <div class="field"><label for="keywords-input">Mots-clés</label><div class="chips" id="keywords"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rythme</h2>
+    <p class="hint">Fréquence de mise à jour et défilement à l'écran.</p>
+    <div class="grid3">
       <div class="field">
-        <label for="every">Fréquence</label>
-        <select id="every">
-          <option value="1">Toutes les heures</option>
-          <option value="2">Toutes les 2 heures</option>
-          <option value="3">Toutes les 3 heures</option>
-          <option value="4">Toutes les 4 heures</option>
-          <option value="6">Toutes les 6 heures</option>
-          <option value="12">Deux fois par jour</option>
+        <label for="refresh">Chercher les nouveaux posts</label>
+        <select id="refresh">
+          <option value="2">Toutes les 2 minutes</option>
+          <option value="5">Toutes les 5 minutes</option>
+          <option value="10">Toutes les 10 minutes</option>
+          <option value="15">Toutes les 15 minutes</option>
+          <option value="30">Toutes les 30 minutes</option>
         </select>
       </div>
-      <div class="field"><label for="maxposts">Posts maximum par recherche</label><input id="maxposts" type="number" min="5" max="500" step="5"></div>
+      <div class="field">
+        <label for="rotate">Durée par post</label>
+        <select id="rotate">
+          <option value="8">8 secondes</option>
+          <option value="12">12 secondes</option>
+          <option value="15">15 secondes</option>
+          <option value="20">20 secondes</option>
+          <option value="30">30 secondes</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="maxage">Posts affichés</label>
+        <select id="maxage">
+          <option value="12">Moins de 12 heures</option>
+          <option value="24">Moins de 24 heures</option>
+          <option value="48">Moins de 48 heures</option>
+          <option value="168">Moins d'une semaine</option>
+        </select>
+      </div>
     </div>
-    <label class="toggle"><input type="checkbox" id="hashsearch"> Chercher aussi les hashtags et mots-clés, en plus des comptes listés</label>
-    <label class="toggle"><input type="checkbox" id="officialonly"> Ne garder que les comptes officiels vérifiables</label>
-    <p class="estimate" id="estimate"></p>
+    <label class="toggle"><input type="checkbox" id="images"> Afficher les images et vignettes vidéo</label>
+    <label class="toggle"><input type="checkbox" id="reposts"> Inclure les reposts (posts d'autres comptes partagés par les comptes listés)</label>
   </section>
 
   <section>
@@ -164,7 +202,7 @@
       <div class="field"><label for="owner">Compte GitHub</label><input id="owner" autocomplete="off"></div>
       <div class="field"><label for="repo">Dépôt</label><input id="repo" autocomplete="off"></div>
     </div>
-    <div class="field"><label for="token">Jeton d'accès (fine-grained, accès Contents en lecture et écriture sur ce dépôt uniquement)</label><input id="token" type="password" autocomplete="off" placeholder="github_pat_…"></div>
+    <div class="field"><label for="token">Jeton d'accès (fine-grained, Contents en lecture et écriture sur ce dépôt uniquement)</label><input id="token" type="password" autocomplete="off" placeholder="github_pat_…"></div>
     <label class="toggle"><input type="checkbox" id="remember"> Se souvenir du jeton sur cet ordinateur</label>
   </section>
 </main>
@@ -180,28 +218,21 @@
 <script>
 'use strict';
 
+const API = 'https://public.api.bsky.app/xrpc';
 const CONFIG_PATH = 'config.json';
 const BRANCH = 'main';
-const PRICE_PER_1000_POSTS = 5; // xAI X Search, USD, per posts fetched (check current pricing)
 const TOKEN_KEY = 'signage-editor:token';
-const TYPES = [
-  ['un-official', 'ONU'],
-  ['mission', 'Mission'],
-  ['government', 'Gouvernement / ministère'],
-  ['leader', 'Dirigeant'],
-  ['correspondent', 'Correspondant'],
-  ['other', 'Autre']
-];
 const DEFAULTS = {
-  display: { title: 'UNGA81', subtitle: 'Verified official accounts on X, collected automatically' },
-  topic: { description: '', hashtags: [], keywords: [] },
+  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky' },
   accounts: [],
-  sweep: { every_hours: 2, max_posts_per_sweep: 50, include_hashtag_search: true, official_accounts_only: true }
+  filter: { enabled: false, hashtags: [], keywords: [] },
+  feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true }
 };
 
 let config = structuredClone(DEFAULTS);
 let fileSha = null;
 let dirty = false;
+const profiles = new Map(); // handle -> {state: 'ok'|'missing'|'error'|'loading', avatar, displayName, verified}
 
 const $ = id => document.getElementById(id);
 const el = (tag, props = {}) => Object.assign(document.createElement(tag), props);
@@ -209,50 +240,235 @@ const el = (tag, props = {}) => Object.assign(document.createElement(tag), props
 /* ---------- Status ---------- */
 function setStatus(text, kind = '') { const s = $('status'); s.textContent = text; s.className = kind; }
 function markDirty() { dirty = true; setStatus('Modifications non enregistrées', 'dirty'); }
-window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 
-/* ---------- Helpers ---------- */
+/* ---------- Handles ---------- */
 function cleanHandle(raw) {
   let h = String(raw || '').trim();
-  const m = h.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]{1,15})/i);
-  if (m) h = m[1];
-  return h.replace(/^@/, '').replace(/[^A-Za-z0-9_]/g, '').slice(0, 15);
+  const m = h.match(/bsky\.app\/profile\/([^/?#\s]+)/i);
+  if (m) h = decodeURIComponent(m[1]);
+  h = h.replace(/^@/, '').trim();
+  return h.startsWith('did:') ? h : h.toLowerCase();
 }
-const validHandle = h => /^[A-Za-z0-9_]{1,15}$/.test(h);
+const validHandle = h => /^did:[a-z]+:[a-zA-Z0-9._:%-]+$/.test(h) || /^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z][a-z0-9-]{0,61}[a-z0-9]$/.test(h);
+const isDomainHandle = h => validHandle(h) && !h.startsWith('did:') && !/\.bsky\.social$/.test(h);
 const validCountry = c => c === '' || /^[a-z]{2}$/.test(c);
 
-function merge(base, data) {
-  const out = structuredClone(base);
-  if (!data || typeof data !== 'object') return out;
-  for (const k of Object.keys(out)) {
-    if (Array.isArray(out[k])) out[k] = Array.isArray(data[k]) ? data[k] : out[k];
-    else if (typeof out[k] === 'object') out[k] = { ...out[k], ...(data[k] || {}) };
+async function lookup(handle) {
+  if (!validHandle(handle)) return;
+  profiles.set(handle, { state: 'loading' });
+  renderChecks();
+  try {
+    const res = await fetch(`${API}/app.bsky.actor.getProfile?actor=${encodeURIComponent(handle)}`);
+    if (res.status === 400 || res.status === 404) { profiles.set(handle, { state: 'missing' }); }
+    else if (!res.ok) { profiles.set(handle, { state: 'error' }); }
+    else {
+      const p = await res.json();
+      const verified = p.verification && p.verification.verifiedStatus === 'valid';
+      profiles.set(handle, { state: 'ok', avatar: p.avatar || '', displayName: p.displayName || '', verified, posts: p.postsCount });
+      const acc = config.accounts.find(a => a.handle === handle);
+      if (acc && !acc.name && p.displayName) { acc.name = p.displayName; renderAccounts(); markDirty(); return; }
+    }
+  } catch (_) {
+    profiles.set(handle, { state: 'error' });
   }
-  return out;
+  renderChecks();
 }
 
+function checkLabel(handle) {
+  if (!handle) return ['', ''];
+  if (!validHandle(handle)) return ['Identifiant invalide', 'err'];
+  const p = profiles.get(handle);
+  if (!p || p.state === 'loading') return ['Vérification…', ''];
+  if (p.state === 'missing') return ['Introuvable', 'err'];
+  if (p.state === 'error') return ['Bluesky injoignable', 'warn'];
+  if (isDomainHandle(handle)) return ['✓ Domaine vérifié', 'ok'];
+  if (p.verified) return ['✓ Vérifié Bluesky', 'ok'];
+  return ['Compte non vérifié', 'warn'];
+}
+
+/* ---------- Accounts table ---------- */
+function avatarEl(handle, name) {
+  const p = profiles.get(handle);
+  if (p && p.avatar) {
+    const img = el('img', { className: 'av', src: p.avatar, alt: '' });
+    img.onerror = () => img.replaceWith(el('div', { className: 'av av-empty', textContent: (name || handle || '?').charAt(0).toUpperCase() }));
+    return img;
+  }
+  return el('div', { className: 'av av-empty', textContent: (name || handle || '?').charAt(0).toUpperCase() });
+}
+
+function renderAccounts() {
+  const box = $('accounts');
+  box.replaceChildren();
+  config.accounts.forEach((acc, i) => {
+    const row = el('div', { className: 'acc-row' });
+    row.dataset.handle = acc.handle;
+
+    const handle = el('input', { value: acc.handle, placeholder: 'un.org', ariaLabel: 'Identifiant Bluesky' });
+    handle.oninput = () => { acc.handle = cleanHandle(handle.value); row.dataset.handle = acc.handle; markDirty(); };
+    handle.onchange = () => { handle.value = acc.handle; handle.classList.toggle('bad', !!acc.handle && !validHandle(acc.handle)); lookup(acc.handle); };
+    handle.classList.toggle('bad', !!acc.handle && !validHandle(acc.handle));
+
+    const name = el('input', { value: acc.name || '', placeholder: 'Nom affiché', ariaLabel: 'Nom affiché' });
+    name.oninput = () => { acc.name = name.value; markDirty(); };
+
+    const country = el('input', { value: acc.country || '', placeholder: 'fr', maxLength: 2, ariaLabel: 'Code pays (drapeau)' });
+    country.oninput = () => {
+      country.value = country.value.toLowerCase().replace(/[^a-z]/g, '');
+      acc.country = country.value;
+      country.classList.toggle('bad', country.value.length === 1);
+      markDirty();
+    };
+
+    const [label, kind] = checkLabel(acc.handle);
+    const check = el('span', { className: `check ${kind}`, textContent: label });
+
+    const del = el('button', { type: 'button', className: 'icon', textContent: '✕', ariaLabel: `Supprimer ${acc.handle}` });
+    del.onclick = () => { config.accounts.splice(i, 1); renderAccounts(); markDirty(); };
+
+    row.append(avatarEl(acc.handle, acc.name), handle, name, country, check, del);
+    box.append(row);
+  });
+  $('acc-count').textContent = `${config.accounts.length} compte${config.accounts.length > 1 ? 's' : ''}`;
+}
+
+// Update avatars and check labels without rebuilding inputs (keeps focus)
+function renderChecks() {
+  document.querySelectorAll('.acc-row').forEach(row => {
+    const acc = config.accounts.find(a => a.handle === row.dataset.handle);
+    if (!acc) return;
+    const [label, kind] = checkLabel(acc.handle);
+    const check = row.querySelector('.check');
+    check.textContent = label;
+    check.className = `check ${kind}`;
+    row.firstChild.replaceWith(avatarEl(acc.handle, acc.name));
+  });
+}
+
+function addAccount(handle, name = '') {
+  handle = cleanHandle(handle);
+  if (!validHandle(handle)) return false;
+  if (config.accounts.some(a => a.handle === handle)) return false;
+  config.accounts.push({ handle, name, country: '' });
+  return true;
+}
+
+$('add-account').onclick = () => {
+  config.accounts.push({ handle: '', name: '', country: '' });
+  renderAccounts();
+  markDirty();
+  const inputs = $('accounts').querySelectorAll('.acc-row input');
+  inputs[inputs.length - 3]?.focus();
+};
+
+$('recheck').onclick = () => config.accounts.forEach(a => lookup(a.handle));
+
+$('bulk-add').onclick = () => {
+  const added = [];
+  $('bulk').value.split(/[\n,;]+/).map(l => l.trim()).filter(l => l && !/\s/.test(l)).forEach(l => {
+    const h = cleanHandle(l);
+    if (addAccount(h)) added.push(h);
+  });
+  $('bulk').value = '';
+  renderAccounts();
+  added.forEach(lookup);
+  if (added.length) markDirty();
+  setStatus(added.length ? `${added.length} compte${added.length > 1 ? 's' : ''} ajouté${added.length > 1 ? 's' : ''}` : 'Aucun nouveau compte valide', added.length ? 'dirty' : 'err');
+};
+
+/* ---------- Search ---------- */
+let searchTimer = null;
+let searchSeq = 0;
+$('search').oninput = () => {
+  clearTimeout(searchTimer);
+  const q = $('search').value.trim();
+  if (q.length < 2) { $('results').hidden = true; return; }
+  searchTimer = setTimeout(() => runSearch(q), 300);
+};
+$('search').onkeydown = e => { if (e.key === 'Escape') $('results').hidden = true; };
+document.addEventListener('click', e => { if (!e.target.closest('.search')) $('results').hidden = true; });
+
+async function runSearch(q) {
+  const seq = ++searchSeq;
+  const box = $('results');
+  const direct = cleanHandle(q);
+  try {
+    const res = await fetch(`${API}/app.bsky.actor.searchActorsTypeahead?q=${encodeURIComponent(q)}&limit=8`);
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    if (seq !== searchSeq) return;
+    box.replaceChildren();
+    const actors = data.actors || [];
+    if (!actors.length) {
+      box.append(el('p', { textContent: validHandle(direct) ? `Aucun résultat. Appuie sur Entrée pour ajouter « ${direct} » directement.` : 'Aucun résultat.' }));
+    }
+    actors.forEach(a => {
+      const row = el('div', { className: 'result' });
+      row.append(a.avatar ? el('img', { className: 'av', src: a.avatar, alt: '' }) : el('div', { className: 'av av-empty', textContent: (a.displayName || a.handle).charAt(0).toUpperCase() }));
+      const mid = el('div');
+      mid.append(el('div', { textContent: a.displayName || a.handle }), el('small', { textContent: `@${a.handle}` }));
+      row.append(mid);
+      const already = config.accounts.some(x => x.handle === a.handle);
+      const verified = a.verification && a.verification.verifiedStatus === 'valid';
+      row.append(el('em', { textContent: already ? 'Déjà ajouté' : isDomainHandle(a.handle) ? 'Domaine vérifié' : verified ? 'Vérifié' : '' }));
+      row.onclick = () => {
+        if (addAccount(a.handle, a.displayName || '')) {
+          profiles.set(a.handle, { state: 'ok', avatar: a.avatar || '', displayName: a.displayName || '', verified });
+          renderAccounts();
+          markDirty();
+          setStatus(`${a.displayName || a.handle} ajouté`, 'dirty');
+        }
+        box.hidden = true;
+        $('search').value = '';
+      };
+      box.append(row);
+    });
+    box.hidden = false;
+  } catch (_) {
+    if (seq !== searchSeq) return;
+    box.replaceChildren(el('p', { textContent: 'Recherche indisponible pour le moment. Colle l\'identifiant du compte et appuie sur Entrée.' }));
+    box.hidden = false;
+  }
+}
+
+$('search').addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  const h = cleanHandle($('search').value);
+  if (addAccount(h)) {
+    renderAccounts();
+    lookup(h);
+    markDirty();
+    $('search').value = '';
+    $('results').hidden = true;
+  } else if (validHandle(h)) {
+    setStatus(`${h} est déjà dans la liste`, 'err');
+  }
+});
+
 /* ---------- Chips ---------- */
-function setupChips(boxId, key, normalize) {
+function setupChips(boxId, key, normalize, placeholder) {
   const box = $(boxId);
   const render = () => {
     box.replaceChildren();
-    config.topic[key].forEach((value, i) => {
+    config.filter[key].forEach((value, i) => {
       const chip = el('span', { className: 'chip', textContent: value });
       const x = el('button', { type: 'button', textContent: '×', ariaLabel: `Retirer ${value}` });
-      x.onclick = () => { config.topic[key].splice(i, 1); render(); markDirty(); };
+      x.onclick = () => { config.filter[key].splice(i, 1); render(); markDirty(); };
       chip.append(x);
       box.append(chip);
     });
-    const input = el('input', { id: `${boxId}-input`, placeholder: key === 'hashtags' ? '#UN80' : 'Security Council' });
+    const input = el('input', { id: `${boxId}-input`, placeholder });
     input.onkeydown = e => {
       if ((e.key === 'Enter' || e.key === ',') && input.value.trim()) {
         e.preventDefault();
         const v = normalize(input.value);
-        if (v && !config.topic[key].includes(v)) { config.topic[key].push(v); markDirty(); }
+        if (v && !config.filter[key].includes(v)) { config.filter[key].push(v); markDirty(); }
         render();
         $(`${boxId}-input`).focus();
-      } else if (e.key === 'Backspace' && !input.value && config.topic[key].length) {
-        config.topic[key].pop(); render(); markDirty(); $(`${boxId}-input`).focus();
+      } else if (e.key === 'Backspace' && !input.value && config.filter[key].length) {
+        config.filter[key].pop(); render(); markDirty(); $(`${boxId}-input`).focus();
       }
     };
     box.append(input);
@@ -260,129 +476,57 @@ function setupChips(boxId, key, normalize) {
   box.onclick = e => { if (e.target === box) $(`${boxId}-input`).focus(); };
   return render;
 }
-const renderHashtags = setupChips('hashtags', 'hashtags', v => {
-  const t = v.trim().replace(/[\s,]+/g, '');
-  return t ? (t.startsWith('#') ? t : `#${t}`) : '';
-});
-const renderKeywords = setupChips('keywords', 'keywords', v => v.trim().replace(/,$/, ''));
-
-/* ---------- Accounts ---------- */
-function renderAccounts() {
-  const box = $('accounts');
-  box.replaceChildren();
-  config.accounts.forEach((acc, i) => {
-    const row = el('div', { className: 'acc-row' });
-
-    const hw = el('div', { className: 'handle-wrap' });
-    const handle = el('input', { value: acc.handle || '', ariaLabel: 'Compte X', placeholder: 'compte' });
-    const checkHandle = () => handle.classList.toggle('bad', !validHandle(handle.value));
-    handle.oninput = () => { acc.handle = cleanHandle(handle.value); checkHandle(); markDirty(); };
-    handle.onblur = () => { handle.value = acc.handle; checkHandle(); };
-    checkHandle();
-    hw.append(handle);
-
-    const name = el('input', { value: acc.name || '', ariaLabel: 'Nom affiché', placeholder: 'Nom affiché' });
-    name.oninput = () => { acc.name = name.value; markDirty(); };
-
-    const type = el('select', { ariaLabel: 'Type' });
-    TYPES.forEach(([v, label]) => type.append(el('option', { value: v, textContent: label, selected: acc.type === v })));
-    type.onchange = () => { acc.type = type.value; markDirty(); };
-
-    const country = el('input', { value: acc.country || '', ariaLabel: 'Code pays', placeholder: 'fr', maxLength: 2 });
-    country.oninput = () => {
-      country.value = country.value.toLowerCase().replace(/[^a-z]/g, '');
-      acc.country = country.value;
-      country.classList.toggle('bad', !validCountry(acc.country) || (acc.country.length === 1));
-      markDirty();
-    };
-
-    const del = el('button', { type: 'button', className: 'icon', textContent: '✕', ariaLabel: `Supprimer @${acc.handle}` });
-    del.onclick = () => { config.accounts.splice(i, 1); renderAccounts(); markDirty(); };
-
-    row.append(hw, name, type, country, del);
-    box.append(row);
-  });
-  $('acc-count').textContent = `${config.accounts.length} compte${config.accounts.length > 1 ? 's' : ''}`;
-  renderEstimate();
-}
-
-$('add-account').onclick = () => {
-  config.accounts.push({ handle: '', name: '', type: 'mission', country: '' });
-  renderAccounts();
-  markDirty();
-  const rows = $('accounts').querySelectorAll('.acc-row input');
-  rows[rows.length - 3]?.focus();
-};
-
-$('bulk-add').onclick = () => {
-  const existing = new Set(config.accounts.map(a => a.handle.toLowerCase()));
-  let added = 0;
-  $('bulk').value.split(/[\n,;]+/).map(l => l.trim()).filter(l => l && !/\s/.test(l)).map(cleanHandle).filter(validHandle).forEach(h => {
-    if (existing.has(h.toLowerCase())) return;
-    existing.add(h.toLowerCase());
-    config.accounts.push({ handle: h, name: '', type: 'mission', country: '' });
-    added++;
-  });
-  $('bulk').value = '';
-  renderAccounts();
-  if (added) markDirty();
-  setStatus(added ? `${added} compte${added > 1 ? 's' : ''} ajouté${added > 1 ? 's' : ''}` : 'Aucun nouveau compte valide', added ? 'dirty' : 'err');
-};
+const renderHashtags = setupChips('hashtags', 'hashtags', v => { const t = v.trim().replace(/[\s,]+/g, ''); return t ? (t.startsWith('#') ? t : `#${t}`) : ''; }, '#UNGA81');
+const renderKeywords = setupChips('keywords', 'keywords', v => v.trim().replace(/,$/, ''), 'Security Council');
 
 /* ---------- Simple fields ---------- */
 function bindFields() {
-  const bind = (id, get, set) => { $(id).value = get(); $(id).oninput = () => { set($(id).value); markDirty(); renderPreview(); renderEstimate(); }; };
-  bind('title', () => config.display.title, v => config.display.title = v);
-  bind('subtitle', () => config.display.subtitle, v => config.display.subtitle = v);
-  bind('description', () => config.topic.description, v => config.topic.description = v);
-  bind('maxposts', () => config.sweep.max_posts_per_sweep, v => config.sweep.max_posts_per_sweep = Math.max(1, parseInt(v, 10) || 0));
-  $('every').value = String(config.sweep.every_hours);
-  $('every').onchange = () => { config.sweep.every_hours = Number($('every').value); markDirty(); renderEstimate(); };
-  $('hashsearch').checked = !!config.sweep.include_hashtag_search;
-  $('hashsearch').onchange = () => { config.sweep.include_hashtag_search = $('hashsearch').checked; markDirty(); };
-  $('officialonly').checked = !!config.sweep.official_accounts_only;
-  $('officialonly').onchange = () => { config.sweep.official_accounts_only = $('officialonly').checked; markDirty(); };
+  const bindText = (id, obj, key, after) => { $(id).value = obj[key] || ''; $(id).oninput = () => { obj[key] = $(id).value; markDirty(); after && after(); }; };
+  bindText('title', config.display, 'title', renderPreview);
+  bindText('subtitle', config.display, 'subtitle', renderPreview);
+  const bindSelect = (id, key) => { $(id).value = String(config.feed[key]); $(id).onchange = () => { config.feed[key] = Number($(id).value); markDirty(); }; };
+  bindSelect('refresh', 'refresh_minutes');
+  bindSelect('rotate', 'rotate_seconds');
+  bindSelect('maxage', 'max_age_hours');
+  const bindCheck = (id, obj, key, after) => { $(id).checked = !!obj[key]; $(id).onchange = () => { obj[key] = $(id).checked; markDirty(); after && after(); }; };
+  bindCheck('images', config.feed, 'show_images');
+  bindCheck('reposts', config.feed, 'include_reposts');
+  bindCheck('filter-on', config.filter, 'enabled', renderFilterState);
 }
-
-function renderPreview() {
-  $('pv-title').textContent = config.display.title || ' ';
-  $('pv-sub').textContent = config.display.subtitle || '';
-}
-
-function renderEstimate() {
-  const runs = 24 / (config.sweep.every_hours || 2);
-  const posts = runs * (config.sweep.max_posts_per_sweep || 0);
-  const day = posts / 1000 * PRICE_PER_1000_POSTS;
-  $('estimate').innerHTML = '';
-  $('estimate').append(
-    'Au maximum ', el('strong', { textContent: `${Math.round(posts)} posts par jour` }),
-    ', soit environ ', el('strong', { textContent: `${day.toFixed(2)} $ par jour` }),
-    ` (${(day * 7).toFixed(0)} $ par semaine) pour la recherche X, hors coût du modèle. Estimation au tarif xAI de ${PRICE_PER_1000_POSTS} $ pour 1 000 posts, à vérifier.`
-  );
-}
+function renderPreview() { $('pv-title').textContent = config.display.title || ' '; $('pv-sub').textContent = config.display.subtitle || ''; }
+function renderFilterState() { $('filter-body').classList.toggle('off', !config.filter.enabled); }
 
 function renderAll() {
   bindFields();
   renderPreview();
+  renderFilterState();
   renderHashtags();
   renderKeywords();
   renderAccounts();
 }
 
-/* ---------- Validation & export ---------- */
+/* ---------- Export ---------- */
+function mergeConfig(data) {
+  const out = structuredClone(DEFAULTS);
+  if (!data || typeof data !== 'object') return out;
+  out.display = { ...out.display, ...(data.display || {}) };
+  out.filter = { ...out.filter, ...(data.filter || {}) };
+  out.feed = { ...out.feed, ...(data.feed || {}) };
+  out.filter.hashtags = Array.isArray(out.filter.hashtags) ? out.filter.hashtags : [];
+  out.filter.keywords = Array.isArray(out.filter.keywords) ? out.filter.keywords : [];
+  out.accounts = Array.isArray(data.accounts) ? data.accounts.filter(a => a && typeof a.handle === 'string').map(a => ({ handle: a.handle, name: a.name || '', country: a.country || '' })) : [];
+  return out;
+}
+
 function buildConfig() {
   const out = structuredClone(config);
   out.accounts = out.accounts
-    .map(a => ({ handle: cleanHandle(a.handle), name: (a.name || '').trim(), type: a.type || 'other', country: (a.country || '').toLowerCase() }))
+    .map(a => ({ handle: cleanHandle(a.handle), name: (a.name || '').trim(), country: (a.country || '').toLowerCase() }))
     .filter(a => a.handle);
-  const bad = out.accounts.filter(a => !validHandle(a.handle) || !validCountry(a.country));
-  if (bad.length) throw new Error(`Compte ou code pays invalide : @${bad[0].handle}`);
+  const bad = out.accounts.find(a => !validHandle(a.handle) || !validCountry(a.country));
+  if (bad) throw new Error(`Identifiant ou code pays invalide : ${bad.handle}`);
   const seen = new Set();
-  for (const a of out.accounts) {
-    const k = a.handle.toLowerCase();
-    if (seen.has(k)) throw new Error(`@${a.handle} est présent deux fois`);
-    seen.add(k);
-  }
+  for (const a of out.accounts) { if (seen.has(a.handle)) throw new Error(`${a.handle} est présent deux fois`); seen.add(a.handle); }
   out.display.title = (out.display.title || '').trim() || 'UNGA81';
   return out;
 }
@@ -399,9 +543,8 @@ $('download').onclick = () => {
 
 /* ---------- GitHub ---------- */
 function guessRepo() {
-  const host = location.hostname;
-  if (host.endsWith('.github.io')) {
-    $('owner').value ||= host.split('.')[0];
+  if (location.hostname.endsWith('.github.io')) {
+    $('owner').value ||= location.hostname.split('.')[0];
     $('repo').value ||= location.pathname.split('/').filter(Boolean)[0] || '';
   }
 }
@@ -418,7 +561,13 @@ function ghHeaders() {
   if (!token) throw new Error('Colle ton jeton d\'accès GitHub pour enregistrer');
   return { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
 }
-
+function ghError(status) {
+  if (status === 401) return 'Jeton refusé par GitHub : vérifie qu\'il est complet et pas expiré';
+  if (status === 403) return 'Le jeton n\'a pas le droit d\'écrire : accorde Contents en lecture et écriture';
+  if (status === 404) return 'Dépôt introuvable : vérifie le compte, le nom du dépôt et l\'accès du jeton';
+  if (status === 409) return 'Le fichier a changé entre-temps : recharge la page';
+  return `GitHub a répondu ${status}`;
+}
 async function fetchFromGitHub() {
   const res = await fetch(`${ghUrl()}?ref=${BRANCH}`, { headers: ghHeaders(), cache: 'no-store' });
   if (res.status === 404) return null;
@@ -428,21 +577,13 @@ async function fetchFromGitHub() {
   return JSON.parse(b64decode(data.content));
 }
 
-function ghError(status) {
-  if (status === 401) return 'Jeton refusé par GitHub : vérifie qu\'il est complet et pas expiré';
-  if (status === 403) return 'Le jeton n\'a pas le droit d\'écrire : accorde Contents en lecture et écriture';
-  if (status === 404) return 'Dépôt introuvable : vérifie le compte, le nom du dépôt et l\'accès du jeton';
-  if (status === 409) return 'Le fichier a changé entre-temps : recharge la page';
-  return `GitHub a répondu ${status}`;
-}
-
 $('save').onclick = async () => {
   const btn = $('save');
   try {
     const out = buildConfig();
     btn.disabled = true;
     setStatus('Enregistrement…');
-    if (fileSha === null) { try { await fetchFromGitHub(); } catch (_) { /* first save or read issue, try anyway */ } }
+    if (fileSha === null) { try { await fetchFromGitHub(); } catch (_) {} }
     const body = { message: 'Update screen settings', content: b64encode(JSON.stringify(out, null, 2) + '\n'), branch: BRANCH };
     if (fileSha) body.sha = fileSha;
     const res = await fetch(ghUrl(), { method: 'PUT', headers: { ...ghHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
@@ -453,7 +594,7 @@ $('save').onclick = async () => {
     dirty = false;
     rememberToken();
     const t = new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(new Date());
-    setStatus(`Enregistré à ${t}. L'écran l'affichera d'ici quelques minutes.`, 'ok');
+    setStatus(`Enregistré à ${t}. Les écrans suivront d'ici quelques minutes.`, 'ok');
   } catch (err) {
     setStatus(err.message, 'err');
   } finally {
@@ -472,26 +613,17 @@ $('remember').onchange = rememberToken;
 /* ---------- Boot ---------- */
 async function boot() {
   guessRepo();
-  try {
-    const saved = localStorage.getItem(TOKEN_KEY);
-    if (saved) { $('token').value = saved; $('remember').checked = true; }
-  } catch (_) {}
-
+  try { const saved = localStorage.getItem(TOKEN_KEY); if (saved) { $('token').value = saved; $('remember').checked = true; } } catch (_) {}
   let data = null;
-  // Prefer the live copy from GitHub (always current), fall back to the published file
-  if ($('token').value && $('owner').value && $('repo').value) {
-    try { data = await fetchFromGitHub(); } catch (err) { console.warn(err); }
-  }
+  if ($('token').value && $('owner').value && $('repo').value) { try { data = await fetchFromGitHub(); } catch (err) { console.warn(err); } }
   if (!data) {
-    try {
-      const res = await fetch(`${CONFIG_PATH}?t=${Date.now()}`, { cache: 'no-store' });
-      if (res.ok) data = await res.json();
-    } catch (err) { console.warn(err); }
+    try { const res = await fetch(`${CONFIG_PATH}?t=${Date.now()}`, { cache: 'no-store' }); if (res.ok) data = await res.json(); } catch (err) { console.warn(err); }
   }
-  config = merge(DEFAULTS, data);
+  config = mergeConfig(data);
   renderAll();
   dirty = false;
   setStatus(data ? 'Réglages chargés' : 'Aucun config.json trouvé : valeurs par défaut', data ? '' : 'dirty');
+  config.accounts.forEach(a => lookup(a.handle));
 }
 boot();
 </script>
