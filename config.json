@@ -1,22 +1,59 @@
 {
   "display": {
-    "title": "UNGA81",
+    "title": "United Nations",
     "subtitle": "Official posts from the UN family on Bluesky"
   },
   "accounts": [
-    { "handle": "un.org", "name": "United Nations", "country": "" },
-    { "handle": "unicef.org", "name": "UNICEF", "country": "" },
-    { "handle": "unhcr.org", "name": "UNHCR", "country": "" },
-    { "handle": "undp.org", "name": "UNDP", "country": "" },
-    { "handle": "unep.org", "name": "UN Environment Programme", "country": "" },
-    { "handle": "fao.org", "name": "FAO", "country": "" },
-    { "handle": "unesco.org", "name": "UNESCO", "country": "" },
-    { "handle": "iom.int", "name": "IOM", "country": "" }
+    {
+      "handle": "un.org",
+      "name": "United Nations",
+      "country": ""
+    },
+    {
+      "handle": "unicef.org",
+      "name": "UNICEF",
+      "country": ""
+    },
+    {
+      "handle": "unhcr.org",
+      "name": "UNHCR",
+      "country": ""
+    },
+    {
+      "handle": "undp.org",
+      "name": "UNDP",
+      "country": ""
+    },
+    {
+      "handle": "unep.org",
+      "name": "UN Environment Programme",
+      "country": ""
+    },
+    {
+      "handle": "fao.org",
+      "name": "FAO",
+      "country": ""
+    },
+    {
+      "handle": "unesco.org",
+      "name": "UNESCO",
+      "country": ""
+    },
+    {
+      "handle": "iom.int",
+      "name": "IOM",
+      "country": ""
+    }
   ],
   "filter": {
     "enabled": false,
-    "hashtags": ["#UNGA81", "#UNGA"],
-    "keywords": ["General Assembly"]
+    "hashtags": [
+      "#UNGA81",
+      "#UNGA"
+    ],
+    "keywords": [
+      "General Assembly"
+    ]
   },
   "feed": {
     "refresh_minutes": 5,
