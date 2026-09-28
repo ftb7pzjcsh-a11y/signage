@@ -55,15 +55,18 @@
   .name .flag { margin-right: 12px; }
   .meta { font-size: 27px; color: var(--muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .media { position: relative; margin-top: 36px; border-radius: 18px; overflow: hidden; background: var(--navy-deep); flex-shrink: 0; }
-  .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
+  .media img.backdrop { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(40px) brightness(.45); }
   .media .tag { position: absolute; top: 18px; left: 18px; background: rgba(6,23,45,.82); color: var(--paper); font-size: 22px; font-weight: 500; padding: 6px 16px; border-radius: 20px; }
   .media .card { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 26px 22px; background: linear-gradient(transparent, rgba(6,23,45,.92)); }
   .media .card b { display: block; font-size: 30px; line-height: 1.25; font-weight: 500; }
   .media .card span { font-size: 22px; color: var(--muted); }
   .text { font-size: 64px; font-weight: 500; line-height: 1.22; letter-spacing: -.4px; margin-top: 36px; white-space: pre-line; overflow-wrap: anywhere; flex-shrink: 0; }
   .text .tagword { color: #5CC8F5; }
-  .foot { margin-top: auto; padding-top: 24px; display: flex; justify-content: flex-end; align-items: center; gap: 22px; flex-shrink: 0; }
-  .qr-label { font-size: 23px; color: var(--muted); text-align: right; line-height: 1.35; }
+  .textrow { display: flex; gap: 36px; align-items: flex-start; margin-top: 36px; flex-shrink: 0; }
+  .textrow .text { margin-top: 0; flex: 1; min-width: 0; }
+  .qrbox { margin-left: auto; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .qr-label { font-size: 21px; color: var(--muted); text-align: center; line-height: 1.3; }
   .qr-code { width: 170px; height: 170px; background: #fff; padding: 11px; border-radius: 10px; }
   .qr-code svg { width: 100%; height: 100%; display: block; }
   .progress { position: absolute; left: 72px; right: 72px; bottom: 0; height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
@@ -127,7 +130,8 @@ const CONFIG_URL = 'config.json';
 const POSTS_PER_ACCOUNT = 15;
 const ROTATION_SIZE = 8;     // posts that take turns in the big slot
 const QUEUE_SIZE = 3;        // rows in the list below
-const MIN_POSTS = 6;         // if the age limit leaves fewer, keep the newest anyway
+const MIN_POSTS = 6;
+const MEDIA_MAX_HEIGHT = 820; // tall pictures are shown whole, centred, up to this height         // if the age limit leaves fewer, keep the newest anyway
 const TZ = 'America/New_York';
 
 const DEFAULTS = {
@@ -376,13 +380,24 @@ function renderPost(emptyMessage) {
   let media = null;
   if (p.media && p.media.src) {
     media = el('div', 'media');
-    const h = Math.round(Math.min(700, Math.max(380, 936 / (p.media.ratio || 1.6))));
-    media.style.height = `${h}px`;
+    media.style.height = `${mediaHeight(p.media.ratio)}px`;
+    // Blurred copy fills the frame so the real picture is never cropped
+    const backdrop = el('img', 'backdrop');
+    backdrop.alt = '';
+    backdrop.src = p.media.src;
     const img = el('img');
     img.alt = p.media.alt || '';
     img.src = p.media.src;
     img.onerror = () => { media.remove(); fitPost(box, false); };
-    media.append(img);
+    img.onload = () => {
+      // Older posts may not declare their proportions: use the real ones
+      if (!p.media.ratio && img.naturalWidth && img.naturalHeight) {
+        p.media.ratio = img.naturalWidth / img.naturalHeight;
+        media.style.height = `${mediaHeight(p.media.ratio)}px`;
+        fitPost(box, true);
+      }
+    };
+    media.append(backdrop, img);
     if (p.media.video) media.append(el('span', 'tag', 'Video'));
     else if (p.media.more > 0) media.append(el('span', 'tag', `+${p.media.more} photo${p.media.more > 1 ? 's' : ''}`));
     if (p.media.card) {
@@ -394,14 +409,23 @@ function renderPost(emptyMessage) {
     box.append(media);
   }
 
-  if (p.text) box.append(richText(p.text, 'text'));
-
-  const foot = el('div', 'foot');
+  // Text on the left, QR code on the right: leaves more room for the picture
+  const row = el('div', 'textrow');
+  if (p.text) row.append(richText(p.text, 'text'));
   const code = qrNode(p.url);
-  if (code) { foot.append(el('p', 'qr-label', 'Scan to open\non Bluesky')); foot.lastChild.style.whiteSpace = 'pre-line'; foot.append(code); }
-  box.append(foot);
+  if (code) {
+    const qr = el('div', 'qrbox');
+    qr.append(code, el('p', 'qr-label', 'Open on Bluesky'));
+    row.append(qr);
+  }
+  box.append(row);
 
   fitPost(box, !!media);
+}
+
+// Height that shows the whole picture at full width, within what the screen can hold
+function mediaHeight(ratio) {
+  return Math.round(Math.min(MEDIA_MAX_HEIGHT, Math.max(300, 936 / (ratio || 1.6))));
 }
 
 // Shrink the text, then the picture, until everything fits above the progress bar
@@ -409,7 +433,7 @@ function fitPost(box, hasMedia) {
   const text = box.querySelector('.text');
   const media = box.querySelector('.media');
   let size = hasMedia && media ? 46 : 64;
-  const min = hasMedia && media ? 30 : 34;
+  const min = 36;
   if (text) {
     text.style.fontSize = `${size}px`;
     while (overflows(box) && size > min) { size -= 2; text.style.fontSize = `${size}px`; }
