@@ -87,7 +87,11 @@
   .chips input:focus { outline: none; }
   .toggle { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; color: var(--paper); font-size: 15px; }
   .toggle input { width: auto; }
-  .filter-body.off { opacity: .45; }
+  .filter-body.off, .x-body.off { opacity: .45; }
+  .beta { font-size: 12px; font-weight: 500; color: var(--navy-deep); background: var(--gold); border-radius: 10px; padding: 2px 9px; vertical-align: 3px; margin-left: 8px; }
+  .xtest { font-size: 14px; margin: 14px 0 0; }
+  .xtest.ok { color: var(--green); }
+  .xtest.err { color: var(--red); }
 
   .savebar { position: fixed; left: 0; right: 0; bottom: 0; background: #0A2342; border-top: 1px solid var(--rule); }
   .savebar-inner { max-width: 980px; margin: 0 auto; padding: 14px 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
@@ -146,6 +150,28 @@
       <textarea id="bulk" placeholder="Un compte par ligne, par exemple :&#10;un.org&#10;@unicef.org&#10;https://bsky.app/profile/unhcr.org"></textarea>
       <button type="button" id="bulk-add" style="margin-top:10px">Ajouter ces comptes</button>
     </details>
+  </section>
+
+  <section>
+    <h2>Comptes X <span class="beta">Expérimental</span></h2>
+    <p class="hint">Lus via FxTwitter, un service gratuit et non officiel qui peut cesser de fonctionner à tout moment. Si X ne répond plus, l'écran continue avec Bluesky seul et affiche « X paused » dans le coin.</p>
+    <label class="toggle"><input type="checkbox" id="x-on"> Afficher aussi les posts X</label>
+    <div class="x-body" id="x-body">
+      <label class="toggle"><input type="checkbox" id="x-translate"> Traduire en anglais les posts X rédigés dans une autre langue</label>
+      <div class="acc-head"><span></span><span>Compte X</span><span>Nom affiché</span><span>Pays</span><span>Vérification</span><span></span></div>
+      <div id="x-accounts"></div>
+      <div class="acc-tools">
+        <button type="button" id="x-add">Ajouter un compte</button>
+        <button type="button" class="ghost" id="x-test">Tester la connexion à X</button>
+        <span class="count" id="x-count"></span>
+      </div>
+      <p class="xtest" id="x-test-result"></p>
+      <details>
+        <summary>Coller plusieurs comptes d'un coup</summary>
+        <textarea id="x-bulk" placeholder="Un compte par ligne, par exemple :&#10;@UN&#10;https://x.com/antonioguterres&#10;UN_PGA"></textarea>
+        <button type="button" id="x-bulk-add" style="margin-top:10px">Ajouter ces comptes</button>
+      </details>
+    </div>
   </section>
 
   <section>
@@ -222,6 +248,7 @@
 'use strict';
 
 const API = 'https://public.api.bsky.app/xrpc';
+const FX_API = 'https://api.fxtwitter.com/2';
 const CONFIG_PATH = 'config.json';
 const BRANCH = 'main';
 const TOKEN_KEY = 'signage-editor:token';
@@ -229,7 +256,8 @@ const DEFAULTS = {
   display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky', show_logo: true },
   accounts: [],
   filter: { enabled: false, hashtags: [], keywords: [] },
-  feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true }
+  feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true },
+  x: { enabled: false, translate: true, accounts: [] }
 };
 
 let config = structuredClone(DEFAULTS);
@@ -380,6 +408,146 @@ $('bulk-add').onclick = () => {
   setStatus(added.length ? `${added.length} compte${added.length > 1 ? 's' : ''} ajouté${added.length > 1 ? 's' : ''}` : 'Aucun nouveau compte valide', added.length ? 'dirty' : 'err');
 };
 
+/* ---------- X accounts (via FxTwitter) ---------- */
+const xProfiles = new Map();
+function cleanXHandle(raw) {
+  let h = String(raw || '').trim();
+  const m = h.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]{1,15})/i);
+  if (m) h = m[1];
+  return h.replace(/^@/, '').replace(/[^A-Za-z0-9_]/g, '').slice(0, 15);
+}
+const validXHandle = h => /^[A-Za-z0-9_]{1,15}$/.test(h);
+
+function renderXState() { $('x-body').classList.toggle('off', !config.x.enabled); }
+
+async function lookupX(handle) {
+  if (!validXHandle(handle)) return;
+  xProfiles.set(handle.toLowerCase(), { state: 'loading' });
+  renderXChecks();
+  try {
+    const res = await fetch(`${FX_API}/profile/${encodeURIComponent(handle)}`);
+    const data = await res.json().catch(() => null);
+    const u = data && (data.user || data.profile || (data.screen_name ? data : null));
+    if (res.status === 404 || (data && data.code === 404)) xProfiles.set(handle.toLowerCase(), { state: 'missing' });
+    else if (!res.ok || !u) xProfiles.set(handle.toLowerCase(), { state: 'error' });
+    else {
+      const v = u.verification || {};
+      xProfiles.set(handle.toLowerCase(), { state: 'ok', avatar: u.avatar_url || '', name: u.name || '', vtype: v.verified ? (v.type || 'individual') : '' });
+      const acc = config.x.accounts.find(a => a.handle.toLowerCase() === handle.toLowerCase());
+      if (acc && !acc.name && u.name) { acc.name = u.name; renderXAccounts(); markDirty(); return; }
+    }
+  } catch (_) {
+    xProfiles.set(handle.toLowerCase(), { state: 'error' });
+  }
+  renderXChecks();
+}
+
+function xCheckLabel(handle) {
+  if (!handle) return ['', ''];
+  if (!validXHandle(handle)) return ['Identifiant invalide', 'err'];
+  if (!config.x.enabled) return ['', ''];
+  const p = xProfiles.get(handle.toLowerCase());
+  if (!p || p.state === 'loading') return ['Vérification…', ''];
+  if (p.state === 'missing') return ['Introuvable', 'err'];
+  if (p.state === 'error') return ['FxTwitter injoignable', 'warn'];
+  if (p.vtype === 'government') return ['✓ Gouvernement', 'ok'];
+  if (p.vtype === 'organization') return ['✓ Organisation', 'ok'];
+  if (p.vtype) return ['✓ Vérifié', 'ok'];
+  return ['Compte non vérifié', 'warn'];
+}
+
+function xAvatarEl(handle, name) {
+  const p = xProfiles.get(String(handle).toLowerCase());
+  const letter = (name || handle || '?').charAt(0).toUpperCase();
+  if (p && p.avatar) {
+    const img = el('img', { className: 'av', src: p.avatar, alt: '' });
+    img.onerror = () => img.replaceWith(el('div', { className: 'av av-empty', textContent: letter }));
+    return img;
+  }
+  return el('div', { className: 'av av-empty', textContent: letter });
+}
+
+function renderXAccounts() {
+  const box = $('x-accounts');
+  box.replaceChildren();
+  config.x.accounts.forEach((acc, i) => {
+    const row = el('div', { className: 'acc-row' });
+    row.dataset.handle = acc.handle;
+    const handle = el('input', { value: acc.handle, placeholder: 'UN', ariaLabel: 'Compte X' });
+    handle.oninput = () => { acc.handle = cleanXHandle(handle.value); row.dataset.handle = acc.handle; markDirty(); };
+    handle.onchange = () => { handle.value = acc.handle; handle.classList.toggle('bad', !!acc.handle && !validXHandle(acc.handle)); if (config.x.enabled) lookupX(acc.handle); };
+    const name = el('input', { value: acc.name || '', placeholder: 'Nom affiché', ariaLabel: 'Nom affiché' });
+    name.oninput = () => { acc.name = name.value; markDirty(); };
+    const country = el('input', { value: acc.country || '', placeholder: 'fr', maxLength: 2, ariaLabel: 'Code pays (drapeau)' });
+    country.oninput = () => { country.value = country.value.toLowerCase().replace(/[^a-z]/g, ''); acc.country = country.value; country.classList.toggle('bad', country.value.length === 1); markDirty(); };
+    const [label, kind] = xCheckLabel(acc.handle);
+    const check = el('span', { className: `check ${kind}`, textContent: label });
+    const del = el('button', { type: 'button', className: 'icon', textContent: '✕', ariaLabel: `Supprimer @${acc.handle}` });
+    del.onclick = () => { config.x.accounts.splice(i, 1); renderXAccounts(); markDirty(); };
+    row.append(xAvatarEl(acc.handle, acc.name), handle, name, country, check, del);
+    box.append(row);
+  });
+  $('x-count').textContent = `${config.x.accounts.length} compte${config.x.accounts.length > 1 ? 's' : ''}`;
+}
+
+function renderXChecks() {
+  document.querySelectorAll('#x-accounts .acc-row').forEach(row => {
+    const acc = config.x.accounts.find(a => a.handle === row.dataset.handle);
+    if (!acc) return;
+    const [label, kind] = xCheckLabel(acc.handle);
+    const check = row.querySelector('.check');
+    check.textContent = label;
+    check.className = `check ${kind}`;
+    row.firstChild.replaceWith(xAvatarEl(acc.handle, acc.name));
+  });
+}
+
+function addXAccount(raw) {
+  const h = cleanXHandle(raw);
+  if (!validXHandle(h) || config.x.accounts.some(a => a.handle.toLowerCase() === h.toLowerCase())) return null;
+  config.x.accounts.push({ handle: h, name: '', country: '' });
+  return h;
+}
+
+$('x-add').onclick = () => {
+  config.x.accounts.push({ handle: '', name: '', country: '' });
+  renderXAccounts();
+  markDirty();
+  const inputs = $('x-accounts').querySelectorAll('.acc-row input');
+  inputs[inputs.length - 3]?.focus();
+};
+
+$('x-bulk-add').onclick = () => {
+  const added = $('x-bulk').value.split(/[\n,;]+/).map(l => l.trim()).filter(l => l && !/\s/.test(l)).map(addXAccount).filter(Boolean);
+  $('x-bulk').value = '';
+  renderXAccounts();
+  if (config.x.enabled) added.forEach(lookupX);
+  if (added.length) markDirty();
+  setStatus(added.length ? `${added.length} compte${added.length > 1 ? 's' : ''} X ajouté${added.length > 1 ? 's' : ''}` : 'Aucun nouveau compte X valide', added.length ? 'dirty' : 'err');
+};
+
+// Same request the screen makes, so the result tells you whether X works from this network
+$('x-test').onclick = async () => {
+  const out = $('x-test-result');
+  const handle = (config.x.accounts.find(a => validXHandle(a.handle)) || { handle: 'UN' }).handle;
+  out.className = 'xtest';
+  out.textContent = `Test en cours avec @${handle}…`;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 10000);
+    const res = await fetch(`${FX_API}/profile/${encodeURIComponent(handle)}/statuses?count=5`, { signal: ctrl.signal });
+    clearTimeout(timer);
+    const data = await res.json();
+    const n = Array.isArray(data.results) ? data.results.length : 0;
+    if (!res.ok || !n) throw new Error(`réponse ${res.status}, aucun post`);
+    out.className = 'xtest ok';
+    out.textContent = `Ça marche : ${n} posts récupérés pour @${handle}. L'écran pourra afficher X depuis ce réseau.`;
+  } catch (err) {
+    out.className = 'xtest err';
+    out.textContent = `X ne répond pas depuis ce navigateur (${err.name === 'AbortError' ? 'délai dépassé' : err.message}). FxTwitter est peut-être en panne, ou le réseau le bloque. L'écran restera sur Bluesky.`;
+  }
+};
+
 /* ---------- Search ---------- */
 let searchTimer = null;
 let searchSeq = 0;
@@ -495,6 +663,8 @@ function bindFields() {
   bindCheck('images', config.feed, 'show_images');
   bindCheck('reposts', config.feed, 'include_reposts');
   bindCheck('filter-on', config.filter, 'enabled', renderFilterState);
+  bindCheck('x-on', config.x, 'enabled', () => { renderXState(); if (config.x.enabled) config.x.accounts.forEach(a => lookupX(a.handle)); });
+  bindCheck('x-translate', config.x, 'translate');
   $('show-logo').checked = config.display.show_logo !== false;
   $('show-logo').onchange = () => { config.display.show_logo = $('show-logo').checked; markDirty(); renderPreview(); };
 }
@@ -515,6 +685,8 @@ function renderAll() {
   renderHashtags();
   renderKeywords();
   renderAccounts();
+  renderXAccounts();
+  renderXState();
 }
 
 /* ---------- Export ---------- */
@@ -527,6 +699,8 @@ function mergeConfig(data) {
   out.filter.hashtags = Array.isArray(out.filter.hashtags) ? out.filter.hashtags : [];
   out.filter.keywords = Array.isArray(out.filter.keywords) ? out.filter.keywords : [];
   out.accounts = Array.isArray(data.accounts) ? data.accounts.filter(a => a && typeof a.handle === 'string').map(a => ({ handle: a.handle, name: a.name || '', country: a.country || '' })) : [];
+  out.x = { ...out.x, ...(data.x || {}) };
+  out.x.accounts = Array.isArray(out.x.accounts) ? out.x.accounts.filter(a => a && typeof a.handle === 'string').map(a => ({ handle: a.handle, name: a.name || '', country: a.country || '' })) : [];
   return out;
 }
 
@@ -539,6 +713,13 @@ function buildConfig() {
   if (bad) throw new Error(`Identifiant ou code pays invalide : ${bad.handle}`);
   const seen = new Set();
   for (const a of out.accounts) { if (seen.has(a.handle)) throw new Error(`${a.handle} est présent deux fois`); seen.add(a.handle); }
+  out.x.accounts = out.x.accounts
+    .map(a => ({ handle: cleanXHandle(a.handle), name: (a.name || '').trim(), country: (a.country || '').toLowerCase() }))
+    .filter(a => a.handle);
+  const badX = out.x.accounts.find(a => !validXHandle(a.handle) || !validCountry(a.country));
+  if (badX) throw new Error(`Compte X ou code pays invalide : @${badX.handle}`);
+  const seenX = new Set();
+  for (const a of out.x.accounts) { const k = a.handle.toLowerCase(); if (seenX.has(k)) throw new Error(`@${a.handle} est présent deux fois dans X`); seenX.add(k); }
   out.display.title = (out.display.title || '').trim() || 'UNGA81';
   return out;
 }
@@ -636,6 +817,7 @@ async function boot() {
   dirty = false;
   setStatus(data ? 'Réglages chargés' : 'Aucun config.json trouvé : valeurs par défaut', data ? '' : 'dirty');
   config.accounts.forEach(a => lookup(a.handle));
+  if (config.x.enabled) config.x.accounts.forEach(a => lookupX(a.handle));
 }
 boot();
 </script>
