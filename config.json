@@ -186,6 +186,96 @@
         "handle": "UNGeneva",
         "name": "United Nations Geneva",
         "country": ""
+      },
+      {
+        "handle": "UNPeacebuilding",
+        "name": "United Nations Peacebuilding and Peace Support",
+        "country": ""
+      },
+      {
+        "handle": "UNISNairobi",
+        "name": "United Nations Information Service in Nairobi",
+        "country": ""
+      },
+      {
+        "handle": "UN_Photo",
+        "name": "United Nations Photo",
+        "country": ""
+      },
+      {
+        "handle": "GermanyUN",
+        "name": "Germany in the United Nations",
+        "country": ""
+      },
+      {
+        "handle": "UNPOL",
+        "name": "United Nations Police",
+        "country": ""
+      },
+      {
+        "handle": "UN_OCT",
+        "name": "United Nations Office of Counter-Terrorism",
+        "country": ""
+      },
+      {
+        "handle": "UNIDIR",
+        "name": "United Nations Institute for Disarmament Research",
+        "country": ""
+      },
+      {
+        "handle": "RussiaUN",
+        "name": "Russia at the United Nations",
+        "country": ""
+      },
+      {
+        "handle": "UNOAU_",
+        "name": "United Nations Office to the African Union - UNOAU",
+        "country": ""
+      },
+      {
+        "handle": "UNinBrussels",
+        "name": "United Nations in Brussels",
+        "country": ""
+      },
+      {
+        "handle": "AlgeriaUN",
+        "name": "Permanent Mission of Algeria to the United Nations",
+        "country": ""
+      },
+      {
+        "handle": "UNSSC",
+        "name": "United Nations System Staff College",
+        "country": ""
+      },
+      {
+        "handle": "UNESCAP",
+        "name": "United Nations ESCAP",
+        "country": ""
+      },
+      {
+        "handle": "UNHaiti",
+        "name": "Nations Unies Haïti",
+        "country": ""
+      },
+      {
+        "handle": "ONUVENuevaYork",
+        "name": "🇻🇪🇺🇳Mission of Venezuela to the United Nations",
+        "country": ""
+      },
+      {
+        "handle": "CyprusinUN",
+        "name": "Cyprus Mission to the United Nations",
+        "country": ""
+      },
+      {
+        "handle": "RwandaUN",
+        "name": "Permanent Mission of Rwanda to The United Nations",
+        "country": ""
+      },
+      {
+        "handle": "UNOCHA_Pacific",
+        "name": "United Nations OCHA Office of the Pacific Islands",
+        "country": ""
       }
     ]
   }
