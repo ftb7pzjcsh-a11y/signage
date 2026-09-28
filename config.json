@@ -276,6 +276,46 @@
         "handle": "UNOCHA_Pacific",
         "name": "United Nations OCHA Office of the Pacific Islands",
         "country": ""
+      },
+      {
+        "handle": "UNDESA",
+        "name": "UN DESA",
+        "country": ""
+      },
+      {
+        "handle": "UN_PGA",
+        "name": "Khalilur Rahman",
+        "country": ""
+      },
+      {
+        "handle": "UNOCHA",
+        "name": "UN Humanitarian",
+        "country": ""
+      },
+      {
+        "handle": "UNHumanRights",
+        "name": "UN Human Rights",
+        "country": ""
+      },
+      {
+        "handle": "UNDP",
+        "name": "UN Development",
+        "country": ""
+      },
+      {
+        "handle": "UN_HRC",
+        "name": "UN Human Rights Council",
+        "country": ""
+      },
+      {
+        "handle": "UNPeacekeeping",
+        "name": "UN Peacekeeping",
+        "country": ""
+      },
+      {
+        "handle": "UNCTAD",
+        "name": "UN Trade and Development",
+        "country": ""
       }
     ]
   }
