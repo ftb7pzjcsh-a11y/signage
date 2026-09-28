@@ -1,7 +1,7 @@
 {
   "display": {
     "title": "United Nations",
-    "subtitle": "Official posts from the UN and Permanent Missions",
+    "subtitle": "Official posts from the UN on Social Media",
     "show_logo": true
   },
   "accounts": [
@@ -268,5 +268,8 @@
         "country": ""
       }
     ]
+  },
+  "ai": {
+    "headlines": true
   }
 }
