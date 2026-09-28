@@ -6,11 +6,6 @@
   },
   "accounts": [
     {
-      "handle": "un.org",
-      "name": "United Nations",
-      "country": ""
-    },
-    {
       "handle": "unicef.org",
       "name": "UNICEF",
       "country": ""
