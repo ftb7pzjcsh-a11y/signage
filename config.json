@@ -1,7 +1,8 @@
 {
   "display": {
     "title": "United Nations",
-    "subtitle": "Official posts from the UN family on Bluesky"
+    "subtitle": "Official posts from the UN family on Bluesky",
+    "show_logo": true
   },
   "accounts": [
     {
