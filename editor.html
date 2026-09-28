@@ -45,7 +45,9 @@
 
   .preview { background: #0A2342; border-radius: 10px; padding: 22px 26px; margin-top: 4px; border: 1px solid var(--rule); }
   .preview b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
-  .preview span { color: var(--muted); font-size: 15px; }
+  .preview span { color: var(--muted); font-size: 15px; display: block; }
+  .preview img { display: block; height: 56px; width: auto; margin-bottom: 10px; }
+  .preview [hidden] { display: none; }
 
   /* Search */
   .search { position: relative; margin-bottom: 18px; }
@@ -120,7 +122,8 @@
       <div class="field"><label for="title">Titre</label><input id="title" maxlength="24"></div>
       <div class="field"><label for="subtitle">Sous-titre</label><input id="subtitle" maxlength="80"></div>
     </div>
-    <div class="preview" aria-hidden="true"><b id="pv-title"></b><span id="pv-sub"></span></div>
+    <label class="toggle"><input type="checkbox" id="show-logo"> Afficher le logo des Nations Unies à la place du titre</label>
+    <div class="preview" aria-hidden="true"><img id="pv-logo" src="logo.png" alt=""><b id="pv-title"></b><span id="pv-sub"></span></div>
   </section>
 
   <section>
@@ -223,7 +226,7 @@ const CONFIG_PATH = 'config.json';
 const BRANCH = 'main';
 const TOKEN_KEY = 'signage-editor:token';
 const DEFAULTS = {
-  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky' },
+  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky', show_logo: true },
   accounts: [],
   filter: { enabled: false, hashtags: [], keywords: [] },
   feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true }
@@ -492,8 +495,17 @@ function bindFields() {
   bindCheck('images', config.feed, 'show_images');
   bindCheck('reposts', config.feed, 'include_reposts');
   bindCheck('filter-on', config.filter, 'enabled', renderFilterState);
+  $('show-logo').checked = config.display.show_logo !== false;
+  $('show-logo').onchange = () => { config.display.show_logo = $('show-logo').checked; markDirty(); renderPreview(); };
 }
-function renderPreview() { $('pv-title').textContent = config.display.title || ' '; $('pv-sub').textContent = config.display.subtitle || ''; }
+function renderPreview() {
+  const logo = config.display.show_logo !== false;
+  $('pv-logo').hidden = !logo;
+  $('pv-title').hidden = logo;
+  $('title').disabled = logo;
+  $('pv-title').textContent = config.display.title || ' ';
+  $('pv-sub').textContent = config.display.subtitle || '';
+}
 function renderFilterState() { $('filter-body').classList.toggle('off', !config.filter.enabled); }
 
 function renderAll() {

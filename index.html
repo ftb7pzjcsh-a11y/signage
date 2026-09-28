@@ -27,14 +27,16 @@
     transform-origin: 0 0;
     background: var(--navy);
     display: grid;
-    grid-template-rows: 250px minmax(0, 1fr) 500px 140px;
+    grid-template-rows: 270px minmax(0, 1fr) 500px 140px;
   }
 
   /* Header */
-  .head { padding: 56px 72px 32px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; border-bottom: 2px solid var(--rule); }
+  .head { padding: 50px 72px 30px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; border-bottom: 2px solid var(--rule); }
   .brand { min-width: 0; }
   .brand h1 { font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: .9; white-space: nowrap; }
-  .brand p { font-size: 30px; color: var(--muted); margin-top: 16px; line-height: 1.3; max-width: 600px; }
+  .brand .logo { display: block; height: 124px; width: auto; }
+  .brand .logo[hidden], .brand h1[hidden] { display: none; }
+  .brand p { font-size: 30px; color: var(--muted); margin-top: 18px; line-height: 1.3; max-width: 600px; }
   .status { text-align: right; font-size: 26px; color: var(--muted); line-height: 1.45; white-space: nowrap; }
   .status strong { color: var(--paper); font-weight: 500; }
   .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--un-blue); margin-right: 12px; vertical-align: 1px; animation: pulse 2.4s ease-in-out infinite; }
@@ -97,7 +99,8 @@
 <div id="stage">
   <header class="head">
     <div class="brand">
-      <h1 id="screen-title">UNGA81</h1>
+      <img id="screen-logo" class="logo" src="logo.png" alt="United Nations">
+      <h1 id="screen-title" hidden>UNGA81</h1>
       <p id="screen-subtitle">Official posts from the UN family on Bluesky</p>
     </div>
     <div class="status" id="status"><span class="dot"></span><strong id="status-main">Connecting…</strong><br><span id="status-sub">Live from Bluesky</span></div>
@@ -135,7 +138,7 @@ const MEDIA_MAX_HEIGHT = 820; // tall pictures are shown whole, centred, up to t
 const TZ = 'America/New_York';
 
 const DEFAULTS = {
-  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky' },
+  display: { title: 'UNGA81', subtitle: 'Official posts from the UN family on Bluesky', show_logo: true },
   accounts: [],
   filter: { enabled: false, hashtags: [], keywords: [] },
   feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true }
@@ -212,6 +215,8 @@ function qrNode(url) {
 
 /* ---------- Config ---------- */
 let cfg = structuredClone(DEFAULTS);
+let logoFailed = false;
+document.getElementById('screen-logo').onerror = () => { logoFailed = true; loadConfig(); };
 
 function mergeConfig(data) {
   const out = structuredClone(DEFAULTS);
@@ -229,6 +234,10 @@ async function loadConfig() {
     if (res.ok) cfg = mergeConfig(await res.json());
   } catch (_) { /* keep previous settings */ }
   $('screen-title').textContent = cfg.display.title || 'UNGA81';
+  // Logo by default; the title text is used when the logo is switched off or cannot load
+  const useLogo = cfg.display.show_logo !== false && !logoFailed;
+  $('screen-logo').hidden = !useLogo;
+  $('screen-title').hidden = useLogo;
   $('screen-subtitle').textContent = cfg.display.subtitle || '';
   document.title = cfg.display.title || 'Signage';
   fitTitle();
