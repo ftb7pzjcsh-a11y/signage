@@ -43,6 +43,106 @@
       "handle": "iom.int",
       "name": "IOM",
       "country": ""
+    },
+    {
+      "handle": "undrr.bsky.social",
+      "name": "United Nations Office for Disaster Risk Reduction (UNDRR)",
+      "country": ""
+    },
+    {
+      "handle": "un-water.bsky.social",
+      "name": "United Nations Water",
+      "country": ""
+    },
+    {
+      "handle": "unidir.org",
+      "name": "United Nations Institute for Disarmament Research",
+      "country": ""
+    },
+    {
+      "handle": "unodet.bsky.social",
+      "name": "United Nations Office for Digital and Emerging Technologies",
+      "country": ""
+    },
+    {
+      "handle": "unmas.bsky.social",
+      "name": "United Nations Mine Action Service",
+      "country": ""
+    },
+    {
+      "handle": "unbrussels.org",
+      "name": "United Nations in Brussels",
+      "country": ""
+    },
+    {
+      "handle": "onuvenuevayork.bsky.social",
+      "name": "🇻🇪🇺🇳 Permanent Mission of Venezuela to the United Nations",
+      "country": ""
+    },
+    {
+      "handle": "who.int",
+      "name": "WHO",
+      "country": ""
+    },
+    {
+      "handle": "tomfletcherun.bsky.social",
+      "name": "Tom Fletcher",
+      "country": ""
+    },
+    {
+      "handle": "unv.org",
+      "name": "UN Volunteers",
+      "country": ""
+    },
+    {
+      "handle": "unfpa.org",
+      "name": "UNFPA",
+      "country": ""
+    },
+    {
+      "handle": "wfp.org",
+      "name": "World Food Programme",
+      "country": ""
+    },
+    {
+      "handle": "new-york-un.diplo.de",
+      "name": "Germany UN New York",
+      "country": ""
+    },
+    {
+      "handle": "unrisd.org",
+      "name": "UNRISD",
+      "country": ""
+    },
+    {
+      "handle": "spainun.bsky.social",
+      "name": "España en la ONU",
+      "country": ""
+    },
+    {
+      "handle": "aminajmohammed.bsky.social",
+      "name": "Amina J. Mohammed",
+      "country": ""
+    },
+    {
+      "handle": "swiss-un.bsky.social",
+      "name": "Switzerland UN",
+      "country": ""
+    },
+    {
+      "handle": "uncdf.bsky.social",
+      "name": "UN Capital Development Fund",
+      "country": ""
+    },
+    {
+      "handle": "undppa.bsky.social",
+      "name": "Department of Political and Peacebuilding Affairs",
+      "country": ""
+    },
+    {
+      "handle": "hr-un.bsky.social",
+      "name": "Croatia at UN",
+      "country": ""
     }
   ],
   "filter": {
