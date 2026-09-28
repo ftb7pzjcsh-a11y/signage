@@ -1,7 +1,7 @@
 {
   "display": {
     "title": "United Nations",
-    "subtitle": "Official posts from the UN family on Bluesky",
+    "subtitle": "Official posts from the UN family on Social Media",
     "show_logo": true
   },
   "accounts": [
@@ -157,5 +157,36 @@
     "max_age_hours": 48,
     "include_reposts": false,
     "show_images": true
+  },
+  "x": {
+    "enabled": true,
+    "translate": true,
+    "accounts": [
+      {
+        "handle": "UN",
+        "name": "United Nations",
+        "country": ""
+      },
+      {
+        "handle": "UN_News_Centre",
+        "name": "UN News",
+        "country": ""
+      },
+      {
+        "handle": "antonioguterres",
+        "name": "António Guterres",
+        "country": ""
+      },
+      {
+        "handle": "UN_Women",
+        "name": "UN Women",
+        "country": ""
+      },
+      {
+        "handle": "UNGeneva",
+        "name": "United Nations Geneva",
+        "country": ""
+      }
+    ]
   }
 }
