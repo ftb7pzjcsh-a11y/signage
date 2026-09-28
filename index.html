@@ -27,14 +27,14 @@
     transform-origin: 0 0;
     background: var(--navy);
     display: grid;
-    grid-template-rows: 270px minmax(0, 1fr) 500px 140px;
+    grid-template-rows: auto minmax(0, 1fr) 500px 140px;
   }
 
   /* Header */
   .head { padding: 50px 72px 30px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; border-bottom: 2px solid var(--rule); }
   .brand { min-width: 0; }
   .brand h1 { font-size: 104px; font-weight: 900; letter-spacing: -3px; line-height: .9; white-space: nowrap; }
-  .brand .logo { display: block; height: 124px; width: auto; }
+  .brand .logo { display: block; height: 116px; width: auto; }
   .brand .logo[hidden], .brand h1[hidden] { display: none; }
   .brand p { font-size: 30px; color: var(--muted); margin-top: 18px; line-height: 1.3; max-width: 600px; }
   .status { text-align: right; font-size: 26px; color: var(--muted); line-height: 1.45; white-space: nowrap; }
@@ -48,8 +48,10 @@
 
   /* Featured post */
   .feature { padding: 52px 72px 40px; display: flex; flex-direction: column; position: relative; min-height: 0; overflow: hidden; }
-  .post { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; transition: opacity .6s ease, transform .6s ease; }
-  .post.out { opacity: 0; transform: translateY(12px); }
+  .viewport { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+  .post { position: absolute; inset: 0; overflow: hidden; display: flex; flex-direction: column; }
+  /* Swipe-up: fast start, soft landing, like a thumb flick on a phone */
+  .post.slide { transition: transform .75s cubic-bezier(.16, .84, .28, 1); will-change: transform; }
   .repost { font-size: 26px; color: var(--muted); margin-bottom: 18px; flex-shrink: 0; }
   .author { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
   .avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; background: var(--rule); flex-shrink: 0; }
@@ -58,7 +60,7 @@
   .name { font-size: 38px; font-weight: 700; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .name .flag { margin-right: 12px; }
   .meta { font-size: 27px; color: var(--muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .media { position: relative; margin-top: 36px; border-radius: 18px; overflow: hidden; background: var(--navy-deep); flex-shrink: 0; }
+  .media { position: relative; margin-top: 36px; border-radius: 30px; overflow: hidden; clip-path: inset(0 round 30px); isolation: isolate; background: var(--navy-deep); flex-shrink: 0; }
   .media img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
   .media img.backdrop { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(40px) brightness(.45); }
   .media .tag { position: absolute; top: 18px; left: 18px; background: rgba(6,23,45,.82); color: var(--paper); font-size: 22px; font-weight: 500; padding: 6px 16px; border-radius: 20px; }
@@ -71,9 +73,11 @@
   .textrow .textcol { flex: 1; min-width: 0; }
   .textrow .text { margin-top: 0; }
   .translated { font-size: 22px; color: var(--muted); margin-top: 12px; font-style: italic; }
-  .qrbox { margin-left: auto; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .qr-label { font-size: 21px; color: var(--muted); text-align: center; line-height: 1.3; }
-  .qr-code { width: 170px; height: 170px; background: #fff; padding: 11px; border-radius: 10px; }
+  .headline { font-size: 62px; font-weight: 700; line-height: 1.1; letter-spacing: -.8px; }
+  .text.small { font-weight: 400; color: var(--soft); margin-top: 18px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+  .qrbox { margin-left: auto; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .qr-label { font-size: 18px; white-space: nowrap; color: var(--muted); text-align: center; line-height: 1.3; }
+  .qr-code { width: 118px; height: 118px; background: #fff; padding: 8px; border-radius: 12px; }
   .qr-code svg { width: 100%; height: 100%; display: block; }
   .progress { position: absolute; left: 72px; right: 72px; bottom: 0; height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
   .progress i { display: block; height: 100%; width: 0; background: var(--un-blue); }
@@ -96,7 +100,7 @@
   .clock b { font-size: 54px; font-weight: 300; font-variant-numeric: tabular-nums; }
   .clock span { font-size: 26px; color: var(--muted); }
 
-  @media (prefers-reduced-motion: reduce) { .post { transition: none; } .dot { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .post.slide { transition: none; } .dot { animation: none; } }
 </style>
 </head>
 <body>
@@ -111,7 +115,7 @@
   </header>
 
   <section class="feature">
-    <div class="post" id="post"></div>
+    <div class="viewport" id="viewport"><div class="post" id="post"></div></div>
     <div class="progress"><i id="progress"></i></div>
   </section>
 
@@ -148,7 +152,8 @@ const DEFAULTS = {
   accounts: [],
   filter: { enabled: false, hashtags: [], keywords: [] },
   feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true },
-  x: { enabled: false, translate: true, accounts: [] }
+  x: { enabled: false, translate: true, accounts: [] },
+  ai: { headlines: false }
 };
 
 /* ---------- Stage scaling ---------- */
@@ -234,6 +239,7 @@ function mergeConfig(data) {
   out.accounts = Array.isArray(data.accounts) ? data.accounts.filter(a => a && a.handle) : [];
   out.x = { ...out.x, ...(data.x || {}) };
   out.x.accounts = Array.isArray(out.x.accounts) ? out.x.accounts.filter(a => a && a.handle) : [];
+  out.ai = { ...out.ai, ...(data.ai || {}) };
   return out;
 }
 
@@ -387,6 +393,29 @@ function matchesFilter(post) {
   return terms.some(t => hay.includes(t));
 }
 
+/* ---------- AI headlines (written every 30 min by the GitHub Action into ai.json) ---------- */
+let aiHeadlines = {};
+
+// Read ai.json from the published site and straight from the repository, keep the newest copy
+async function loadAI() {
+  if (!cfg.ai.headlines) { aiHeadlines = {}; return; }
+  const urls = [`ai.json?t=${Date.now()}`];
+  if (location.hostname.endsWith('.github.io')) {
+    const owner = location.hostname.split('.')[0];
+    const repo = location.pathname.split('/').filter(Boolean)[0];
+    if (repo) urls.push(`https://raw.githubusercontent.com/${owner}/${repo}/main/ai.json?t=${Date.now()}`);
+  }
+  const copies = await Promise.allSettled(urls.map(async u => {
+    const res = await fetchWithTimeout(u);
+    if (!res.ok) throw new Error(`ai.json HTTP ${res.status}`);
+    return res.json();
+  }));
+  const best = copies.filter(c => c.status === 'fulfilled' && c.value && c.value.headlines)
+    .map(c => c.value).sort((a, b) => Date.parse(b.generated_at || 0) - Date.parse(a.generated_at || 0))[0];
+  if (best) aiHeadlines = best.headlines;
+}
+const headlineFor = p => (cfg.ai.headlines && aiHeadlines[p.id] && aiHeadlines[p.id].headline) || '';
+
 /* ---------- State ---------- */
 let posts = [];
 let xHealthy = true;
@@ -398,6 +427,7 @@ let refreshTimer = null;
 
 async function refresh() {
   await loadConfig();
+  await loadAI().catch(err => console.warn(err));
   const byHandle = new Map(cfg.accounts.map(a => [String(a.handle).toLowerCase(), a]));
   const xOn = !!(cfg.x.enabled && cfg.x.accounts.length);
   const byXHandle = new Map(cfg.x.accounts.map(a => [String(a.handle).toLowerCase(), a]));
@@ -448,8 +478,8 @@ function renderStatus(online) {
 function rotationLength() { return Math.min(posts.length, ROTATION_SIZE); }
 function currentPost() { return posts.length ? posts[current % rotationLength()] : null; }
 
-function renderPost(emptyMessage) {
-  const box = $('post');
+let currentBox = null;
+function renderPost(emptyMessage, box = currentBox || (currentBox = $('post'))) {
   box.replaceChildren();
   const p = currentPost();
   if (!p) { box.append(el('p', 'empty', emptyMessage || '')); return; }
@@ -465,6 +495,13 @@ function renderPost(emptyMessage) {
   name.append(document.createTextNode(p.name));
   who.append(name, el('div', 'meta', `@${p.handle} on ${platformName(p)}  ·  ${ago(p.time)}`));
   author.append(who);
+  // Small QR code on the right of the account line, so the text can use the full width
+  const code = qrNode(p.url);
+  if (code) {
+    const qr = el('div', 'qrbox');
+    qr.append(code, el('p', 'qr-label', `Open on ${platformName(p)}`));
+    author.append(qr);
+  }
   box.append(author);
 
   let media = null;
@@ -499,19 +536,17 @@ function renderPost(emptyMessage) {
     box.append(media);
   }
 
-  // Text on the left, QR code on the right: leaves more room for the picture
   const row = el('div', 'textrow');
-  if (p.text) {
+  const headline = headlineFor(p);
+  if (p.text || headline) {
     const col = el('div', 'textcol');
-    col.append(richText(p.text, 'text'));
-    if (p.translatedFrom) col.append(el('p', 'translated', `Translated from ${p.translatedFrom}`));
+    if (headline) col.append(el('h2', 'headline', headline));
+    if (p.text) col.append(richText(p.text, headline ? 'text small' : 'text'));
+    const notes = [];
+    if (p.translatedFrom) notes.push(`Translated from ${p.translatedFrom}`);
+    if (headline) notes.push('Headline written by AI');
+    if (notes.length) col.append(el('p', 'translated', notes.join('  ·  ')));
     row.append(col);
-  }
-  const code = qrNode(p.url);
-  if (code) {
-    const qr = el('div', 'qrbox');
-    qr.append(code, el('p', 'qr-label', `Open on ${platformName(p)}`));
-    row.append(qr);
   }
   box.append(row);
 
@@ -527,6 +562,20 @@ function mediaHeight(ratio) {
 function fitPost(box, hasMedia) {
   const text = box.querySelector('.text');
   const media = box.querySelector('.media');
+  const head = box.querySelector('.headline');
+  if (head) {
+    // Body text gives way first, then the headline, then the picture
+    let hs = media ? 52 : 62, ts = media ? 30 : 36;
+    head.style.fontSize = `${hs}px`;
+    if (text) text.style.fontSize = `${ts}px`;
+    while (overflows(box) && text && ts > 26) { ts -= 2; text.style.fontSize = `${ts}px`; }
+    while (overflows(box) && hs > 40) { hs -= 2; head.style.fontSize = `${hs}px`; }
+    if (media) {
+      let h = parseInt(media.style.height, 10);
+      while (overflows(box) && h > 260) { h -= 20; media.style.height = `${h}px`; }
+    }
+    return;
+  }
   let size = hasMedia && media ? 46 : 64;
   const min = 36;
   if (text) {
@@ -550,7 +599,7 @@ function renderQueue() {
     row.append(avatarNode(p));
     const mid = el('div');
     mid.append(el('div', 'q-name', `${flag(p.country) ? flag(p.country) + ' ' : ''}${p.name}`));
-    mid.append(el('div', 'q-text', p.text || (p.media && p.media.card ? p.media.card.title : 'Photo')));
+    mid.append(el('div', 'q-text', headlineFor(p) || p.text || (p.media && p.media.card ? p.media.card.title : 'Photo')));
     row.append(mid, el('div', 'q-time', hm(p.time)));
     box.append(row);
   });
@@ -569,11 +618,30 @@ function startRotation() {
   rotateStartedAt = Date.now();
   rotateTimer = setInterval(() => {
     if (rotationLength() < 2) { rotateStartedAt = Date.now(); return; }
-    const box = $('post');
-    const swap = () => { current = (current + 1) % rotationLength(); renderPost(); renderQueue(); box.classList.remove('out'); rotateStartedAt = Date.now(); };
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) swap();
-    else { box.classList.add('out'); setTimeout(swap, 600); }
+    slideToNext();
   }, every);
+}
+
+// The next post comes up from below while the current one leaves through the top
+function slideToNext() {
+  const viewport = $('viewport');
+  const oldBox = currentBox || $('post');
+  current = (current + 1) % rotationLength();
+  const newBox = el('div', 'post');
+  viewport.append(newBox);
+  renderPost('', newBox);
+  currentBox = newBox;
+  renderQueue();
+  rotateStartedAt = Date.now();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { oldBox.remove(); return; }
+  const distance = viewport.clientHeight + 48;
+  newBox.style.transform = `translateY(${distance}px)`;
+  newBox.getBoundingClientRect(); // lock the start position before animating
+  oldBox.classList.add('slide');
+  newBox.classList.add('slide');
+  oldBox.style.transform = `translateY(${-distance}px)`;
+  newBox.style.transform = 'translateY(0)';
+  setTimeout(() => { oldBox.remove(); newBox.classList.remove('slide'); }, 900);
 }
 
 function tickProgress() {

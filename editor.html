@@ -175,6 +175,13 @@
   </section>
 
   <section>
+    <h2>Titres par IA <span class="beta">Expérimental</span></h2>
+    <p class="hint">Toutes les 30 minutes, GitHub écrit un titre court en anglais pour chaque nouveau post, avec un modèle d'IA gratuit (GitHub Models). L'écran l'affiche au-dessus du texte, avec la mention « Headline written by AI ». Sans titre disponible, le post s'affiche comme avant.</p>
+    <label class="toggle"><input type="checkbox" id="ai-on"> Afficher un titre court généré par IA pour chaque post</label>
+    <p class="xtest" id="ai-status"></p>
+  </section>
+
+  <section>
     <h2>Filtre par sujet</h2>
     <p class="hint">Désactivé, l'écran montre tous les posts des comptes listés. Activé, seulement ceux qui contiennent au moins un hashtag ou mot-clé.</p>
     <label class="toggle"><input type="checkbox" id="filter-on"> N'afficher que les posts sur ce sujet</label>
@@ -257,7 +264,8 @@ const DEFAULTS = {
   accounts: [],
   filter: { enabled: false, hashtags: [], keywords: [] },
   feed: { refresh_minutes: 5, rotate_seconds: 15, max_age_hours: 48, include_reposts: false, show_images: true },
-  x: { enabled: false, translate: true, accounts: [] }
+  x: { enabled: false, translate: true, accounts: [] },
+  ai: { headlines: false }
 };
 
 let config = structuredClone(DEFAULTS);
@@ -665,6 +673,7 @@ function bindFields() {
   bindCheck('filter-on', config.filter, 'enabled', renderFilterState);
   bindCheck('x-on', config.x, 'enabled', () => { renderXState(); if (config.x.enabled) config.x.accounts.forEach(a => lookupX(a.handle)); });
   bindCheck('x-translate', config.x, 'translate');
+  bindCheck('ai-on', config.ai, 'headlines');
   $('show-logo').checked = config.display.show_logo !== false;
   $('show-logo').onchange = () => { config.display.show_logo = $('show-logo').checked; markDirty(); renderPreview(); };
 }
@@ -699,6 +708,7 @@ function mergeConfig(data) {
   out.filter.hashtags = Array.isArray(out.filter.hashtags) ? out.filter.hashtags : [];
   out.filter.keywords = Array.isArray(out.filter.keywords) ? out.filter.keywords : [];
   out.accounts = Array.isArray(data.accounts) ? data.accounts.filter(a => a && typeof a.handle === 'string').map(a => ({ handle: a.handle, name: a.name || '', country: a.country || '' })) : [];
+  out.ai = { ...out.ai, ...(data.ai || {}) };
   out.x = { ...out.x, ...(data.x || {}) };
   out.x.accounts = Array.isArray(out.x.accounts) ? out.x.accounts.filter(a => a && typeof a.handle === 'string').map(a => ({ handle: a.handle, name: a.name || '', country: a.country || '' })) : [];
   return out;
@@ -818,6 +828,26 @@ async function boot() {
   setStatus(data ? 'Réglages chargés' : 'Aucun config.json trouvé : valeurs par défaut', data ? '' : 'dirty');
   config.accounts.forEach(a => lookup(a.handle));
   if (config.x.enabled) config.x.accounts.forEach(a => lookupX(a.handle));
+  showAIStatus();
+}
+
+// Shows when the GitHub Action last wrote headlines, so you can tell it is running
+async function showAIStatus() {
+  const out = $('ai-status');
+  try {
+    const res = await fetch(`ai.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const n = Object.keys(data.headlines || {}).length;
+    const when = new Date(data.generated_at);
+    const t = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }).format(when);
+    const stale = Date.now() - when > 6 * 3600000;
+    out.className = `xtest ${stale ? 'err' : 'ok'}`;
+    out.textContent = `Dernière mise à jour des titres : ${t}, ${n} titre${n > 1 ? 's' : ''} disponible${n > 1 ? 's' : ''}.${stale ? ' Plus de 6 heures : vérifie l\'onglet Actions sur GitHub.' : ''}`;
+  } catch (_) {
+    out.className = 'xtest';
+    out.textContent = config.ai.headlines ? 'Aucun titre pour l\'instant. Le premier passage de GitHub a lieu dans les 30 minutes après l\'enregistrement.' : '';
+  }
 }
 boot();
 </script>
