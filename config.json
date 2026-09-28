@@ -71,11 +71,6 @@
       "country": ""
     },
     {
-      "handle": "onuvenuevayork.bsky.social",
-      "name": "🇻🇪🇺🇳 Permanent Mission of Venezuela to the United Nations",
-      "country": ""
-    },
-    {
       "handle": "who.int",
       "name": "WHO",
       "country": ""
@@ -101,28 +96,13 @@
       "country": ""
     },
     {
-      "handle": "new-york-un.diplo.de",
-      "name": "Germany UN New York",
-      "country": ""
-    },
-    {
       "handle": "unrisd.org",
       "name": "UNRISD",
       "country": ""
     },
     {
-      "handle": "spainun.bsky.social",
-      "name": "España en la ONU",
-      "country": ""
-    },
-    {
       "handle": "aminajmohammed.bsky.social",
       "name": "Amina J. Mohammed",
-      "country": ""
-    },
-    {
-      "handle": "swiss-un.bsky.social",
-      "name": "Switzerland UN",
       "country": ""
     },
     {
@@ -133,11 +113,6 @@
     {
       "handle": "undppa.bsky.social",
       "name": "Department of Political and Peacebuilding Affairs",
-      "country": ""
-    },
-    {
-      "handle": "hr-un.bsky.social",
-      "name": "Croatia at UN",
       "country": ""
     }
   ],
@@ -203,11 +178,6 @@
         "country": ""
       },
       {
-        "handle": "GermanyUN",
-        "name": "Germany in the United Nations",
-        "country": ""
-      },
-      {
         "handle": "UNPOL",
         "name": "United Nations Police",
         "country": ""
@@ -223,11 +193,6 @@
         "country": ""
       },
       {
-        "handle": "RussiaUN",
-        "name": "Russia at the United Nations",
-        "country": ""
-      },
-      {
         "handle": "UNOAU_",
         "name": "United Nations Office to the African Union - UNOAU",
         "country": ""
@@ -235,11 +200,6 @@
       {
         "handle": "UNinBrussels",
         "name": "United Nations in Brussels",
-        "country": ""
-      },
-      {
-        "handle": "AlgeriaUN",
-        "name": "Permanent Mission of Algeria to the United Nations",
         "country": ""
       },
       {
@@ -255,21 +215,6 @@
       {
         "handle": "UNHaiti",
         "name": "Nations Unies Haïti",
-        "country": ""
-      },
-      {
-        "handle": "ONUVENuevaYork",
-        "name": "🇻🇪🇺🇳Mission of Venezuela to the United Nations",
-        "country": ""
-      },
-      {
-        "handle": "CyprusinUN",
-        "name": "Cyprus Mission to the United Nations",
-        "country": ""
-      },
-      {
-        "handle": "RwandaUN",
-        "name": "Permanent Mission of Rwanda to The United Nations",
         "country": ""
       },
       {
@@ -315,6 +260,11 @@
       {
         "handle": "UNCTAD",
         "name": "UN Trade and Development",
+        "country": ""
+      },
+      {
+        "handle": "UN_SDG",
+        "name": "UN Sustainable Development Group 🇺🇳",
         "country": ""
       }
     ]
