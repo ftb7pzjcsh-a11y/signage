@@ -266,6 +266,61 @@
         "handle": "UN_SDG",
         "name": "UN Sustainable Development Group 🇺🇳",
         "country": ""
+      },
+      {
+        "handle": "UNMAS",
+        "name": "United Nations Mine Action Service (UNMAS)",
+        "country": ""
+      },
+      {
+        "handle": "UNinIndia",
+        "name": "United Nations in India",
+        "country": ""
+      },
+      {
+        "handle": "MelissaFleming",
+        "name": "Melissa Fleming 🇺🇳",
+        "country": ""
+      },
+      {
+        "handle": "RefugeesMedia",
+        "name": "UNHCR News",
+        "country": ""
+      },
+      {
+        "handle": "IOMchief",
+        "name": "Amy Pope",
+        "country": ""
+      },
+      {
+        "handle": "reliefweb",
+        "name": "ReliefWeb",
+        "country": ""
+      },
+      {
+        "handle": "UN_OSCSEA",
+        "name": "UN Office of the Special Coordinator SEA",
+        "country": ""
+      },
+      {
+        "handle": "UNESCO_DG",
+        "name": "Khaled El-Enany",
+        "country": ""
+      },
+      {
+        "handle": "rafaelmgrossi",
+        "name": "Rafael Mariano Grossi",
+        "country": ""
+      },
+      {
+        "handle": "IOMSpokesperson",
+        "name": "Mohammedali Abunajela",
+        "country": ""
+      },
+      {
+        "handle": "felipepaullier",
+        "name": "Felipe Paullier",
+        "country": ""
       }
     ]
   },
