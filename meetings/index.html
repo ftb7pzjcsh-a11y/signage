@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Programme of Meetings</title>
+<style>
+  :root {
+    --bg: #071A33;
+    --bg-deep: #04112A;
+    --panel: #0C2547;
+    --un-blue: #009EDB;
+    --ink: #F4F7FA;
+    --soft: #C3D2E2;
+    --muted: #8FA6BF;
+    --rule: #1A3A62;
+    --amber: #F5B43C;
+    --font: Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg-deep); overflow: hidden; }
+  body { font-family: var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  #stage {
+    position: absolute; top: 0; left: 0;
+    width: 1080px; height: 1920px;
+    transform-origin: 0 0;
+    background: var(--bg);
+    display: grid;
+    grid-template-rows: 250px minmax(0, 1fr) 190px;
+  }
+
+  /* Header */
+  .head { padding: 48px 64px 28px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--rule); }
+  .logo { display: block; height: 72px; width: auto; margin-bottom: 18px; }
+  .logo[hidden] { display: none; }
+  .head h1 { font-size: 50px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+  .head .date { font-size: 28px; color: var(--muted); margin-top: 12px; }
+  .clock { text-align: right; }
+  .clock b { display: block; font-size: 112px; font-weight: 300; line-height: .9; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+  .clock span { font-size: 24px; color: var(--muted); }
+
+  /* Board */
+  .board { padding: 34px 64px 0; display: flex; flex-direction: column; gap: 26px; min-height: 0; overflow: hidden; }
+  .section[hidden] { display: none; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; height: 54px; }
+  .sec-head h2 { font-size: 34px; font-weight: 700; letter-spacing: .2px; }
+  .sec-head .count { font-size: 24px; color: var(--muted); }
+  .sec-head .pager { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+  .pager i { width: 12px; height: 12px; border-radius: 50%; background: var(--rule); display: block; transition: background .3s, transform .3s; }
+  .pager i.on { background: var(--un-blue); transform: scale(1.25); }
+  .live-dot { width: 18px; height: 18px; border-radius: 50%; background: #3ED17C; align-self: center; box-shadow: 0 0 0 0 rgba(62,209,124,.6); animation: ping 2s infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(62,209,124,.55); } 70% { box-shadow: 0 0 0 16px rgba(62,209,124,0); } 100% { box-shadow: 0 0 0 0 rgba(62,209,124,0); } }
+  .next-dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--un-blue); align-self: center; }
+
+  .rows { perspective: 1400px; }
+  .row {
+    position: relative; height: 116px; display: grid;
+    grid-template-columns: 138px 88px minmax(0, 1fr) 180px; gap: 22px; align-items: center;
+    padding: 0 22px; margin-bottom: 10px; border-radius: 18px; background: var(--panel); overflow: hidden;
+    transform-origin: 50% 0;
+  }
+  /* Split-flap entrance: each row folds down into place, one after the other */
+  .row.flip { animation: flip .55s cubic-bezier(.3, 1.4, .5, 1) both; }
+  @keyframes flip { 0% { transform: rotateX(-92deg); opacity: 0; } 60% { opacity: 1; } 100% { transform: rotateX(0); opacity: 1; } }
+  .row.cancelled { opacity: .55; }
+  .row.cancelled .body, .row.cancelled .title { text-decoration: line-through; }
+
+  .time b { display: block; font-size: 44px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1; }
+  .time span { display: block; font-size: 21px; color: var(--muted); margin-top: 8px; font-variant-numeric: tabular-nums; }
+  .time em { font-style: italic; font-size: 26px; color: var(--soft); }
+  .room { width: 88px; height: 88px; border-radius: 20px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 34px; letter-spacing: -.5px; text-align: center; line-height: 1; }
+  .room.small { font-size: 22px; letter-spacing: 0; }
+  .txt { min-width: 0; }
+  .body { font-size: 33px; font-weight: 700; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title { font-size: 25px; color: var(--soft); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+  .tags { display: flex; gap: 8px; align-items: center; margin-top: 6px; white-space: nowrap; overflow: hidden; }
+  .tags .where { font-size: 21px; color: var(--muted); margin-right: 4px; }
+  .pill { font-size: 18px; font-weight: 500; padding: 3px 11px; border-radius: 12px; background: var(--rule); color: var(--soft); }
+  .pill.closed { background: rgba(255,255,255,.08); }
+  .pill.side { background: rgba(245,180,60,.16); color: var(--amber); }
+  .pill.cancel { background: rgba(229,83,61,.2); color: #FF8B78; }
+  .status { text-align: right; }
+  .status b { display: block; font-size: 30px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .status span { display: block; font-size: 21px; color: var(--muted); margin-top: 6px; }
+  .status.soon b { color: var(--amber); }
+  .bar { position: absolute; left: 0; bottom: 0; height: 6px; background: currentColor; opacity: .9; transition: width 1s linear; }
+  .bar.open { width: 100%; opacity: .35; background: repeating-linear-gradient(90deg, currentColor 0 18px, transparent 18px 30px); }
+
+  .empty { font-size: 36px; color: var(--muted); line-height: 1.35; padding: 30px 0; }
+
+  /* Footer */
+  .foot { border-top: 2px solid var(--rule); background: var(--bg-deep); padding: 26px 64px; display: grid; grid-template-columns: 124px 1fr auto; gap: 26px; align-items: center; }
+  .qr { width: 124px; height: 124px; background: #fff; padding: 9px; border-radius: 14px; }
+  .qr svg { width: 100%; height: 100%; display: block; }
+  .foot .info b { display: block; font-size: 26px; font-weight: 500; }
+  .foot .info span { display: block; font-size: 20px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+  .foot .info .disclaimer[hidden] { display: none; }
+  .foot .upd { text-align: right; font-size: 21px; color: var(--muted); line-height: 1.5; white-space: nowrap; }
+  .foot .upd.stale { color: var(--amber); }
+  .sample { display: inline-block; background: var(--amber); color: var(--bg-deep); font-weight: 700; font-size: 18px; padding: 3px 12px; border-radius: 12px; }
+  .sample[hidden] { display: none; }
+
+  @media (prefers-reduced-motion: reduce) { .row.flip { animation: none; } .live-dot { animation: none; } }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header class="head">
+    <div>
+      <img id="logo" class="logo" src="../logo.png" alt="United Nations">
+      <h1 id="title">Programme of Meetings</h1>
+      <p class="date" id="date"></p>
+    </div>
+    <div class="clock"><b id="clock">--:--</b><span>New York</span></div>
+  </header>
+
+  <main class="board" id="board">
+    <section class="section" id="now-sec">
+      <div class="sec-head"><span class="live-dot"></span><h2>In progress</h2><span class="count" id="now-count"></span><div class="pager" id="now-pager"></div></div>
+      <div class="rows" id="now-rows"></div>
+    </section>
+    <section class="section" id="next-sec">
+      <div class="sec-head"><span class="next-dot"></span><h2 id="next-label">Coming up</h2><span class="count" id="next-count"></span><div class="pager" id="next-pager"></div></div>
+      <div class="rows" id="next-rows"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="qr" id="qr"></div>
+    <div class="info">
+      <b>Full programme in the Journal of the United Nations</b>
+      <span>journal.un.org</span>
+      <span class="disclaimer" id="disclaimer" hidden>Side events: the content is solely the responsibility of the sponsor (ST/AI/2019/4).</span>
+    </div>
+    <div class="upd" id="upd"><span class="sample" id="sample" hidden>Sample data</span><br><span id="upd-text"></span></div>
+  </footer>
+</div>
+
+<script src="../qrcode.js"></script>
+<script>
+'use strict';
+
+const DATA_PATH = 'meetings.json';
+const CONFIG_PATH = 'config.json';
+const TZ = 'America/New_York';
+const ROW_H = 126;             // row height + gap
+const REFRESH_MS = 2 * 60000;  // re-read the data every 2 minutes
+const SOON_MIN = 30;           // "in 25 min" turns amber below this
+const DEFAULTS = { title: 'Programme of Meetings', show_logo: true, show_closed: true, show_side_events: true, hide_rooms: [], page_seconds: 10 };
+
+/* ---------- Stage scaling ---------- */
+const stage = document.getElementById('stage');
+function fit() {
+  const s = Math.min(innerWidth / 1080, innerHeight / 1920);
+  stage.style.transform = `scale(${s})`;
+  stage.style.left = `${(innerWidth - 1080 * s) / 2}px`;
+  stage.style.top = `${(innerHeight - 1920 * s) / 2}px`;
+}
+addEventListener('resize', fit);
+fit();
+
+/* ---------- Time in New York ---------- */
+// Meeting times come as New York wall-clock strings ("2026-10-06T10:00:00"), so "now" is built the same way.
+// Add ?now=2026-10-06T11:40 to the address to preview another moment.
+const override = new URLSearchParams(location.search).get('now');
+const overrideOffset = override ? Date.parse(override + (override.length === 16 ? ':00' : '') + 'Z') - Date.now() : 0;
+function nyNow() {
+  if (override) return new Date(Date.now() + overrideOffset).toISOString().slice(0, 19);
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' })
+    .formatToParts(new Date()).map(x => [x.type, x.value]));
+  return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`;
+}
+const toMs = s => Date.parse(s.slice(0, 19) + 'Z');
+const hhmm = s => s.slice(11, 16);
+const dayLabel = (d, opts) => new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', ...opts }).format(new Date(d + 'T12:00:00Z'));
+
+function span(min) {
+  const m = Math.max(0, Math.round(min));
+  if (m < 60) return `${m} min`;
+  const h = Math.floor(m / 60), r = m % 60;
+  return r ? `${h} h ${String(r).padStart(2, '0')}` : `${h} h`;
+}
+
+/* ---------- Rooms ---------- */
+function roomStyle(m) {
+  const code = (m.roomCode || '').toUpperCase();
+  const name = (m.room || '').toLowerCase();
+  if (code === 'SCC' || name.includes('sc chamber') || name.includes('security council')) return ['SC', '#E0533F', false];
+  if (code === 'ECO' || name.includes('ecosoc')) return ['ECOSOC', '#21A574', true];
+  if (code === 'TRI' || name.includes('trusteeship')) return ['TC', '#7C67E8', false];
+  if (name.includes('general assembly hall') || code === 'GAH' || code === 'GA') return ['GA', '#D79A1E', false];
+  if (/^[A-Z]$/.test(code)) return [code, '#1C9AA8', false];
+  if (/^\d{1,2}$/.test(code)) return [code, '#0A84C6', false];
+  const short = code || (m.room || '?').slice(0, 3);
+  return [short, '#4A6A92', short.length > 3];
+}
+
+// Chambers first (Security Council, General Assembly, ECOSOC, Trusteeship), then rooms in numeric order
+function roomRank(m) {
+  const [code] = roomStyle(m);
+  const top = { SC: 0, GA: 1, ECOSOC: 2, TC: 3 };
+  if (code in top) return top[code];
+  if (/^\d+$/.test(code)) return 10 + Number(code);
+  if (/^[A-Z]$/.test(code)) return 100 + code.charCodeAt(0);
+  return 200;
+}
+const byTimeThenRoom = (a, b) => a.from.localeCompare(b.from) || roomRank(a) - roomRank(b);
+
+/* ---------- Helpers ---------- */
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+/* ---------- State ---------- */
+let cfg = { ...DEFAULTS };
+let data = null;
+let lastLoadOk = 0;
+const pages = { now: 0, next: 0 };
+let lastSignature = '';
+
+async function fetchJSON(url) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 10000);
+  try {
+    const res = await fetch(url, { cache: 'no-store', signal: ctrl.signal });
+    if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+    return await res.json();
+  } finally { clearTimeout(t); }
+}
+
+// Reads the published copy and the repository copy, keeps the most recent one
+async function load() {
+  try { cfg = { ...DEFAULTS, ...(await fetchJSON(`${CONFIG_PATH}?t=${Date.now()}`)) }; } catch (_) {}
+  const urls = [`${DATA_PATH}?t=${Date.now()}`];
+  if (location.hostname.endsWith('.github.io')) {
+    const owner = location.hostname.split('.')[0];
+    const repo = location.pathname.split('/').filter(Boolean)[0];
+    if (repo) urls.push(`https://raw.githubusercontent.com/${owner}/${repo}/main/meetings/meetings.json?t=${Date.now()}`);
+  }
+  const copies = await Promise.allSettled(urls.map(fetchJSON));
+  const best = copies.filter(c => c.status === 'fulfilled' && c.value && Array.isArray(c.value.days)).map(c => c.value)
+    .sort((a, b) => Date.parse(b.fetched_at || 0) - Date.parse(a.fetched_at || 0))[0];
+  if (best) { data = best; lastLoadOk = Date.now(); }
+  applyChrome();
+  render(true);
+}
+
+function applyChrome() {
+  $('title').textContent = cfg.title || DEFAULTS.title;
+  $('logo').hidden = cfg.show_logo === false;
+  $('sample').hidden = !(data && data.sample);
+}
+
+function visible(meetings) {
+  const hide = (cfg.hide_rooms || []).map(r => String(r).toLowerCase().trim()).filter(Boolean);
+  return meetings.filter(m =>
+    (cfg.show_closed !== false || !m.closed) &&
+    (cfg.show_side_events !== false || m.intergov) &&
+    !hide.some(h => h === (m.roomCode || '').toLowerCase() || (m.room || '').toLowerCase().includes(h)));
+}
+
+/* ---------- Rows ---------- */
+function rowFor(m, mode, now) {
+  const [code, color, small] = roomStyle(m);
+  const row = el('div', `row${m.cancelled ? ' cancelled' : ''}`);
+  row.style.color = color;
+
+  const time = el('div', 'time');
+  if (m.showFrom) time.append(el('b', null, hhmm(m.from)));
+  else time.append(el('em', null, 'following'));
+  if (m.showTo) time.append(el('span', null, `to ${hhmm(m.to)}`));
+  time.style.color = 'var(--ink)';
+
+  const room = el('div', `room${small || code.length > 3 ? ' small' : ''}`, code);
+  room.style.background = color;
+
+  const txt = el('div', 'txt');
+  txt.style.color = 'var(--ink)';
+  txt.append(el('div', 'body', m.body));
+  if (m.title) txt.append(el('div', 'title', m.title));
+  const tags = el('div', 'tags');
+  tags.append(el('span', 'where', m.room));
+  if (m.cancelled) tags.append(el('span', 'pill cancel', 'Cancelled'));
+  if (m.closed) tags.append(el('span', 'pill closed', 'Closed'));
+  if (m.informal) tags.append(el('span', 'pill', 'Informal'));
+  if (!m.intergov) tags.append(el('span', 'pill side', 'Side event'));
+  txt.append(tags);
+
+  const status = el('div', 'status');
+  status.style.color = 'var(--ink)';
+  const nowMs = toMs(now);
+  if (mode === 'now') {
+    const left = (toMs(m.to) - nowMs) / 60000;
+    if (m.showTo) { status.append(el('b', null, `${span(left)} left`), el('span', null, `ends ${hhmm(m.to)}`)); }
+    else status.append(el('b', null, 'Ongoing'), el('span', null, `since ${hhmm(m.from)}`));
+    const bar = el('i', `bar${m.showTo ? '' : ' open'}`);
+    if (m.showTo) {
+      const p = Math.min(1, Math.max(0, (nowMs - toMs(m.from)) / (toMs(m.to) - toMs(m.from))));
+      bar.style.width = `${(p * 100).toFixed(1)}%`;
+    }
+    row.append(bar);
+  } else if (mode === 'next') {
+    const until = (toMs(m.from) - nowMs) / 60000;
+    if (m.cancelled) status.append(el('b', null, '—'));
+    else {
+      status.append(el('b', null, until < 1 ? 'Starting' : `in ${span(until)}`));
+      if (until <= SOON_MIN) status.classList.add('soon');
+      if (!m.showFrom) status.append(el('span', null, 'time approx.'));
+    }
+  } else {
+    status.append(el('b', null, m.showFrom ? hhmm(m.from) : ''));
+  }
+
+  row.append(time, room, txt, status);
+  return row;
+}
+
+function pager(box, count, index) {
+  box.replaceChildren();
+  if (count < 2) return;
+  for (let i = 0; i < count; i++) box.append(el('i', i === index ? 'on' : ''));
+}
+
+function fillSection(key, list, rowsAvail, mode, now, animate) {
+  const rowsBox = $(`${key}-rows`);
+  const pageCount = Math.max(1, Math.ceil(list.length / rowsAvail));
+  pages[key] = pages[key] % pageCount;
+  const slice = list.slice(pages[key] * rowsAvail, (pages[key] + 1) * rowsAvail);
+  rowsBox.replaceChildren();
+  rowsBox.style.height = `${rowsAvail * ROW_H}px`;
+  slice.forEach((m, i) => {
+    const r = rowFor(m, mode, now);
+    if (animate) { r.classList.add('flip'); r.style.animationDelay = `${i * 70}ms`; }
+    rowsBox.append(r);
+  });
+  pager($(`${key}-pager`), pageCount, pages[key]);
+  return pageCount;
+}
+
+/* ---------- Board ---------- */
+function render(animate) {
+  const now = nyNow();
+  const today = now.slice(0, 10);
+  $('clock').textContent = now.slice(11, 16);
+  $('date').textContent = dayLabel(today, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+  const updText = $('upd-text');
+  const upd = $('upd');
+  if (data && data.fetched_at) {
+    const t = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(data.fetched_at));
+    updText.textContent = `Updated ${t}`;
+    upd.classList.toggle('stale', !data.sample && Date.now() - Date.parse(data.fetched_at) > 3 * 3600000);
+  }
+
+  const days = (data && data.days) || [];
+  const todayData = days.find(d => d.date === today);
+  const tomorrowData = days.find(d => d.date > today);
+  const all = visible(todayData ? todayData.meetings : []);
+  const current = all.filter(m => !m.cancelled && m.from <= now && now < m.to).sort((a, b) => roomRank(a) - roomRank(b) || a.from.localeCompare(b.from));
+  let upcoming = all.filter(m => m.from > now).sort(byTimeThenRoom);
+  let nextMode = 'next';
+  $('next-label').textContent = 'Coming up';
+  if (!upcoming.length && tomorrowData) {
+    upcoming = visible(tomorrowData.meetings).sort(byTimeThenRoom);
+    nextMode = 'tomorrow';
+    $('next-label').textContent = `Tomorrow, ${dayLabel(tomorrowData.date, { weekday: 'long', day: 'numeric', month: 'long' })}`;
+  }
+
+  // Share the rows between the two sections
+  const boardH = $('board').clientHeight;
+  const totalRows = Math.max(2, Math.floor((boardH - (current.length ? 80 : 0) - 80 - 26) / ROW_H));
+  let nowRows = 0;
+  if (current.length) nowRows = upcoming.length ? Math.min(current.length, Math.ceil(totalRows / 2)) : Math.min(current.length, totalRows);
+  const nextRows = Math.max(1, totalRows - nowRows);
+
+  $('now-sec').hidden = !current.length;
+  $('now-count').textContent = current.length ? `${current.length} meeting${current.length > 1 ? 's' : ''}` : '';
+  $('next-count').textContent = upcoming.length ? `${upcoming.length} meeting${upcoming.length > 1 ? 's' : ''}` : '';
+
+  // Only replay the flip when what is on screen actually changes
+  const signature = JSON.stringify([current.map(m => m.id), upcoming.map(m => m.id), pages, nowRows, nextRows]);
+  const changed = signature !== lastSignature;
+  lastSignature = signature;
+
+  if (current.length) pageCounts.now = fillSection('now', current, nowRows, 'now', now, changed);
+  else pageCounts.now = 1;
+  if (upcoming.length) pageCounts.next = fillSection('next', upcoming, nextRows, nextMode, now, changed);
+  else {
+    pageCounts.next = 1;
+    $('next-rows').style.height = 'auto';
+    $('next-pager').replaceChildren();
+    $('next-rows').replaceChildren(el('p', 'empty', data ? 'No more meetings scheduled today.' : 'Loading the programme…'));
+    if (data && !todayData) $('next-rows').firstChild.textContent = 'The programme is not available right now. See journal.un.org.';
+  }
+
+  $('disclaimer').hidden = ![...current, ...upcoming].some(m => !m.intergov);
+}
+const pageCounts = { now: 1, next: 1 };
+
+function turnPages() {
+  let moved = false;
+  for (const k of ['now', 'next']) {
+    if (pageCounts[k] > 1) { pages[k] = (pages[k] + 1) % pageCounts[k]; moved = true; }
+  }
+  if (moved) render(true);
+}
+
+/* ---------- Start ---------- */
+(function qr() {
+  if (typeof qrcode !== 'function') return;
+  const q = qrcode(0, 'M');
+  q.addData('https://journal.un.org/');
+  q.make();
+  $('qr').innerHTML = q.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+})();
+
+load();
+setInterval(load, REFRESH_MS);
+setInterval(() => render(false), 15000);             // countdowns and progress bars
+setInterval(() => { $('clock').textContent = nyNow().slice(11, 16); }, 1000);
+(function schedulePages() { setTimeout(() => { turnPages(); schedulePages(); }, Math.max(5, cfg.page_seconds || 10) * 1000); })();
+setTimeout(() => location.reload(), 12 * 3600 * 1000);
+</script>
+</body>
+</html>
