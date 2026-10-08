@@ -241,9 +241,18 @@ async function load() {
   const copies = await Promise.allSettled(urls.map(fetchJSON));
   const best = copies.filter(c => c.status === 'fulfilled' && c.value && Array.isArray(c.value.days)).map(c => c.value)
     .sort((a, b) => Date.parse(b.fetched_at || 0) - Date.parse(a.fetched_at || 0))[0];
-  if (best) { data = best; lastLoadOk = Date.now(); }
+  if (best) { data = best.sample ? replayOnToday(best) : best; lastLoadOk = Date.now(); }
   applyChrome();
   render(true);
+}
+
+// Sample data is shown as if it were today's programme, so the demo stays alive until the real feed arrives
+function replayOnToday(d) {
+  const today = nyNow().slice(0, 10);
+  const first = d.days && d.days[0];
+  if (!first || first.date === today) return d;
+  const shift = s => today + s.slice(10);
+  return { ...d, fetched_at: new Date().toISOString(), days: [{ date: today, meetings: first.meetings.map(m => ({ ...m, from: shift(m.from), to: shift(m.to) })) }] };
 }
 
 function applyChrome() {
