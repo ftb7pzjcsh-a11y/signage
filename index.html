@@ -729,16 +729,26 @@ function playVideo(box) {
     if (mine() && v._extended) scheduleNext(Math.min(rotateMs(), 5000));
   };
 
-  if (media.hls && !v.canPlayType('application/vnd.apple.mpegurl')) {
-    if (!(window.Hls && Hls.isSupported())) { giveUp(); return; }
+  // Start (or restart) playback once there is something to play
+  const kick = () => {
+    if (!v.paused || !v.isConnected) return;
+    const go = v.play();
+    if (go && go.catch) go.catch(err => { if (err && err.name !== 'AbortError') giveUp(); });
+  };
+  // Bluesky streams: hls.js first. Chrome now answers "maybe" for native HLS but then refuses these streams.
+  if (media.hls && window.Hls && Hls.isSupported()) {
     const h = new Hls({ capLevelToPlayerSize: true, maxBufferLength: 20, startLevel: -1 });
     h.on(Hls.Events.ERROR, (_, data) => { if (data && data.fatal) giveUp(); });
+    h.on(Hls.Events.MANIFEST_PARSED, kick);
     h.loadSource(media.stream);
     h.attachMedia(v);
     v._hls = h;
+  } else if (media.hls && !v.canPlayType('application/vnd.apple.mpegurl')) {
+    giveUp(); return;
   } else {
     v.src = media.stream;
   }
+  v.addEventListener('canplay', kick, { once: true });
 
   v.addEventListener('error', giveUp, { once: true });
   v.addEventListener('playing', () => {
@@ -752,8 +762,7 @@ function playVideo(box) {
     scheduleNext(Math.max(3000, left + 300));
   });
   v.addEventListener('ended', () => { if (mine() && !media.gif) advance(); });
-  const go = v.play();
-  if (go && go.catch) go.catch(err => { if (err && err.name !== 'AbortError') giveUp(); });
+  kick();
 }
 
 function stopVideos(box) {
