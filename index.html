@@ -63,6 +63,10 @@
   .name .flag { margin-right: 12px; }
   .meta { font-size: 27px; color: var(--muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .media { position: relative; margin-top: 36px; border-radius: 30px; overflow: hidden; clip-path: inset(0 round 30px); isolation: isolate; background: var(--navy-deep); flex-shrink: 0; }
+  /* Video posts: the frame takes the video's own shape (vertical, square or wide) and stays centred */
+  .media.hug { align-self: center; width: auto; max-width: 100%; }
+  .media.hug img.backdrop { display: none; }
+  .media.hug img { object-fit: cover; }
   .media img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
   .media img.backdrop { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(40px) brightness(.45); }
   .media video.play { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: transparent; opacity: 0; transition: opacity .5s ease; }
@@ -574,6 +578,7 @@ function renderPost(emptyMessage, box = currentBox || (currentBox = $('post'))) 
       // Older posts may not declare their proportions: use the real ones
       if (!p.media.ratio && img.naturalWidth && img.naturalHeight) {
         p.media.ratio = img.naturalWidth / img.naturalHeight;
+        if (media.classList.contains('hug')) media.style.aspectRatio = String(p.media.ratio);
         media.style.height = `${mediaHeight(p.media.ratio)}px`;
         fitPost(box, true);
       }
@@ -592,6 +597,18 @@ function renderPost(emptyMessage, box = currentBox || (currentBox = $('post'))) 
       if (p.media.src) v.poster = p.media.src;
       v._media = p.media;
       media.append(v);
+      media.classList.add('hug');
+      media.style.aspectRatio = String(p.media.ratio || 16 / 9);
+      // Some posts don't say how the video is shaped: read it from the video itself
+      v.addEventListener('loadedmetadata', () => {
+        if (!v.videoWidth || !v.videoHeight) return;
+        const r = v.videoWidth / v.videoHeight;
+        if (p.media.ratio && Math.abs(r - p.media.ratio) / p.media.ratio < 0.04) return;
+        p.media.ratio = r;
+        media.style.aspectRatio = String(r);
+        media.style.height = `${mediaHeight(r)}px`;
+        fitPost(box, true);
+      });
     }
     if (p.media.video) media.append(el('span', 'tag', 'Video'));
     else if (p.media.more > 0) media.append(el('span', 'tag', `+${p.media.more} photo${p.media.more > 1 ? 's' : ''}`));
