@@ -107,14 +107,14 @@
   .empty { font-size: 36px; color: var(--muted); line-height: 1.35; padding: 30px 0; }
 
   /* Footer */
-  .foot { border-top: 2px solid var(--rule); background: var(--bg-deep); padding: 26px 64px; display: grid; grid-template-columns: 124px 1fr auto; gap: 26px; align-items: center; }
+  .foot { border-top: 2px solid var(--rule); background: var(--bg-deep); padding: 26px 64px; display: grid; grid-template-columns: 106px 1fr auto; gap: 26px; align-items: center; }
   .powered { justify-self: start; display: flex; align-items: center; gap: 22px; background: #12406E; padding: 16px 30px 16px 24px; border-radius: 20px; }
   .powered img { height: 74px; width: auto; display: block; }
   .powered .sep { width: 2px; height: 74px; background: rgba(255,255,255,.35); }
   .powered span { display: block; font-size: 22px; font-weight: 300; color: #DCE7F3; line-height: 1.2; }
   .powered b { display: block; font-size: 31px; font-weight: 700; font-style: italic; color: #fff; letter-spacing: -.2px; line-height: 1.2; white-space: nowrap; }
   .powered .disclaimer { display: none; }
-  .qr { width: 124px; height: 124px; background: #fff; padding: 9px; border-radius: 14px; }
+  .qr { width: 106px; height: 106px; background: #fff; padding: 8px; border-radius: 14px; }
   .qr svg { width: 100%; height: 100%; display: block; }
   .foot .info b { display: block; font-size: 26px; font-weight: 500; }
   .foot .info span { display: block; font-size: 20px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
@@ -413,7 +413,7 @@ function render(animate) {
     T = Math.max(current.length ? nowPlan.pages : 1, upToday.length ? upPlan.pages : 1);
   }
   let N = 0, dayPlan = { pages: 1, per: 0 };
-  if (nextList.length) { dayPlan = plan(nextList.length, rowsFor(110)); N = dayPlan.pages; }
+  if (nextList.length && cfg.show_next_day === true) { dayPlan = plan(nextList.length, rowsFor(110)); N = dayPlan.pages; }
   const pos = tick % Math.max(1, T + N);
   const view = T && (pos < T || !N) ? 'today' : (N ? 'next' : 'today');
 
@@ -452,7 +452,7 @@ function render(animate) {
       $('next-sec').hidden = !!current.length;
       $('next-rows').style.height = 'auto';
       $('next-pager').replaceChildren();
-      $('next-rows').replaceChildren(el('p', 'empty', !data ? 'Loading the programme…' : (!todayData && !nextData ? 'The programme is not available right now. See journal.un.org.' : 'No more meetings scheduled today.')));
+      $('next-rows').replaceChildren(el('p', 'empty', !data ? 'Loading the programme…' : (!todayData ? 'The programme is not available right now. See journal.un.org.' : (todayData && todayData.meetings.length ? 'No more meetings scheduled today.' : 'No official meetings scheduled today.'))));
     }
   } else {
     $('now-sec').hidden = true;
