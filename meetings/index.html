@@ -130,8 +130,8 @@
   <footer class="foot">
     <div class="qr" id="qr"></div>
     <div class="info">
-      <b>Full programme in the Journal of the United Nations</b>
-      <span>journal.un.org</span>
+      <b>Official meetings, from the Journal of the United Nations</b>
+      <span>Full programme and documents: journal.un.org</span>
       <span class="disclaimer" id="disclaimer" hidden>Side events: the content is solely the responsibility of the sponsor (ST/AI/2019/4).</span>
     </div>
     <div class="upd" id="upd"><span class="sample" id="sample" hidden>Sample data</span><br><span id="upd-text"></span></div>
@@ -193,6 +193,7 @@ function roomStyle(m) {
   if (name.includes('general assembly hall') || code === 'GAH' || code === 'GA') return ['GA', '#D79A1E', false];
   if (/^[A-Z]$/.test(code)) return [code, '#1C9AA8', false];
   if (/^\d{1,2}$/.test(code)) return [code, '#0A84C6', false];
+  if (!code && /virtual|video/i.test(m.room || '')) return ['VTC', '#4A6A92', true];
   const short = code || (m.room || '?').slice(0, 3);
   return [short, '#4A6A92', short.length > 3];
 }
@@ -318,7 +319,7 @@ function rowFor(m, mode, now) {
       if (!m.showFrom) status.append(el('span', null, 'time approx.'));
     }
   } else {
-    status.append(el('b', null, m.showFrom ? hhmm(m.from) : ''));
+    // next working day: the start time is already on the left
   }
 
   row.append(time, room, txt, status);
@@ -373,7 +374,9 @@ function render(animate) {
   if (!upcoming.length && tomorrowData) {
     upcoming = visible(tomorrowData.meetings).sort(byTimeThenRoom);
     nextMode = 'tomorrow';
-    $('next-label').textContent = `Tomorrow, ${dayLabel(tomorrowData.date, { weekday: 'long', day: 'numeric', month: 'long' })}`;
+    const nextDay = dayLabel(tomorrowData.date, { weekday: 'long', day: 'numeric', month: 'long' });
+    const isTomorrow = toMs(tomorrowData.date + 'T12:00:00') - toMs(today + 'T12:00:00') === 86400000;
+    $('next-label').textContent = isTomorrow ? `Tomorrow, ${nextDay}` : nextDay;
   }
 
   // Share the rows between the two sections
