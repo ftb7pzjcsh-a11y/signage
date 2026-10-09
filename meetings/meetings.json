@@ -1,8 +1,7 @@
 {
- "fetched_at": "2026-10-09T19:17:22Z",
- "source": "Journal of the United Nations \u2014 Official meetings (journal.un.org)",
+ "fetched_at": "2026-10-09T19:33:28.978Z",
+ "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
- "sample": true,
  "days": [
   {
    "date": "2026-10-09",
@@ -400,7 +399,7 @@
      "session": "Eighty-first session",
      "room": "Conference Room 3",
      "roomCode": "3",
-     "from": "2026-10-12T11:00:00",
+     "from": "2026-10-12T11:00:01",
      "to": "2026-10-12T13:00:00",
      "showFrom": true,
      "showTo": true,
