@@ -295,7 +295,7 @@ function visible(meetings) {
   return meetings.filter(m =>
     (cfg.show_closed !== false || !m.closed) &&
     (cfg.show_side_events !== false || m.intergov) &&
-    !hide.some(h => h === (m.roomCode || '').toLowerCase() || (m.room || '').toLowerCase().includes(h)));
+    !hide.some(h => h === (m.roomCode || '').toLowerCase() || h === (m.room || '').toLowerCase()));
 }
 
 /* ---------- Rows ---------- */
