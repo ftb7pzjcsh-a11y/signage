@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-09T19:44:07.274Z",
+ "fetched_at": "2026-10-09T19:57:16.712Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -284,7 +284,7 @@
      "title": "",
      "session": "",
      "room": "",
-     "roomCode": "10",
+     "roomCode": "",
      "from": "2026-10-12T10:00:00",
      "to": "2026-10-12T13:00:00",
      "showFrom": true,
@@ -417,7 +417,7 @@
      "title": "",
      "session": "",
      "room": "",
-     "roomCode": "10",
+     "roomCode": "",
      "from": "2026-10-12T15:00:00",
      "to": "2026-10-12T18:00:00",
      "showFrom": true,
