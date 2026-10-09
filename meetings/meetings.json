@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-09T20:31:43.725Z",
+ "fetched_at": "2026-10-09T21:56:12.435Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -466,25 +466,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/e2c571e6-d683-4e60-84ef-63f8e1813ba9/2026-10-12"
-    },
-    {
-     "id": "dfd5b18f-5dae-48d9-8527-895ad1daeedf",
-     "body": "Fifth Committee",
-     "bodyFull": "Fifth Committee",
-     "title": "Informal briefing",
-     "session": "Eighty-first session",
-     "room": "Conference Room 3",
-     "roomCode": "3",
-     "from": "2026-10-12T15:00:00",
-     "to": "2026-10-12T18:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": true,
-     "link": "https://journal.un.org/en/meeting/Officials/dfd5b18f-5dae-48d9-8527-895ad1daeedf/2026-10-12"
     },
     {
      "id": "e17c51e9-48fa-4f57-9347-ddb1e66d22a3",
