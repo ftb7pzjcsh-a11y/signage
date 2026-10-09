@@ -131,7 +131,9 @@
     "rotate_seconds": 15,
     "max_age_hours": 48,
     "include_reposts": false,
-    "show_images": true
+    "show_images": true,
+    "play_videos": true,
+    "video_max_seconds": 90
   },
   "x": {
     "enabled": true,
