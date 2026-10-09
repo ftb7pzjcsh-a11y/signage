@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Écrans UN Video</title>
+<style>
+  :root {
+    --navy-deep: #06172D;
+    --panel: #0F2C50;
+    --field: #0A2342;
+    --un-blue: #009EDB;
+    --paper: #F4F7FA;
+    --muted: #9DB3C8;
+    --rule: #1E3D63;
+    --gold: #F2B53A;
+    --red: #FF7A6B;
+    --green: #4CD3A5;
+    --font: Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--navy-deep); color: var(--paper); font-family: var(--font); font-size: 16px; line-height: 1.5; }
+  main { max-width: 1120px; margin: 0 auto; padding: 44px 24px 64px; }
+  header { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  header img { height: 52px; width: auto; }
+  h1 { font-size: 34px; font-weight: 700; margin: 0; letter-spacing: -.5px; line-height: 1.1; }
+  header p { color: var(--muted); margin: 4px 0 0; }
+
+  .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .thumb { display: block; background: #000; aspect-ratio: 9 / 16; position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
+  .thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+  .thumb::after { content: "Ouvrir l'écran ↗"; position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); background: rgba(6,23,45,.85); border: 1px solid var(--rule); border-radius: 20px; padding: 6px 14px; font-size: 14px; opacity: 0; transition: opacity .2s; white-space: nowrap; }
+  .thumb:hover::after, .thumb:focus-visible::after { opacity: 1; }
+  .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  h2 { font-size: 21px; margin: 0; }
+  .desc { color: var(--muted); font-size: 14px; margin: 0; }
+  .state { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; min-height: 20px; }
+  .state::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--rule); flex: none; }
+  .state.ok::before { background: var(--green); }
+  .state.warn::before { background: var(--gold); }
+  .state.err::before { background: var(--red); }
+  .url { display: flex; gap: 8px; align-items: center; background: var(--field); border: 1px solid var(--rule); border-radius: 8px; padding: 4px 4px 4px 12px; }
+  .url code { flex: 1; font-size: 13px; color: var(--paper); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: inherit; }
+  .actions { display: flex; gap: 10px; margin-top: auto; }
+  .btn { flex: 1; text-align: center; text-decoration: none; font-size: 15px; border-radius: 8px; padding: 10px 12px; border: 1px solid var(--rule); color: var(--paper); background: var(--field); }
+  .btn.primary { background: var(--un-blue); border-color: var(--un-blue); color: #fff; font-weight: 500; }
+  .btn:hover { filter: brightness(1.12); }
+  button.copy { font: inherit; font-size: 13px; cursor: pointer; border: 0; border-radius: 6px; padding: 6px 10px; background: var(--rule); color: var(--paper); white-space: nowrap; }
+  button.copy.done { background: var(--green); color: var(--navy-deep); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--un-blue); outline-offset: 2px; }
+
+  h3 { font-size: 15px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 44px 0 14px; }
+  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tool { display: block; text-decoration: none; color: var(--paper); background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px; }
+  .tool:hover { border-color: var(--un-blue); }
+  .tool b { display: block; font-weight: 500; }
+  .tool span { color: var(--muted); font-size: 13px; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 40px; }
+
+  @media (max-width: 900px) {
+    .screens { grid-template-columns: 1fr 1fr; }
+    .tools { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    main { padding-top: 28px; }
+    .screens, .tools { grid-template-columns: 1fr; }
+    .thumb { aspect-ratio: 3 / 4; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="logo.png" alt="Nations Unies">
+    <div>
+      <h1>Écrans d'affichage</h1>
+      <p>Les trois écrans, leurs réglages et les liens à mettre dans AbleSign.</p>
+    </div>
+  </header>
+
+  <div class="screens" id="screens"></div>
+
+  <h3>Outils</h3>
+  <div class="tools">
+    <a class="tool" href="https://github.com/ftb7pzjcsh-a11y/signage" target="_blank" rel="noopener"><b>Dépôt « signage » ↗</b><span>Social wall et tableau des réunions</span></a>
+    <a class="tool" href="https://github.com/ftb7pzjcsh-a11y/wall" target="_blank" rel="noopener"><b>Dépôt « wall » ↗</b><span>Press wall</span></a>
+    <a class="tool" href="https://github.com/ftb7pzjcsh-a11y/signage/actions" target="_blank" rel="noopener"><b>Automatisations ↗</b><span>Titres IA et lecture du Journal, avec leur historique</span></a>
+    <a class="tool" href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><b>Jetons GitHub ↗</b><span>Créer ou renouveler le jeton des pages de réglages</span></a>
+    <a class="tool" id="journal" href="https://journal.un.org/en/new-york/officials" target="_blank" rel="noopener"><b>Journal des Nations Unies ↗</b><span>Official meetings du jour, la source du tableau</span></a>
+    <a class="tool" href="https://bsky.app" target="_blank" rel="noopener"><b>Bluesky ↗</b><span>Pour trouver de nouveaux comptes</span></a>
+  </div>
+
+  <footer>Page interne, non référencée par les moteurs de recherche.</footer>
+</main>
+
+<script>
+'use strict';
+
+const BASE = 'https://ftb7pzjcsh-a11y.github.io';
+const SCREENS = [
+  { name: 'Social wall', desc: 'Posts Bluesky (et X en option) des comptes de la famille ONU.', url: `${BASE}/signage/`, editor: `${BASE}/signage/editor.html`, status: () => aiStatus(`${BASE}/signage/ai.json`) },
+  { name: 'Press wall', desc: 'Journalistes et médias qui couvrent l\'ONU, style salle de rédaction.', url: `${BASE}/wall/`, editor: `${BASE}/wall/editor.html`, status: () => aiStatus(`${BASE}/wall/ai.json`) },
+  { name: 'Réunions', desc: 'Official meetings du jour, d\'après le Journal des Nations Unies.', url: `${BASE}/signage/meetings/`, editor: `${BASE}/signage/meetings/editor.html`, status: meetingsStatus }
+];
+
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const fmt = d => new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(d);
+async function getJSON(url) {
+  const res = await fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error(res.status);
+  return res.json();
+}
+
+async function aiStatus(url) {
+  try {
+    const d = await getJSON(url);
+    const when = new Date(d.generated_at);
+    const late = Date.now() - when > 6 * 3600000;
+    return [late ? 'warn' : 'ok', `Titres IA mis à jour à ${fmt(when)}${late ? ' (plus de 6 h)' : ''}`];
+  } catch (_) { return ['', 'En direct depuis Bluesky']; }
+}
+async function meetingsStatus() {
+  try {
+    const d = await getJSON(`${BASE}/signage/meetings/meetings.json`);
+    if (d.sample) return ['warn', 'Données d\'exemple : le Journal n\'a pas encore été lu'];
+    const when = new Date(d.fetched_at);
+    const late = Date.now() - when > 2 * 3600000;
+    return [late ? 'err' : 'ok', late ? `Pas de mise à jour depuis ${fmt(when)}` : `Journal lu à ${fmt(when)}`];
+  } catch (_) { return ['err', 'Programme introuvable']; }
+}
+
+const box = document.getElementById('screens');
+SCREENS.forEach(s => {
+  const card = el('article', 'card');
+  const thumb = el('a', 'thumb'); thumb.href = s.url; thumb.target = '_blank'; thumb.rel = 'noopener';
+  thumb.setAttribute('aria-label', `Ouvrir ${s.name}`);
+  const frame = el('iframe'); frame.src = s.url; frame.loading = 'lazy'; frame.tabIndex = -1; frame.title = `Aperçu ${s.name}`;
+  thumb.append(frame);
+
+  const body = el('div', 'body');
+  const state = el('div', 'state', 'Vérification…');
+  const url = el('div', 'url');
+  const copy = el('button', 'copy', 'Copier');
+  copy.type = 'button';
+  copy.onclick = async () => {
+    try { await navigator.clipboard.writeText(s.url); copy.textContent = 'Copié'; copy.classList.add('done'); }
+    catch (_) { copy.textContent = 'Sélectionne le lien'; }
+    setTimeout(() => { copy.textContent = 'Copier'; copy.classList.remove('done'); }, 1800);
+  };
+  url.append(el('code', '', s.url.replace('https://', '')), copy);
+  const actions = el('div', 'actions');
+  const open = el('a', 'btn', 'Écran ↗'); open.href = s.url; open.target = '_blank'; open.rel = 'noopener';
+  const edit = el('a', 'btn primary', 'Réglages'); edit.href = s.editor;
+  actions.append(open, edit);
+  body.append(el('h2', '', s.name), el('p', 'desc', s.desc), state, url, actions);
+  card.append(thumb, body);
+  box.append(card);
+
+  s.status().then(([kind, text]) => { state.className = `state ${kind}`; state.textContent = text; });
+});
+
+// Today's Journal page, in New York time
+const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(x => [x.type, x.value]));
+document.getElementById('journal').href = `https://journal.un.org/en/new-york/officials/${p.year}-${p.month}-${p.day}`;
+</script>
+</body>
+</html>
