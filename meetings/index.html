@@ -44,6 +44,17 @@
   /* Board */
   .board { padding: 34px 64px 0; display: flex; flex-direction: column; gap: 26px; min-height: 0; overflow: hidden; }
   .section[hidden] { display: none; }
+  /* Next sitting day: set apart from today with a rule, a date tile and outlined, quieter rows */
+  .section.later { border-top: 2px solid var(--rule); padding-top: 26px; margin-top: 6px; }
+  .section.later .sec-head { height: 74px; align-items: center; }
+  .section.later .row { background: transparent; box-shadow: inset 0 0 0 2px var(--rule); }
+  .section.later .time b { color: var(--soft); }
+  .section.later .room { opacity: .8; }
+  .day-tile { width: 64px; height: 70px; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; background: var(--ink); color: var(--bg); text-align: center; flex-shrink: 0; }
+  .day-tile[hidden] { display: none; }
+  .day-tile b { display: block; background: var(--un-blue); color: #fff; font-size: 17px; font-weight: 700; letter-spacing: .5px; padding: 4px 0 3px; }
+  .day-tile i { display: block; font-style: normal; font-size: 32px; font-weight: 700; line-height: 1.25; }
+  .section.later .count { align-self: center; }
   .sec-head { display: flex; align-items: baseline; gap: 18px; height: 54px; }
   .sec-head h2 { font-size: 34px; font-weight: 700; letter-spacing: .2px; }
   .sec-head .count { font-size: 24px; color: var(--muted); }
@@ -122,7 +133,7 @@
       <div class="rows" id="now-rows"></div>
     </section>
     <section class="section" id="next-sec">
-      <div class="sec-head"><span class="next-dot"></span><h2 id="next-label">Coming up</h2><span class="count" id="next-count"></span><div class="pager" id="next-pager"></div></div>
+      <div class="sec-head"><span class="next-dot" id="next-dot"></span><span class="day-tile" id="next-tile" hidden><b id="tile-wd"></b><i id="tile-d"></i></span><h2 id="next-label">Coming up</h2><span class="count" id="next-count"></span><div class="pager" id="next-pager"></div></div>
       <div class="rows" id="next-rows"></div>
     </section>
   </main>
@@ -332,9 +343,8 @@ function pager(box, count, index) {
   for (let i = 0; i < count; i++) box.append(el('i', i === index ? 'on' : ''));
 }
 
-function fillSection(key, list, rowsAvail, mode, now, animate) {
+function fillSection(key, list, rowsAvail, pageCount, mode, now, animate) {
   const rowsBox = $(`${key}-rows`);
-  const pageCount = Math.max(1, Math.ceil(list.length / rowsAvail));
   pages[key] = pages[key] % pageCount;
   const slice = list.slice(pages[key] * rowsAvail, (pages[key] + 1) * rowsAvail);
   rowsBox.replaceChildren();
@@ -377,14 +387,26 @@ function render(animate) {
     const nextDay = dayLabel(tomorrowData.date, { weekday: 'long', day: 'numeric', month: 'long' });
     const isTomorrow = toMs(tomorrowData.date + 'T12:00:00') - toMs(today + 'T12:00:00') === 86400000;
     $('next-label').textContent = isTomorrow ? `Tomorrow, ${nextDay}` : nextDay;
+    $('tile-wd').textContent = dayLabel(tomorrowData.date, { weekday: 'short' });
+    $('tile-d').textContent = dayLabel(tomorrowData.date, { day: 'numeric' });
   }
+  const later = nextMode === 'tomorrow';
+  $('next-sec').classList.toggle('later', later);
+  $('next-tile').hidden = !later;
+  $('next-dot').hidden = later;
 
   // Share the rows between the two sections
+  // In progress gets priority (all of it when it fits); pages are balanced, so no lonely row on a last page
   const boardH = $('board').clientHeight;
-  const totalRows = Math.max(2, Math.floor((boardH - (current.length ? 80 : 0) - 80 - 26) / ROW_H));
-  let nowRows = 0;
-  if (current.length) nowRows = upcoming.length ? Math.min(current.length, Math.ceil(totalRows / 2)) : Math.min(current.length, totalRows);
-  const nextRows = Math.max(1, totalRows - nowRows);
+  const totalRows = Math.max(2, Math.floor((boardH - (current.length ? 80 : 0) - (later ? 110 : 80) - 26) / ROW_H));
+  const plan = (n, cap) => { const pagesN = Math.max(1, Math.ceil(n / Math.max(1, cap))); return { pages: pagesN, per: Math.ceil(n / pagesN) }; };
+  let nowPlan = { pages: 1, per: 0 };
+  if (current.length) {
+    const nowCap = upcoming.length ? Math.min(current.length, Math.max(Math.ceil(totalRows / 2), totalRows - Math.min(upcoming.length, 3))) : totalRows;
+    nowPlan = plan(current.length, nowCap);
+  }
+  const nextPlan = plan(upcoming.length, Math.max(1, totalRows - nowPlan.per));
+  const nowRows = nowPlan.per, nextRows = nextPlan.per;
 
   $('now-sec').hidden = !current.length;
   $('now-count').textContent = current.length ? `${current.length} meeting${current.length > 1 ? 's' : ''}` : '';
@@ -395,9 +417,9 @@ function render(animate) {
   const changed = signature !== lastSignature;
   lastSignature = signature;
 
-  if (current.length) pageCounts.now = fillSection('now', current, nowRows, 'now', now, changed);
+  if (current.length) pageCounts.now = fillSection('now', current, nowRows, nowPlan.pages, 'now', now, changed);
   else pageCounts.now = 1;
-  if (upcoming.length) pageCounts.next = fillSection('next', upcoming, nextRows, nextMode, now, changed);
+  if (upcoming.length) pageCounts.next = fillSection('next', upcoming, nextRows, nextPlan.pages, nextMode, now, changed);
   else {
     pageCounts.next = 1;
     $('next-rows').style.height = 'auto';
