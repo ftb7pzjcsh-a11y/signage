@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T18:13:31.789Z",
+ "fetched_at": "2026-10-12T19:29:54.180Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -371,6 +371,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/d1ccdcad-10b4-4e49-bfa6-acd7ecb73a74/2026-10-13"
+    },
+    {
+     "id": "e34702c0-ac0d-42c3-b013-3de01409c321",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "",
+     "session": "Eighty-fifth session",
+     "room": "Conference Room 11",
+     "roomCode": "11",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/e34702c0-ac0d-42c3-b013-3de01409c321/2026-10-13"
     },
     {
      "id": "0d996147-a5f3-45c6-a078-abb3220b3273",
