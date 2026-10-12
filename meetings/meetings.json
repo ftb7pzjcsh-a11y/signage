@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T14:07:50.825Z",
+ "fetched_at": "2026-10-12T14:37:10.377Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -262,7 +262,7 @@
      "id": "d70c83f8-9280-4974-bacb-730df5533e39",
      "body": "Fourth Committee",
      "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
-     "title": "",
+     "title": "9th plenary meeting",
      "session": "Eighty-first session",
      "room": "Conference Room 4",
      "roomCode": "4",
@@ -319,7 +319,7 @@
      "id": "0d996147-a5f3-45c6-a078-abb3220b3273",
      "body": "Second Committee",
      "bodyFull": "Second Committee",
-     "title": "13th plenary meeting",
+     "title": "",
      "session": "Eighty-first session",
      "room": "Conference Room 2",
      "roomCode": "2",
@@ -390,6 +390,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/33046578-32d1-4a0f-828a-05391fdb85fd/2026-10-13"
+    },
+    {
+     "id": "90c79248-a639-4791-9d7f-d67cbceef7dc",
+     "body": "Second Committee",
+     "bodyFull": "Second Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-13T15:30:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/90c79248-a639-4791-9d7f-d67cbceef7dc/2026-10-13"
     }
    ]
   }
