@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T17:31:33.955Z",
+ "fetched_at": "2026-10-12T17:56:30.936Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -214,25 +214,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/e17c51e9-48fa-4f57-9347-ddb1e66d22a3/2026-10-12"
-    },
-    {
-     "id": "22a390a9-b0f7-469e-9c31-b70c8cd39a08",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-10-12T15:00:00",
-     "to": "2026-10-12T18:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/22a390a9-b0f7-469e-9c31-b70c8cd39a08/2026-10-12"
     },
     {
      "id": "7160e4c8-4e69-45af-bb7a-d229d9477919",
