@@ -1,12 +1,8 @@
 {
- "fetched_at": "2026-10-12T03:17:51.363Z",
+ "fetched_at": "2026-10-12T04:11:48.569Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
-  {
-   "date": "2026-10-11",
-   "meetings": []
-  },
   {
    "date": "2026-10-12",
    "meetings": [
@@ -237,6 +233,68 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/7160e4c8-4e69-45af-bb7a-d229d9477919/2026-10-12"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "meetings": [
+    {
+     "id": "5f3f8d64-c003-4e88-a4ea-e76d3399b724",
+     "body": "Fifth Committee",
+     "bodyFull": "Fifth Committee",
+     "title": "5th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 3",
+     "roomCode": "3",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/5f3f8d64-c003-4e88-a4ea-e76d3399b724/2026-10-13"
+    },
+    {
+     "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
+     "body": "General Assembly",
+     "bodyFull": "General Assembly",
+     "title": "19th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "General Assembly Hall",
+     "roomCode": "GA",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/ccc8f174-f6c2-414e-8b82-59a40b7efe56/2026-10-13"
+    },
+    {
+     "id": "301fd952-e989-480a-8d3f-d1f4baddfb3a",
+     "body": "Fifth Committee",
+     "bodyFull": "Fifth Committee",
+     "title": "Informal consultations",
+     "session": "Eighty-first session",
+     "room": "Conference Room 3",
+     "roomCode": "3",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/301fd952-e989-480a-8d3f-d1f4baddfb3a/2026-10-13"
     }
    ]
   }
