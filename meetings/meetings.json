@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T13:42:45.393Z",
+ "fetched_at": "2026-10-12T14:07:50.825Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,6 +259,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/5f3f8d64-c003-4e88-a4ea-e76d3399b724/2026-10-13"
     },
     {
+     "id": "d70c83f8-9280-4974-bacb-730df5533e39",
+     "body": "Fourth Committee",
+     "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/d70c83f8-9280-4974-bacb-730df5533e39/2026-10-13"
+    },
+    {
      "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
@@ -276,6 +295,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/ccc8f174-f6c2-414e-8b82-59a40b7efe56/2026-10-13"
+    },
+    {
+     "id": "2e66d5d3-b922-4630-9e7b-25e53b93d3e8",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/2e66d5d3-b922-4630-9e7b-25e53b93d3e8/2026-10-13"
     },
     {
      "id": "0d996147-a5f3-45c6-a078-abb3220b3273",
@@ -314,6 +352,44 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/301fd952-e989-480a-8d3f-d1f4baddfb3a/2026-10-13"
+    },
+    {
+     "id": "b328ee6a-4bdc-4b85-a930-323b04e1a39e",
+     "body": "First Committee",
+     "bodyFull": "First Committee",
+     "title": "7th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/b328ee6a-4bdc-4b85-a930-323b04e1a39e/2026-10-13"
+    },
+    {
+     "id": "33046578-32d1-4a0f-828a-05391fdb85fd",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/33046578-32d1-4a0f-828a-05391fdb85fd/2026-10-13"
     }
    ]
   }
