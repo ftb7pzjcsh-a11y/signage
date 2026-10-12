@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T15:03:51.224Z",
+ "fetched_at": "2026-10-12T15:32:41.855Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -240,6 +240,25 @@
    "date": "2026-10-13",
    "meetings": [
     {
+     "id": "efd353de-6b8e-417b-92ad-f94fda6cf9e3",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/efd353de-6b8e-417b-92ad-f94fda6cf9e3/2026-10-13"
+    },
+    {
      "id": "5f3f8d64-c003-4e88-a4ea-e76d3399b724",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -278,6 +297,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/d70c83f8-9280-4974-bacb-730df5533e39/2026-10-13"
     },
     {
+     "id": "53e8d393-0840-4e9e-9696-300165ee2ce2",
+     "body": "Peacebuilding Commission",
+     "bodyFull": "Peacebuilding Commission",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 9",
+     "roomCode": "9",
+     "from": "2026-10-13T10:00:00",
+     "to": "2026-10-13T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/53e8d393-0840-4e9e-9696-300165ee2ce2/2026-10-13"
+    },
+    {
      "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
@@ -314,6 +352,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/2e66d5d3-b922-4630-9e7b-25e53b93d3e8/2026-10-13"
+    },
+    {
+     "id": "d1ccdcad-10b4-4e49-bfa6-acd7ecb73a74",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/d1ccdcad-10b4-4e49-bfa6-acd7ecb73a74/2026-10-13"
     },
     {
      "id": "0d996147-a5f3-45c6-a078-abb3220b3273",
@@ -371,6 +428,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/b328ee6a-4bdc-4b85-a930-323b04e1a39e/2026-10-13"
+    },
+    {
+     "id": "2f267139-60a0-4590-88b4-983d63a75806",
+     "body": "Working Group on Children and Armed Conflict",
+     "bodyFull": "Working Group on Children and Armed Conflict",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 7",
+     "roomCode": "7",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/2f267139-60a0-4590-88b4-983d63a75806/2026-10-13"
     },
     {
      "id": "33046578-32d1-4a0f-828a-05391fdb85fd",
