@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T20:33:11.740Z",
+ "fetched_at": "2026-10-12T20:59:27.922Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -295,25 +295,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/d70c83f8-9280-4974-bacb-730df5533e39/2026-10-13"
-    },
-    {
-     "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "20th plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-10-13T10:00:00",
-     "to": "2026-10-13T13:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/ccc8f174-f6c2-414e-8b82-59a40b7efe56/2026-10-13"
     },
     {
      "id": "2e66d5d3-b922-4630-9e7b-25e53b93d3e8",
