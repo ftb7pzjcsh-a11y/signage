@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T19:29:54.180Z",
+ "fetched_at": "2026-10-12T20:33:11.740Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -297,25 +297,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/d70c83f8-9280-4974-bacb-730df5533e39/2026-10-13"
     },
     {
-     "id": "53e8d393-0840-4e9e-9696-300165ee2ce2",
-     "body": "Peacebuilding Commission",
-     "bodyFull": "Peacebuilding Commission",
-     "title": "Expert-level meeting on the Peace and Security Council of the African Union (AUPSC)",
-     "session": "",
-     "room": "Conference Room 9",
-     "roomCode": "9",
-     "from": "2026-10-13T10:00:00",
-     "to": "2026-10-13T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/53e8d393-0840-4e9e-9696-300165ee2ce2/2026-10-13"
-    },
-    {
      "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
@@ -376,7 +357,7 @@
      "id": "e34702c0-ac0d-42c3-b013-3de01409c321",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
-     "title": "",
+     "title": "Informal meeting - Programme planning",
      "session": "Eighty-fifth session",
      "room": "Conference Room 11",
      "roomCode": "11",
@@ -388,7 +369,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/e34702c0-ac0d-42c3-b013-3de01409c321/2026-10-13"
     },
     {
