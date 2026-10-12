@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T12:18:42.910Z",
+ "fetched_at": "2026-10-12T13:42:45.393Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -276,6 +276,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/ccc8f174-f6c2-414e-8b82-59a40b7efe56/2026-10-13"
+    },
+    {
+     "id": "0d996147-a5f3-45c6-a078-abb3220b3273",
+     "body": "Second Committee",
+     "bodyFull": "Second Committee",
+     "title": "13th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-13T15:00:00",
+     "to": "2026-10-13T15:30:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/0d996147-a5f3-45c6-a078-abb3220b3273/2026-10-13"
     },
     {
      "id": "301fd952-e989-480a-8d3f-d1f4baddfb3a",
