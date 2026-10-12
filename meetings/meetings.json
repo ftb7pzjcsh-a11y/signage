@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-12T17:56:30.936Z",
+ "fetched_at": "2026-10-12T18:13:31.789Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -319,7 +319,7 @@
      "id": "ccc8f174-f6c2-414e-8b82-59a40b7efe56",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
-     "title": "",
+     "title": "20th plenary meeting",
      "session": "Eighty-first session",
      "room": "General Assembly Hall",
      "roomCode": "GA",
@@ -338,7 +338,7 @@
      "id": "2e66d5d3-b922-4630-9e7b-25e53b93d3e8",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "13th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -452,7 +452,7 @@
      "id": "33046578-32d1-4a0f-828a-05391fdb85fd",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "14th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
