@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-13T17:19:11.655Z",
+ "fetched_at": "2026-10-13T17:44:58.507Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -395,7 +395,7 @@
      "id": "01a13610-fa40-786f-9cf5-ed9b687df64b",
      "body": "Security Council",
      "bodyFull": "Security Council",
-     "title": "",
+     "title": "Consultations of the whole",
      "session": "",
      "room": "Security Council Consultations Room",
      "roomCode": "SCC",
@@ -407,7 +407,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/01a13610-fa40-786f-9cf5-ed9b687df64b/2026-10-14"
     },
     {
