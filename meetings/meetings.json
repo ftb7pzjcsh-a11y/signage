@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-13T14:42:37.791Z",
+ "fetched_at": "2026-10-13T15:03:53.676Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -238,6 +238,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/64ac6e81-2e83-4319-800e-b6e3ba048710/2026-10-14"
+    },
+    {
+     "id": "ca736655-8f79-460f-a49f-522f8d212245",
+     "body": "Second Committee",
+     "bodyFull": "Second Committee",
+     "title": "14th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-14T10:00:00",
+     "to": "2026-10-14T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/ca736655-8f79-460f-a49f-522f8d212245/2026-10-14"
     },
     {
      "id": "ba0df833-2d3c-4824-996b-bb63f791861f",
