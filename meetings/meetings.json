@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-13T13:51:29.002Z",
+ "fetched_at": "2026-10-13T14:42:37.791Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -81,25 +81,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/2e66d5d3-b922-4630-9e7b-25e53b93d3e8/2026-10-13"
-    },
-    {
-     "id": "d1ccdcad-10b4-4e49-bfa6-acd7ecb73a74",
-     "body": "ACABQ",
-     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "Meeting (also with virtual participation)",
-     "session": "",
-     "room": "Conference Room 10",
-     "roomCode": "10",
-     "from": "2026-10-13T15:00:00",
-     "to": "2026-10-13T18:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/d1ccdcad-10b4-4e49-bfa6-acd7ecb73a74/2026-10-13"
     },
     {
      "id": "e34702c0-ac0d-42c3-b013-3de01409c321",
@@ -300,7 +281,7 @@
      "id": "960586e6-f71b-4cb1-9d25-7cdc4d275e2b",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "15th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -314,6 +295,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/960586e6-f71b-4cb1-9d25-7cdc4d275e2b/2026-10-14"
+    },
+    {
+     "id": "090d9c80-7182-4482-9818-fd95cef0ba03",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
+     "from": "2026-10-14T10:00:00",
+     "to": "2026-10-14T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/090d9c80-7182-4482-9818-fd95cef0ba03/2026-10-14"
     },
     {
      "id": "99861e09-b683-47bc-a271-b13be31e1f0a",
@@ -376,7 +376,7 @@
      "id": "d4873c7b-7d95-4bc7-832b-33258ea717a0",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "16th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
