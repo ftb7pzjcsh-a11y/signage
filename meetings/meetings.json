@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T12:57:36.436Z",
+ "fetched_at": "2026-10-14T14:10:48.988Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,6 +259,44 @@
    "date": "2026-10-15",
    "meetings": [
     {
+     "id": "3b97184a-05d4-43a7-a541-02cdd0cfd296",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "16th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-10-15T10:00:00",
+     "to": "2026-10-15T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/3b97184a-05d4-43a7-a541-02cdd0cfd296/2026-10-15"
+    },
+    {
+     "id": "1dd0a4f5-bcc8-476d-8783-b924f37d0824",
+     "body": "Second Committee",
+     "bodyFull": "Second Committee",
+     "title": "16th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-15T10:00:00",
+     "to": "2026-10-15T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/1dd0a4f5-bcc8-476d-8783-b924f37d0824/2026-10-15"
+    },
+    {
      "id": "84305ec0-c0fc-4c0e-b7dd-892da00aaf97",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -316,6 +354,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/3b21016e-6086-4a6e-adfa-8dd87bf43780/2026-10-15"
     },
     {
+     "id": "30d38736-4a22-4f5c-ba02-6e4343e1b651",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "17th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-10-15T15:00:00",
+     "to": "2026-10-15T17:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/30d38736-4a22-4f5c-ba02-6e4343e1b651/2026-10-15"
+    },
+    {
      "id": "c4410111-3220-483c-8f5d-d633d5447afa",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -333,6 +390,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/c4410111-3220-483c-8f5d-d633d5447afa/2026-10-15"
+    },
+    {
+     "id": "08f35116-eddd-44d7-863e-cac0122cdb1c",
+     "body": "First Committee",
+     "bodyFull": "First Committee",
+     "title": "10th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-15T15:00:00",
+     "to": "2026-10-15T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/08f35116-eddd-44d7-863e-cac0122cdb1c/2026-10-15"
     }
    ]
   }
