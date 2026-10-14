@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T15:54:55.362Z",
+ "fetched_at": "2026-10-14T16:26:52.950Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -357,7 +357,7 @@
      "id": "cb768679-7873-44d4-99b0-74be93416311",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "17th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -442,7 +442,7 @@
      "showFrom": true,
      "showTo": true,
      "intergov": true,
-     "closed": false,
+     "closed": true,
      "cancelled": false,
      "following": false,
      "informal": false,
