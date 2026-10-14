@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T18:13:32.670Z",
+ "fetched_at": "2026-10-14T19:29:35.253Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -278,6 +278,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/3b97184a-05d4-43a7-a541-02cdd0cfd296/2026-10-15"
     },
     {
+     "id": "802c7c5f-b38c-4344-bd62-c75b568bd77b",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-15T10:00:00",
+     "to": "2026-10-15T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/802c7c5f-b38c-4344-bd62-c75b568bd77b/2026-10-15"
+    },
+    {
      "id": "1dd0a4f5-bcc8-476d-8783-b924f37d0824",
      "body": "Second Committee",
      "bodyFull": "Second Committee",
@@ -338,7 +357,7 @@
      "id": "3b21016e-6086-4a6e-adfa-8dd87bf43780",
      "body": "Security Council",
      "bodyFull": "Security Council",
-     "title": "",
+     "title": "10243rd meeting",
      "session": "",
      "room": "Security Council Chamber",
      "roomCode": "SCC",
@@ -373,6 +392,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/cb768679-7873-44d4-99b0-74be93416311/2026-10-15"
     },
     {
+     "id": "42196e96-9456-4ec1-b56e-10829b574de1",
+     "body": "Fourth Committee",
+     "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-15T11:30:01",
+     "to": "2026-10-15T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/42196e96-9456-4ec1-b56e-10829b574de1/2026-10-15"
+    },
+    {
      "id": "30d38736-4a22-4f5c-ba02-6e4343e1b651",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -390,6 +428,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/30d38736-4a22-4f5c-ba02-6e4343e1b651/2026-10-15"
+    },
+    {
+     "id": "6e417253-4edf-43f3-9a1f-fc32bae1bc46",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-15T15:00:00",
+     "to": "2026-10-15T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/6e417253-4edf-43f3-9a1f-fc32bae1bc46/2026-10-15"
     },
     {
      "id": "c4410111-3220-483c-8f5d-d633d5447afa",
