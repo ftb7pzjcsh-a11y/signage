@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T19:29:35.253Z",
+ "fetched_at": "2026-10-14T20:04:00.700Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -281,7 +281,7 @@
      "id": "802c7c5f-b38c-4344-bd62-c75b568bd77b",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
+     "title": "Meeting (also with virtual participation)",
      "session": "",
      "room": "Conference Room 10",
      "roomCode": "10",
@@ -395,7 +395,7 @@
      "id": "42196e96-9456-4ec1-b56e-10829b574de1",
      "body": "Fourth Committee",
      "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
-     "title": "",
+     "title": "Informal briefing by the Co-Chairs of the Ad Hoc Working Group on Mandate Implementation Review",
      "session": "Eighty-first session",
      "room": "Conference Room 4",
      "roomCode": "4",
@@ -407,7 +407,7 @@
      "closed": false,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/42196e96-9456-4ec1-b56e-10829b574de1/2026-10-15"
     },
     {
@@ -433,7 +433,7 @@
      "id": "6e417253-4edf-43f3-9a1f-fc32bae1bc46",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
+     "title": "Meeting (also with virtual participation)",
      "session": "",
      "room": "Conference Room 10",
      "roomCode": "10",
