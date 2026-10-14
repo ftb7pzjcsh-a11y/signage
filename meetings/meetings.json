@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T16:26:52.950Z",
+ "fetched_at": "2026-10-14T17:02:31.498Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -433,7 +433,7 @@
      "id": "83e1202d-f352-4e72-a381-3ba506ab6877",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "Informal briefing by the Secretariat",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -445,7 +445,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/83e1202d-f352-4e72-a381-3ba506ab6877/2026-10-15"
     }
    ]
