@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T14:17:59.083Z",
+ "fetched_at": "2026-10-15T15:01:38.066Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,25 +259,6 @@
    "date": "2026-10-16",
    "meetings": [
     {
-     "id": "21398a31-ef00-4801-a775-647999ce2d08",
-     "body": "ACABQ",
-     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
-     "session": "",
-     "room": "",
-     "roomCode": "",
-     "from": "2026-10-16T10:00:00",
-     "to": "2026-10-16T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/21398a31-ef00-4801-a775-647999ce2d08/2026-10-16"
-    },
-    {
      "id": "89fae4d9-51dd-499e-88e0-6ce89e0c2958",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -376,7 +357,7 @@
      "id": "4f2a2902-56f7-46b8-8f26-6c5a54cdff6c",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "18th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -390,6 +371,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/4f2a2902-56f7-46b8-8f26-6c5a54cdff6c/2026-10-16"
+    },
+    {
+     "id": "21398a31-ef00-4801-a775-647999ce2d08",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
+     "from": "2026-10-16T10:00:00",
+     "to": "2026-10-16T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/21398a31-ef00-4801-a775-647999ce2d08/2026-10-16"
     },
     {
      "id": "5d2986cb-fc32-4a0f-ae6b-338a4f457717",
@@ -409,25 +409,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/5d2986cb-fc32-4a0f-ae6b-338a4f457717/2026-10-16"
-    },
-    {
-     "id": "cdcf872e-4103-4ac8-bc17-dba5f8b309ef",
-     "body": "ACABQ",
-     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
-     "session": "",
-     "room": "",
-     "roomCode": "",
-     "from": "2026-10-16T15:00:00",
-     "to": "2026-10-16T18:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/cdcf872e-4103-4ac8-bc17-dba5f8b309ef/2026-10-16"
     },
     {
      "id": "cc1ac70f-a69c-4213-b0a1-a8a9fb6a1ef7",
@@ -509,7 +490,7 @@
      "id": "bf7c5d66-8978-4e89-8eb1-4e0930a8bac9",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "Working Group of the Whole",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -523,6 +504,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/bf7c5d66-8978-4e89-8eb1-4e0930a8bac9/2026-10-16"
+    },
+    {
+     "id": "cdcf872e-4103-4ac8-bc17-dba5f8b309ef",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
+     "from": "2026-10-16T15:00:00",
+     "to": "2026-10-16T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/cdcf872e-4103-4ac8-bc17-dba5f8b309ef/2026-10-16"
     },
     {
      "id": "c6ba77be-6f62-46cb-8d74-345560a1827c",
