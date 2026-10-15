@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T15:01:38.066Z",
+ "fetched_at": "2026-10-15T15:45:22.292Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -235,6 +235,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/08f35116-eddd-44d7-863e-cac0122cdb1c/2026-10-15"
     },
     {
+     "id": "f5b0e63f-e47b-4223-9aa6-4ada5ee45764",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10244th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-10-15T15:00:00",
+     "to": "2026-10-15T16:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/f5b0e63f-e47b-4223-9aa6-4ada5ee45764/2026-10-15"
+    },
+    {
      "id": "83e1202d-f352-4e72-a381-3ba506ab6877",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
@@ -252,6 +271,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/83e1202d-f352-4e72-a381-3ba506ab6877/2026-10-15"
+    },
+    {
+     "id": "01a14029-5e9a-7cdb-b106-df75918a86f8",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10243rd meeting (resumed)",
+     "session": "",
+     "room": "",
+     "roomCode": "SCC",
+     "from": "2026-10-15T16:30:01",
+     "to": "2026-10-15T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/01a14029-5e9a-7cdb-b106-df75918a86f8/2026-10-15"
     }
    ]
   },
@@ -395,7 +433,7 @@
      "id": "5d2986cb-fc32-4a0f-ae6b-338a4f457717",
      "body": "Military Staff Committee",
      "bodyFull": "Military Staff Committee",
-     "title": "",
+     "title": "2159th meeting",
      "session": "",
      "room": "Conference Room 8",
      "roomCode": "8",
@@ -528,7 +566,7 @@
      "id": "c6ba77be-6f62-46cb-8d74-345560a1827c",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "Informal briefing by the Secretariat",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -540,7 +578,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/c6ba77be-6f62-46cb-8d74-345560a1827c/2026-10-16"
     }
    ]
