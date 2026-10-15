@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T20:57:56.216Z",
+ "fetched_at": "2026-10-15T21:57:35.429Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -373,25 +373,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/6ed4f6b2-08a2-452b-b36c-beaa29a6b644/2026-10-16"
     },
     {
-     "id": "29b9185b-7f9d-40b2-aa04-bd5bd6b05c5e",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "Informal meeting of the plenary on “A planet fit for the future: Restoring trust through climate action”",
-     "session": "Eighty-first session",
-     "room": "Economic and Social Council Chamber",
-     "roomCode": "ECOSOC",
-     "from": "2026-10-16T10:00:00",
-     "to": "2026-10-16T13:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": true,
-     "link": "https://journal.un.org/en/meeting/Officials/29b9185b-7f9d-40b2-aa04-bd5bd6b05c5e/2026-10-16"
-    },
-    {
      "id": "4f2a2902-56f7-46b8-8f26-6c5a54cdff6c",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
@@ -504,25 +485,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/69ccd97c-6e70-405e-aba0-2b84f8b68962/2026-10-16"
-    },
-    {
-     "id": "b6a561d4-54d4-4115-8496-9843a38fc343",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "Informal meeting of the plenary on “A planet fit for the future: Restoring trust through climate action”",
-     "session": "Eighty-first session",
-     "room": "Economic and Social Council Chamber",
-     "roomCode": "ECOSOC",
-     "from": "2026-10-16T15:00:00",
-     "to": "2026-10-16T18:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": true,
-     "link": "https://journal.un.org/en/meeting/Officials/b6a561d4-54d4-4115-8496-9843a38fc343/2026-10-16"
     },
     {
      "id": "bf7c5d66-8978-4e89-8eb1-4e0930a8bac9",
