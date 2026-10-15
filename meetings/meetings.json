@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T12:12:36.254Z",
+ "fetched_at": "2026-10-15T13:39:53.090Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -354,6 +354,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/29b9185b-7f9d-40b2-aa04-bd5bd6b05c5e/2026-10-16"
     },
     {
+     "id": "4f2a2902-56f7-46b8-8f26-6c5a54cdff6c",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-16T10:00:00",
+     "to": "2026-10-16T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/4f2a2902-56f7-46b8-8f26-6c5a54cdff6c/2026-10-16"
+    },
+    {
      "id": "5d2986cb-fc32-4a0f-ae6b-338a4f457717",
      "body": "Military Staff Committee",
      "bodyFull": "Military Staff Committee",
@@ -447,6 +466,44 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/b6a561d4-54d4-4115-8496-9843a38fc343/2026-10-16"
+    },
+    {
+     "id": "bf7c5d66-8978-4e89-8eb1-4e0930a8bac9",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-16T15:00:00",
+     "to": "2026-10-16T16:30:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/bf7c5d66-8978-4e89-8eb1-4e0930a8bac9/2026-10-16"
+    },
+    {
+     "id": "c6ba77be-6f62-46cb-8d74-345560a1827c",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-16T16:30:01",
+     "to": "2026-10-16T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/c6ba77be-6f62-46cb-8d74-345560a1827c/2026-10-16"
     }
    ]
   }
