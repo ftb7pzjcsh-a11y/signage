@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-16T17:39:04.068Z",
+ "fetched_at": "2026-10-16T18:07:44.410Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -335,6 +335,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/67a3498a-d5b7-481b-8e2f-99b2d0e5e6ee/2026-10-19"
     },
     {
+     "id": "2fcf4522-bc59-44f3-a42f-50643df6ff40",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-10-19T10:00:00",
+     "to": "2026-10-19T11:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/2fcf4522-bc59-44f3-a42f-50643df6ff40/2026-10-19"
+    },
+    {
      "id": "810d5dbb-b9dd-482c-8480-410da8d2fe43",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
@@ -354,6 +373,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/810d5dbb-b9dd-482c-8480-410da8d2fe43/2026-10-19"
     },
     {
+     "id": "4b004986-ce09-4ddc-8792-f72357368945",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Security Council Consultations Room",
+     "roomCode": "SCC",
+     "from": "2026-10-19T11:30:01",
+     "to": "2026-10-19T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/4b004986-ce09-4ddc-8792-f72357368945/2026-10-19"
+    },
+    {
      "id": "7de84d50-32e9-4c03-b7e8-8fdcacf60700",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -371,6 +409,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/7de84d50-32e9-4c03-b7e8-8fdcacf60700/2026-10-19"
+    },
+    {
+     "id": "7cc592b3-ddf6-439a-973a-91b1623f7fd5",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-10-19T15:00:00",
+     "to": "2026-10-19T16:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/7cc592b3-ddf6-439a-973a-91b1623f7fd5/2026-10-19"
     },
     {
      "id": "f09eb9d9-60f4-4bdc-91b5-0c6e5c855567",
@@ -409,6 +466,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/01a140c3-0cb7-7207-a5cc-460e7ea9c066/2026-10-19"
+    },
+    {
+     "id": "e3383532-72d4-472a-bd8e-96bda744884e",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Economic and Social Council Chamber",
+     "roomCode": "ECOSOC",
+     "from": "2026-10-19T16:30:01",
+     "to": "2026-10-19T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/e3383532-72d4-472a-bd8e-96bda744884e/2026-10-19"
     }
    ]
   }
