@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-16T13:32:17.293Z",
+ "fetched_at": "2026-10-16T14:14:08.492Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -278,6 +278,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/4f7fa80f-8327-464c-ae2c-3c27d4a94693/2026-10-19"
     },
     {
+     "id": "72947628-4de6-4931-9935-26b9aa5de150",
+     "body": "Second Committee,Economic and Social Council",
+     "bodyFull": "Second Committee,Economic and Social Council",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-19T10:00:00",
+     "to": "2026-10-19T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/72947628-4de6-4931-9935-26b9aa5de150/2026-10-19"
+    },
+    {
      "id": "07d0e09e-0c1d-404b-8133-79cc1a966182",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -314,25 +333,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/7de84d50-32e9-4c03-b7e8-8fdcacf60700/2026-10-19"
-    },
-    {
-     "id": "7cc592b3-ddf6-439a-973a-91b1623f7fd5",
-     "body": "Security Council",
-     "bodyFull": "Security Council",
-     "title": "",
-     "session": "",
-     "room": "Security Council Consultations Room",
-     "roomCode": "SCC",
-     "from": "2026-10-19T15:00:00",
-     "to": "2026-10-19T18:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/7cc592b3-ddf6-439a-973a-91b1623f7fd5/2026-10-19"
     },
     {
      "id": "01a140c3-0cb7-7207-a5cc-460e7ea9c066",
