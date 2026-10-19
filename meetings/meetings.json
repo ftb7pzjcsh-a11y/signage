@@ -1,12 +1,8 @@
 {
- "fetched_at": "2026-10-19T03:02:46.530Z",
+ "fetched_at": "2026-10-19T04:18:05.512Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
-  {
-   "date": "2026-10-18",
-   "meetings": []
-  },
   {
    "date": "2026-10-19",
    "meetings": [
@@ -275,6 +271,87 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/e3383532-72d4-472a-bd8e-96bda744884e/2026-10-19"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-20",
+   "meetings": [
+    {
+     "id": "923f5c5e-50c2-4abf-86ec-b50a32f6278c",
+     "body": "Commission on the Limits of the Continental Shelf",
+     "bodyFull": "Commission on the Limits of the Continental Shelf",
+     "title": "Meetings of the subcommissions",
+     "session": "Sixty-eighth session",
+     "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
+     "roomCode": "",
+     "from": "2026-10-20T09:30:00",
+     "to": "2026-10-20T19:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/923f5c5e-50c2-4abf-86ec-b50a32f6278c/2026-10-20"
+    },
+    {
+     "id": "350b04f8-56b2-4051-9c13-60bef771e29f",
+     "body": "Second Committee",
+     "bodyFull": "Second Committee",
+     "title": "Dialogue with the Executive Secretaries of the regional commissions",
+     "session": "Eighty-first session",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-10-20T10:00:00",
+     "to": "2026-10-20T12:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/350b04f8-56b2-4051-9c13-60bef771e29f/2026-10-20"
+    },
+    {
+     "id": "da84f152-8c07-4f06-8956-327155b6e180",
+     "body": "Fifth Committee",
+     "bodyFull": "Fifth Committee",
+     "title": "Informal consultations",
+     "session": "Eighty-first session",
+     "room": "Conference Room 3",
+     "roomCode": "3",
+     "from": "2026-10-20T10:00:00",
+     "to": "2026-10-20T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/da84f152-8c07-4f06-8956-327155b6e180/2026-10-20"
+    },
+    {
+     "id": "da527c06-41e4-4160-97a1-a6378add2d81",
+     "body": "Fifth Committee",
+     "bodyFull": "Fifth Committee",
+     "title": "Informal consultations",
+     "session": "Eighty-first session",
+     "room": "Conference Room 3",
+     "roomCode": "3",
+     "from": "2026-10-20T15:00:00",
+     "to": "2026-10-20T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/da527c06-41e4-4160-97a1-a6378add2d81/2026-10-20"
     }
    ]
   }
