@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T15:42:56.751Z",
+ "fetched_at": "2026-10-20T16:17:32.793Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -335,25 +335,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/17fdd882-12ba-4ebb-9a2d-e6466fb5089a/2026-10-21"
     },
     {
-     "id": "5c2ba1b8-d139-48b6-8fb4-915f75b3537b",
-     "body": "ACABQ",
-     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
-     "session": "",
-     "room": "",
-     "roomCode": "",
-     "from": "2026-10-21T10:00:00",
-     "to": "2026-10-21T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/5c2ba1b8-d139-48b6-8fb4-915f75b3537b/2026-10-21"
-    },
-    {
      "id": "46424d58-4620-42dd-8d1a-4750e94bc3ef",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -430,23 +411,23 @@
      "link": "https://journal.un.org/en/meeting/Officials/ad9bec88-a71b-4d78-a3a1-055a7dcd8fbc/2026-10-21"
     },
     {
-     "id": "1c17019e-fe62-4ca2-9267-85c4355f5ce0",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "21st plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
+     "id": "5c2ba1b8-d139-48b6-8fb4-915f75b3537b",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
      "from": "2026-10-21T10:00:00",
      "to": "2026-10-21T13:00:00",
      "showFrom": true,
-     "showTo": false,
+     "showTo": true,
      "intergov": true,
-     "closed": false,
+     "closed": true,
      "cancelled": false,
      "following": false,
      "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/1c17019e-fe62-4ca2-9267-85c4355f5ce0/2026-10-21"
+     "link": "https://journal.un.org/en/meeting/Officials/5c2ba1b8-d139-48b6-8fb4-915f75b3537b/2026-10-21"
     },
     {
      "id": "524f95f4-29fd-453e-b443-51cac1e0032c",
