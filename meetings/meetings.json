@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T13:33:58.906Z",
+ "fetched_at": "2026-10-20T14:16:56.296Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -316,6 +316,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/17fdd882-12ba-4ebb-9a2d-e6466fb5089a/2026-10-21"
     },
     {
+     "id": "46424d58-4620-42dd-8d1a-4750e94bc3ef",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-10-21T10:00:00",
+     "to": "2026-10-21T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/46424d58-4620-42dd-8d1a-4750e94bc3ef/2026-10-21"
+    },
+    {
      "id": "f2721ead-d3ee-4969-8f9f-c8452564a207",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -466,6 +485,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/0e54eca4-f9cf-4f35-93a4-8ad0152459be/2026-10-21"
+    },
+    {
+     "id": "1a712599-3edb-43fb-9061-465b4977575e",
+     "body": "Security Council Committee pursuant to resolution 2713 (2023) concerning Al-Shabaab",
+     "bodyFull": "Security Council Committee pursuant to resolution 2713 (2023) concerning Al-Shabaab",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 7",
+     "roomCode": "7",
+     "from": "2026-10-21T15:00:00",
+     "to": "2026-10-21T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/1a712599-3edb-43fb-9061-465b4977575e/2026-10-21"
     },
     {
      "id": "cb37583d-a959-4140-8422-85eccfdfa57c",
