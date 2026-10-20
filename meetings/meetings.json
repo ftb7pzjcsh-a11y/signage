@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T17:41:42.678Z",
+ "fetched_at": "2026-10-20T18:09:42.417Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -267,7 +267,7 @@
      "showTo": false,
      "intergov": true,
      "closed": true,
-     "cancelled": false,
+     "cancelled": true,
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/1b6ee7a3-66b9-481e-9868-fdcb301ba828/2026-10-20"
