@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T12:11:41.141Z",
+ "fetched_at": "2026-10-20T12:55:30.359Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -252,6 +252,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/c1472604-fc04-4e5a-b15b-a8a7361768c5/2026-10-20"
+    },
+    {
+     "id": "1b6ee7a3-66b9-481e-9868-fdcb301ba828",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 7",
+     "roomCode": "7",
+     "from": "2026-10-20T15:00:00",
+     "to": "2026-10-20T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/1b6ee7a3-66b9-481e-9868-fdcb301ba828/2026-10-20"
     },
     {
      "id": "6655eebc-9a1e-4aa9-b52d-3d863a3c029a",
