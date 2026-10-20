@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T14:16:56.296Z",
+ "fetched_at": "2026-10-20T15:03:51.852Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -138,6 +138,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/cf79e8aa-3ccb-42af-8d10-29d1d50f7bb9/2026-10-20"
+    },
+    {
+     "id": "654ed493-4469-47b2-b533-553f970f1f70",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "21st plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-20T10:00:00",
+     "to": "2026-10-20T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/654ed493-4469-47b2-b533-553f970f1f70/2026-10-20"
     },
     {
      "id": "01a154f0-5890-7fb6-9eb5-19a16e213272",
@@ -319,7 +338,7 @@
      "id": "46424d58-4620-42dd-8d1a-4750e94bc3ef",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
-     "title": "",
+     "title": "22nd plenary meeting",
      "session": "Eighty-first session",
      "room": "Conference Room 1",
      "roomCode": "1",
@@ -376,7 +395,7 @@
      "id": "ad9bec88-a71b-4d78-a3a1-055a7dcd8fbc",
      "body": "Committee on Relations with the Host Country",
      "bodyFull": "Committee on Relations with the Host Country",
-     "title": "",
+     "title": "326th and 327th meetings",
      "session": "",
      "room": "Conference Room 7",
      "roomCode": "7",
@@ -414,7 +433,7 @@
      "id": "524f95f4-29fd-453e-b443-51cac1e0032c",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "23rd plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -490,7 +509,7 @@
      "id": "1a712599-3edb-43fb-9061-465b4977575e",
      "body": "Security Council Committee pursuant to resolution 2713 (2023) concerning Al-Shabaab",
      "bodyFull": "Security Council Committee pursuant to resolution 2713 (2023) concerning Al-Shabaab",
-     "title": "",
+     "title": "Informal consultations",
      "session": "",
      "room": "Conference Room 7",
      "roomCode": "7",
@@ -502,7 +521,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/1a712599-3edb-43fb-9061-465b4977575e/2026-10-21"
     },
     {
