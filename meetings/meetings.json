@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-21T13:36:51.408Z",
+ "fetched_at": "2026-10-21T15:01:19.609Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,6 +259,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/700b91e5-1f20-472f-85be-7e788e1aa5b7/2026-10-22"
     },
     {
+     "id": "45bb2fca-7750-408d-b4a4-ace599babe89",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "",
+     "roomCode": "",
+     "from": "2026-10-22T10:00:00",
+     "to": "2026-10-22T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/45bb2fca-7750-408d-b4a4-ace599babe89/2026-10-22"
+    },
+    {
      "id": "778da0d7-e654-4dc5-8edd-d2c457757fb3",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -333,6 +352,44 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/55865f52-e204-400d-9a47-5253afcdb474/2026-10-22"
+    },
+    {
+     "id": "e4d0a5d5-cf36-43e6-b1d3-f63d2428d3ef",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-22T10:00:00",
+     "to": "2026-10-22T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/e4d0a5d5-cf36-43e6-b1d3-f63d2428d3ef/2026-10-22"
+    },
+    {
+     "id": "05612e5b-6a2d-484a-8fe4-6a9cb4b2b6e7",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "",
+     "roomCode": "",
+     "from": "2026-10-22T15:00:00",
+     "to": "2026-10-22T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/05612e5b-6a2d-484a-8fe4-6a9cb4b2b6e7/2026-10-22"
     },
     {
      "id": "bad8929d-f5f3-4a31-be88-c97691c0f760",
