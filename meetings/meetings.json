@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-21T19:26:31.509Z",
+ "fetched_at": "2026-10-21T20:28:29.911Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -24,25 +24,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/17fdd882-12ba-4ebb-9a2d-e6466fb5089a/2026-10-21"
-    },
-    {
-     "id": "46424d58-4620-42dd-8d1a-4750e94bc3ef",
-     "body": "Third Committee",
-     "bodyFull": "Third Committee",
-     "title": "22nd plenary meeting",
-     "session": "Eighty-first session",
-     "room": "Conference Room 1",
-     "roomCode": "1",
-     "from": "2026-10-21T10:00:00",
-     "to": "2026-10-21T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/46424d58-4620-42dd-8d1a-4750e94bc3ef/2026-10-21"
     },
     {
      "id": "f2721ead-d3ee-4969-8f9f-c8452564a207",
