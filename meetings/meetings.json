@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-21T17:02:05.478Z",
+ "fetched_at": "2026-10-21T18:10:40.711Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -134,7 +134,7 @@
      "showTo": true,
      "intergov": true,
      "closed": false,
-     "cancelled": false,
+     "cancelled": true,
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/524f95f4-29fd-453e-b443-51cac1e0032c/2026-10-21"
@@ -433,7 +433,7 @@
      "id": "6f5b7ebf-b413-4ad5-a19c-47a1165e5d47",
      "body": "Security Council Committee established pursuant to resolution 2140 (2014)",
      "bodyFull": "Security Council Committee established pursuant to resolution 2140 (2014)",
-     "title": "",
+     "title": "Informal consultations",
      "session": "",
      "room": "Conference Room 7",
      "roomCode": "7",
@@ -445,7 +445,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/6f5b7ebf-b413-4ad5-a19c-47a1165e5d47/2026-10-22"
     },
     {
