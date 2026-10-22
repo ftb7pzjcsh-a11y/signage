@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-22T14:04:43.342Z",
+ "fetched_at": "2026-10-22T14:44:50.841Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -281,7 +281,7 @@
      "id": "0a0871b3-60be-4290-8be3-c23055165098",
      "body": "Commission on the Limits of the Continental Shelf",
      "bodyFull": "Commission on the Limits of the Continental Shelf",
-     "title": "",
+     "title": "Meetings of the subcommissions",
      "session": "Sixty-eighth session",
      "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
      "roomCode": "",
@@ -319,7 +319,7 @@
      "id": "d49c81f9-646c-4149-b164-1813674d42e7",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
+     "title": "Meeting (also with virtual participation)",
      "session": "",
      "room": "Conference Room 10",
      "roomCode": "10",
@@ -414,7 +414,7 @@
      "id": "a882a9b1-e1fd-46ae-983b-c0567601772a",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
+     "title": "Meeting (also with virtual participation)",
      "session": "",
      "room": "Conference Room 10",
      "roomCode": "10",
@@ -447,6 +447,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/3bf58df4-c8aa-47af-8a18-b774294aad6e/2026-10-23"
+    },
+    {
+     "id": "bc32afb7-d11b-430e-af45-c75e3261975d",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-23T15:00:00",
+     "to": "2026-10-23T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/bc32afb7-d11b-430e-af45-c75e3261975d/2026-10-23"
     }
    ]
   }
