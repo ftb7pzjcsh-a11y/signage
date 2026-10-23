@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-23T13:33:01.264Z",
+ "fetched_at": "2026-10-23T14:20:05.859Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -221,6 +221,44 @@
    "date": "2026-10-26",
    "meetings": [
     {
+     "id": "6e8a4285-14dc-4507-a4b9-dbe478bde30c",
+     "body": "Commission on the Limits of the Continental Shelf",
+     "bodyFull": "Commission on the Limits of the Continental Shelf",
+     "title": "Meetings of the subcommissions",
+     "session": "Sixty-eighth session",
+     "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
+     "roomCode": "",
+     "from": "2026-10-26T09:30:00",
+     "to": "2026-10-26T19:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/6e8a4285-14dc-4507-a4b9-dbe478bde30c/2026-10-26"
+    },
+    {
+     "id": "228e9459-1546-47c1-9e2e-40a7e8b78378",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "27th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-10-26T10:00:00",
+     "to": "2026-10-26T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/228e9459-1546-47c1-9e2e-40a7e8b78378/2026-10-26"
+    },
+    {
      "id": "5fd82fc1-f734-4357-97f5-662f97ef5218",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -240,6 +278,44 @@
      "link": "https://journal.un.org/en/meeting/Officials/5fd82fc1-f734-4357-97f5-662f97ef5218/2026-10-26"
     },
     {
+     "id": "eb6de2ab-e467-4ada-89e1-77b6521e1945",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-26T10:00:00",
+     "to": "2026-10-26T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/eb6de2ab-e467-4ada-89e1-77b6521e1945/2026-10-26"
+    },
+    {
+     "id": "32a9bff4-e8c5-47ce-80cc-f7f122731c54",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "28th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-10-26T15:00:00",
+     "to": "2026-10-26T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/32a9bff4-e8c5-47ce-80cc-f7f122731c54/2026-10-26"
+    },
+    {
      "id": "265ff231-79c7-419b-8d8d-0a54a13ba39f",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -257,6 +333,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/265ff231-79c7-419b-8d8d-0a54a13ba39f/2026-10-26"
+    },
+    {
+     "id": "a19a72df-68bc-44e2-bf64-9c3f1e07f233",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-10-26T15:00:00",
+     "to": "2026-10-26T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/a19a72df-68bc-44e2-bf64-9c3f1e07f233/2026-10-26"
     }
    ]
   }
