@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-23T15:46:31.138Z",
+ "fetched_at": "2026-10-23T16:27:39.297Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -297,6 +297,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/5fd82fc1-f734-4357-97f5-662f97ef5218/2026-10-26"
     },
     {
+     "id": "41ad1e48-aa6a-4986-a336-766681885ed8",
+     "body": "First Committee",
+     "bodyFull": "First Committee",
+     "title": "21st plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-26T10:00:00",
+     "to": "2026-10-26T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/41ad1e48-aa6a-4986-a336-766681885ed8/2026-10-26"
+    },
+    {
      "id": "d7ea98a2-0d0f-49d2-8fd6-7912d9b424f3",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
@@ -373,10 +392,29 @@
      "link": "https://journal.un.org/en/meeting/Officials/265ff231-79c7-419b-8d8d-0a54a13ba39f/2026-10-26"
     },
     {
+     "id": "9babf053-a997-4bb6-960e-5b9580c64d1a",
+     "body": "First Committee",
+     "bodyFull": "First Committee",
+     "title": "22nd plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-26T15:00:00",
+     "to": "2026-10-26T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/9babf053-a997-4bb6-960e-5b9580c64d1a/2026-10-26"
+    },
+    {
      "id": "a19a72df-68bc-44e2-bf64-9c3f1e07f233",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "36th informal meeting of legal advisers",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -388,7 +426,7 @@
      "closed": false,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/a19a72df-68bc-44e2-bf64-9c3f1e07f233/2026-10-26"
     }
    ]
