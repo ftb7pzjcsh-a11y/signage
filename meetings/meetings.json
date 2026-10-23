@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-23T14:20:05.859Z",
+ "fetched_at": "2026-10-23T15:05:06.257Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,6 +259,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/228e9459-1546-47c1-9e2e-40a7e8b78378/2026-10-26"
     },
     {
+     "id": "b4505f8a-f315-410c-b102-c02acaed1f1c",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-26T10:00:00",
+     "to": "2026-10-26T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/b4505f8a-f315-410c-b102-c02acaed1f1c/2026-10-26"
+    },
+    {
      "id": "5fd82fc1-f734-4357-97f5-662f97ef5218",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -278,25 +297,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/5fd82fc1-f734-4357-97f5-662f97ef5218/2026-10-26"
     },
     {
-     "id": "eb6de2ab-e467-4ada-89e1-77b6521e1945",
-     "body": "Sixth Committee",
-     "bodyFull": "Sixth Committee",
-     "title": "",
-     "session": "Eighty-first session",
-     "room": "Trusteeship Council Chamber",
-     "roomCode": "TRI",
-     "from": "2026-10-26T10:00:00",
-     "to": "2026-10-26T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/eb6de2ab-e467-4ada-89e1-77b6521e1945/2026-10-26"
-    },
-    {
      "id": "32a9bff4-e8c5-47ce-80cc-f7f122731c54",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -314,6 +314,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/32a9bff4-e8c5-47ce-80cc-f7f122731c54/2026-10-26"
+    },
+    {
+     "id": "82055f28-52c2-42cc-869c-6e9a7b9f35e5",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-26T15:00:00",
+     "to": "2026-10-26T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/82055f28-52c2-42cc-869c-6e9a7b9f35e5/2026-10-26"
     },
     {
      "id": "265ff231-79c7-419b-8d8d-0a54a13ba39f",
