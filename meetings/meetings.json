@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-23T15:05:06.257Z",
+ "fetched_at": "2026-10-23T15:46:31.138Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -297,6 +297,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/5fd82fc1-f734-4357-97f5-662f97ef5218/2026-10-26"
     },
     {
+     "id": "d7ea98a2-0d0f-49d2-8fd6-7912d9b424f3",
+     "body": "General Assembly",
+     "bodyFull": "General Assembly",
+     "title": "26th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "General Assembly Hall",
+     "roomCode": "GA",
+     "from": "2026-10-26T10:00:00",
+     "to": "2026-10-26T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/d7ea98a2-0d0f-49d2-8fd6-7912d9b424f3/2026-10-26"
+    },
+    {
      "id": "32a9bff4-e8c5-47ce-80cc-f7f122731c54",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -319,7 +338,7 @@
      "id": "82055f28-52c2-42cc-869c-6e9a7b9f35e5",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
+     "title": "Meeting (also with virtual participation)",
      "session": "",
      "room": "Conference Room 10",
      "roomCode": "10",
