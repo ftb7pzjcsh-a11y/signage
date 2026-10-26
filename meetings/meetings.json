@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-26T15:29:23.210Z",
+ "fetched_at": "2026-10-26T16:25:11.311Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -224,7 +224,7 @@
      "id": "63e0ff96-cb60-4c55-9201-b1bf9919516a",
      "body": "Commission on the Limits of the Continental Shelf",
      "bodyFull": "Commission on the Limits of the Continental Shelf",
-     "title": "",
+     "title": "Meetings of the subcommissions",
      "session": "Sixty-eighth session",
      "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
      "roomCode": "",
@@ -257,6 +257,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/cfad4477-0277-405f-9cb2-6b83e010d2ff/2026-10-27"
+    },
+    {
+     "id": "66899c8f-8c14-4ec0-84eb-8d7b1a7ffbef",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-27T10:00:00",
+     "to": "2026-10-27T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/66899c8f-8c14-4ec0-84eb-8d7b1a7ffbef/2026-10-27"
     },
     {
      "id": "dab8cb19-1c95-47d8-b113-5afb229d2ebf",
@@ -319,7 +338,7 @@
      "id": "c21b5b93-7e8d-4979-801a-f02a503fe59e",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "29th plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
@@ -354,6 +373,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/98c67276-b20c-4120-ab25-4c4c7b454ab6/2026-10-27"
     },
     {
+     "id": "b80896bf-972d-4a7c-ae52-4e9ef430b9a4",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-27T15:00:00",
+     "to": "2026-10-27T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/b80896bf-972d-4a7c-ae52-4e9ef430b9a4/2026-10-27"
+    },
+    {
      "id": "45a0a3f7-eacc-4e68-ad13-843bdd1d78eb",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -376,7 +414,7 @@
      "id": "ad29067c-c35d-4b99-92da-21de23082402",
      "body": "First Committee",
      "bodyFull": "First Committee",
-     "title": "",
+     "title": "23rd plenary meeting",
      "session": "",
      "room": "Conference Room 4",
      "roomCode": "4",
@@ -395,7 +433,7 @@
      "id": "5e8f88af-f248-4395-91c6-ef7abd2210c4",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "36th informal meeting of legal advisers",
      "session": "Eighty-first session",
      "room": "Economic and Social Council Chamber",
      "roomCode": "ECOSOC",
@@ -407,7 +445,7 @@
      "closed": false,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/5e8f88af-f248-4395-91c6-ef7abd2210c4/2026-10-27"
     },
     {
