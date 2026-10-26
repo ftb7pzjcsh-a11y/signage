@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-26T19:25:02.145Z",
+ "fetched_at": "2026-10-26T20:44:10.059Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -324,7 +324,7 @@
      "room": "General Assembly Hall",
      "roomCode": "GA",
      "from": "2026-10-27T10:00:00",
-     "to": "2026-10-27T13:00:00",
+     "to": "2026-10-27T11:30:00",
      "showFrom": true,
      "showTo": false,
      "intergov": true,
