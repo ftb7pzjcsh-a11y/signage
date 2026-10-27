@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-27T14:15:30.283Z",
+ "fetched_at": "2026-10-27T15:13:36.869Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -243,7 +243,7 @@
      "id": "d1f47f19-1b6c-4610-8044-387a470719f8",
      "body": "Commission on the Limits of the Continental Shelf",
      "bodyFull": "Commission on the Limits of the Continental Shelf",
-     "title": "",
+     "title": "Meetings of the subcommissions",
      "session": "Sixty-eighth session",
      "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
      "roomCode": "",
@@ -257,6 +257,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/d1f47f19-1b6c-4610-8044-387a470719f8/2026-10-28"
+    },
+    {
+     "id": "862e425e-9353-4559-af29-c06d7055cf9c",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "",
+     "roomCode": "",
+     "from": "2026-10-28T10:00:00",
+     "to": "2026-10-28T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/862e425e-9353-4559-af29-c06d7055cf9c/2026-10-28"
     },
     {
      "id": "4283aaf4-0001-4ab4-972f-4afc4df8e653",
@@ -395,7 +414,7 @@
      "id": "7adc5c4f-be09-4ac3-8fd7-470e9e553eba",
      "body": "Sixth Committee",
      "bodyFull": "Sixth Committee",
-     "title": "",
+     "title": "31st plenary meeting",
      "session": "Eighty-first session",
      "room": "Trusteeship Council Chamber",
      "roomCode": "TRI",
