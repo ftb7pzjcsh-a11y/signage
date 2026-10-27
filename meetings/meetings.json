@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-27T15:58:28.454Z",
+ "fetched_at": "2026-10-27T16:43:21.173Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,25 +259,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/d1f47f19-1b6c-4610-8044-387a470719f8/2026-10-28"
     },
     {
-     "id": "862e425e-9353-4559-af29-c06d7055cf9c",
-     "body": "ACABQ",
-     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
-     "title": "",
-     "session": "",
-     "room": "",
-     "roomCode": "",
-     "from": "2026-10-28T10:00:00",
-     "to": "2026-10-28T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/862e425e-9353-4559-af29-c06d7055cf9c/2026-10-28"
-    },
-    {
      "id": "4283aaf4-0001-4ab4-972f-4afc4df8e653",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -371,6 +352,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/37f6a2bc-f33d-4344-85b9-34bba2b8809f/2026-10-28"
+    },
+    {
+     "id": "862e425e-9353-4559-af29-c06d7055cf9c",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
+     "from": "2026-10-28T10:00:00",
+     "to": "2026-10-28T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/862e425e-9353-4559-af29-c06d7055cf9c/2026-10-28"
     },
     {
      "id": "eb3d8587-ce33-4bf7-a686-8f0e273ea68e",
