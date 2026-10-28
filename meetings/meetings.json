@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-28T06:18:27.866Z",
+ "fetched_at": "2026-10-28T13:20:37.455Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -202,6 +202,25 @@
    "date": "2026-10-29",
    "meetings": [
     {
+     "id": "02a04560-acf5-4296-9681-98ee168e8642",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-29T10:00:00",
+     "to": "2026-10-29T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/02a04560-acf5-4296-9681-98ee168e8642/2026-10-29"
+    },
+    {
      "id": "0b4072f2-54bd-45d7-811d-9f2ce3edd96f",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -297,6 +316,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/0841c371-6905-44e5-8d08-18b506e3768e/2026-10-29"
     },
     {
+     "id": "ee1f944c-fab8-4d78-8e73-bb06dcb5d7f2",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-10-29T15:00:00",
+     "to": "2026-10-29T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/ee1f944c-fab8-4d78-8e73-bb06dcb5d7f2/2026-10-29"
+    },
+    {
      "id": "2693e39e-9ae3-493c-8ce8-69ea34a42480",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -314,6 +352,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/2693e39e-9ae3-493c-8ce8-69ea34a42480/2026-10-29"
+    },
+    {
+     "id": "ab806286-52d0-4d44-a686-d454afaf33f3",
+     "body": "First Committee",
+     "bodyFull": "First Committee",
+     "title": "26th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-10-29T15:00:00",
+     "to": "2026-10-29T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/ab806286-52d0-4d44-a686-d454afaf33f3/2026-10-29"
     },
     {
      "id": "b85d5873-c393-4a00-acc9-e3ca9e0def82",
