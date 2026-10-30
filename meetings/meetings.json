@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-30T18:43:13.271Z",
+ "fetched_at": "2026-10-30T22:40:22.463Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -373,25 +373,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/79d77da1-8184-4848-8e90-375c100c189f/2026-11-02"
     },
     {
-     "id": "11ff2611-6a70-484a-89dc-57d91cad7fd3",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "33rd plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-11-02T10:00:00",
-     "to": "2026-11-02T13:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/11ff2611-6a70-484a-89dc-57d91cad7fd3/2026-11-02"
-    },
-    {
      "id": "7a8f0ac3-becd-4865-bce6-622337c60a6a",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -466,25 +447,6 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/2ea359c7-e734-42a6-bfa8-3be2c89159fe/2026-11-02"
-    },
-    {
-     "id": "d13b61f0-74d3-4b22-990d-f78646930b63",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "34th plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-11-02T15:00:00",
-     "to": "2026-11-02T18:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/d13b61f0-74d3-4b22-990d-f78646930b63/2026-11-02"
     },
     {
      "id": "6616c314-d1ef-4dea-8637-e6054991b5b8",
