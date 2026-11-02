@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-02T08:51:10.176Z",
+ "fetched_at": "2026-11-02T19:09:27.424Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -202,6 +202,25 @@
    "date": "2026-11-03",
    "meetings": [
     {
+     "id": "bba9728c-178a-4593-bf87-f92b07162609",
+     "body": "Third Committee",
+     "bodyFull": "Third Committee",
+     "title": "Briefing for civil society organizations",
+     "session": "Eighty-first session",
+     "room": "Conference Room 1",
+     "roomCode": "1",
+     "from": "2026-11-03T09:00:00",
+     "to": "2026-11-03T09:45:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/bba9728c-178a-4593-bf87-f92b07162609/2026-11-03"
+    },
+    {
      "id": "01dcd4fb-571c-4782-8683-51ee65ff4fb4",
      "body": "Commission on the Limits of the Continental Shelf",
      "bodyFull": "Commission on the Limits of the Continental Shelf",
@@ -219,6 +238,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/01dcd4fb-571c-4782-8683-51ee65ff4fb4/2026-11-03"
+    },
+    {
+     "id": "eaef08b1-f6cf-4757-9462-ade255e1cd3b",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-03T10:00:00",
+     "to": "2026-11-03T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/eaef08b1-f6cf-4757-9462-ade255e1cd3b/2026-11-03"
     },
     {
      "id": "deb93ef9-d63f-4843-87e9-ddeeb6329049",
@@ -278,23 +316,23 @@
      "link": "https://journal.un.org/en/meeting/Officials/42c6fe91-8e8d-4781-af60-498c7680d08d/2026-11-03"
     },
     {
-     "id": "c27bf14a-43c9-43a5-817f-669f1e1e0325",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "35th plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-11-03T10:00:00",
-     "to": "2026-11-03T13:00:00",
+     "id": "75aeab67-6c6d-4323-92cd-fe4e4fff25e4",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-03T15:00:00",
+     "to": "2026-11-03T18:00:00",
      "showFrom": true,
-     "showTo": false,
+     "showTo": true,
      "intergov": true,
-     "closed": false,
+     "closed": true,
      "cancelled": false,
      "following": false,
      "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/c27bf14a-43c9-43a5-817f-669f1e1e0325/2026-11-03"
+     "link": "https://journal.un.org/en/meeting/Officials/75aeab67-6c6d-4323-92cd-fe4e4fff25e4/2026-11-03"
     },
     {
      "id": "01a0f8c3-c4fe-4c0a-ae12-cb1d885fcf74",
