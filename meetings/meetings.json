@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-03T16:34:55.096Z",
+ "fetched_at": "2026-11-03T22:01:41.681Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -263,7 +263,7 @@
      "body": "General Assembly",
      "bodyFull": "General Assembly",
      "title": "Informal consultations on the draft resolution on agenda item 74 (a) (Oceans and the law of the sea: Sustainable fisheries)",
-     "session": "",
+     "session": "Eighty-first session",
      "room": "Conference Room 6",
      "roomCode": "6",
      "from": "2026-11-04T10:00:00",
@@ -377,7 +377,7 @@
      "body": "General Assembly",
      "bodyFull": "General Assembly",
      "title": "Informal consultations on the draft resolution on agenda item 74 (a) (Oceans and the law of the sea: Sustainable fisheries)",
-     "session": "",
+     "session": "Eighty-first session",
      "room": "Conference Room 6",
      "roomCode": "6",
      "from": "2026-11-04T15:00:00",
@@ -409,6 +409,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/676691e6-165a-4280-83bb-5ee83f9142a3/2026-11-04"
+    },
+    {
+     "id": "a78e73b8-aa7f-4459-a75b-9527a080a5ff",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10263rd meeting",
+     "session": "",
+     "room": "Conference Room 2",
+     "roomCode": "2",
+     "from": "2026-11-04T16:30:00",
+     "to": "2026-11-04T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/a78e73b8-aa7f-4459-a75b-9527a080a5ff/2026-11-04"
     }
    ]
   }
