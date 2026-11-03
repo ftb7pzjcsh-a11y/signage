@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-02T19:09:27.424Z",
+ "fetched_at": "2026-11-03T01:35:18.795Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -371,6 +371,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/158adae1-fccb-40e1-b955-260a370b1694/2026-11-03"
+    },
+    {
+     "id": "11c43b40-51d7-4eb1-a998-22b1c7e9dd60",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "35th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-11-03T15:00:00",
+     "to": "2026-11-03T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/11c43b40-51d7-4eb1-a998-22b1c7e9dd60/2026-11-03"
     }
    ]
   }
