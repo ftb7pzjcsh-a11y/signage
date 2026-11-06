@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-06T12:50:28.028Z",
+ "fetched_at": "2026-11-06T19:50:24.906Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -316,6 +316,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/b4cce48c-4155-4e2e-927f-a1c5dd5b41ed/2026-11-09"
     },
     {
+     "id": "c57fda44-5e86-4105-80ca-c99dffe8160f",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-09T10:00:00",
+     "to": "2026-11-09T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/c57fda44-5e86-4105-80ca-c99dffe8160f/2026-11-09"
+    },
+    {
      "id": "b607daf3-8b86-42cf-9da6-6057dd521d10",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -373,6 +392,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/fea003a2-e332-4f1b-abea-2d612e0c1623/2026-11-09"
     },
     {
+     "id": "dfebe567-cfee-4bb6-932f-d030ac8172b5",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10267th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-09T10:00:00",
+     "to": "2026-11-09T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/dfebe567-cfee-4bb6-932f-d030ac8172b5/2026-11-09"
+    },
+    {
      "id": "01a1a34e-a326-74b6-8c4d-5673eb367e77",
      "body": "Special Committee on Peacekeeping Operations",
      "bodyFull": "Special Committee on Peacekeeping Operations",
@@ -392,6 +430,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/01a1a34e-a326-74b6-8c4d-5673eb367e77/2026-11-09"
     },
     {
+     "id": "d48e9796-bc0a-4a72-b518-e08f6d8e4929",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-09T15:00:00",
+     "to": "2026-11-09T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/d48e9796-bc0a-4a72-b518-e08f6d8e4929/2026-11-09"
+    },
+    {
      "id": "fea7e8a6-c723-46ba-9f1a-2979e3807310",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
@@ -409,6 +466,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/fea7e8a6-c723-46ba-9f1a-2979e3807310/2026-11-09"
+    },
+    {
+     "id": "ca4879e8-1cc3-47cd-9709-dd2fbc31dc62",
+     "body": "Peacebuilding Commission",
+     "bodyFull": "Peacebuilding Commission",
+     "title": "Expert-level meeting on working methods",
+     "session": "",
+     "room": "Conference Room 8",
+     "roomCode": "8",
+     "from": "2026-11-09T15:00:00",
+     "to": "2026-11-09T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/ca4879e8-1cc3-47cd-9709-dd2fbc31dc62/2026-11-09"
     }
    ]
   }
