@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-11T09:23:47.086Z",
+ "fetched_at": "2026-11-11T17:21:10.854Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -164,6 +164,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/e86fb384-292f-4d4d-b670-d35f56edddba/2026-11-12"
     },
     {
+     "id": "701022e6-69c0-476d-a94b-9c99c1147ba7",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-12T10:00:00",
+     "to": "2026-11-12T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/701022e6-69c0-476d-a94b-9c99c1147ba7/2026-11-12"
+    },
+    {
      "id": "ab6e5bd3-83c8-4ad4-b810-4fdac14ffd4d",
      "body": "Meeting of States on the Global Framework for Through-life Conventional Ammunition Management",
      "bodyFull": "Meeting of States on the Global Framework for Through-life Conventional Ammunition Management",
@@ -238,6 +257,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/cb33ff2b-c037-4388-bb87-c076e01c2508/2026-11-12"
+    },
+    {
+     "id": "3fec8223-1f65-47fc-b141-9fad4657b3a8",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-12T15:00:00",
+     "to": "2026-11-12T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/3fec8223-1f65-47fc-b141-9fad4657b3a8/2026-11-12"
     },
     {
      "id": "f34812e6-12c1-4901-a2a5-b237da8d2064",
