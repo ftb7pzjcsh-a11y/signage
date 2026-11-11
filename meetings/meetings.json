@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-11T17:21:10.854Z",
+ "fetched_at": "2026-11-11T23:36:52.047Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -333,6 +333,44 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/e0297c18-61f1-4f0a-9d03-1f4d92a8154d/2026-11-12"
+    },
+    {
+     "id": "0beb8fc6-d609-448e-be0d-8489b9e0881d",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10269th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-12T15:00:00",
+     "to": "2026-11-12T16:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/0beb8fc6-d609-448e-be0d-8489b9e0881d/2026-11-12"
+    },
+    {
+     "id": "1059c9de-577b-4d4b-987e-1482d882ab5d",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10270th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-12T16:00:01",
+     "to": "2026-11-12T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/1059c9de-577b-4d4b-987e-1482d882ab5d/2026-11-12"
     }
    ]
   }
