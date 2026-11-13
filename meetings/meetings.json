@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-13T16:55:55.403Z",
+ "fetched_at": "2026-11-13T22:23:08.909Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -371,25 +371,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/e7151048-21da-4de9-9472-605c19a84e02/2026-11-16"
-    },
-    {
-     "id": "b7814dad-9de9-48ea-b462-069297faa138",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "41st plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-11-16T10:00:00",
-     "to": "2026-11-16T13:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/b7814dad-9de9-48ea-b462-069297faa138/2026-11-16"
     },
     {
      "id": "6af5b8fa-6250-4a61-84cc-db83be9a6e89",
