@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-13T08:46:55.552Z",
+ "fetched_at": "2026-11-13T16:55:55.403Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -278,6 +278,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/773c4f34-14a5-47cf-ad2f-4d75f4601ea7/2026-11-16"
     },
     {
+     "id": "0c6c9ff0-67cb-4be0-af80-c8dd81829c30",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-16T10:00:00",
+     "to": "2026-11-16T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/0c6c9ff0-67cb-4be0-af80-c8dd81829c30/2026-11-16"
+    },
+    {
      "id": "4cbbe2ed-ed80-493f-8d1a-90988d689ac5",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -390,6 +409,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/6af5b8fa-6250-4a61-84cc-db83be9a6e89/2026-11-16"
+    },
+    {
+     "id": "aee257b3-c7a9-4a08-b310-b66073dd8573",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-16T15:00:00",
+     "to": "2026-11-16T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/aee257b3-c7a9-4a08-b310-b66073dd8573/2026-11-16"
     },
     {
      "id": "ee1ff8e7-11a1-467e-af1f-5777465a3624",
