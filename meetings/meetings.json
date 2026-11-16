@@ -1,12 +1,8 @@
 {
- "fetched_at": "2026-11-16T03:13:33.842Z",
+ "fetched_at": "2026-11-16T11:28:41.975Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
-  {
-   "date": "2026-11-15",
-   "meetings": []
-  },
   {
    "date": "2026-11-16",
    "meetings": [
@@ -218,6 +214,87 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/09e6bef8-5aa8-404b-8803-6bc2e21e11d1/2026-11-16"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "meetings": [
+    {
+     "id": "d4f1cff8-4512-402e-9433-eaf044428ed4",
+     "body": "Commission on the Limits of the Continental Shelf",
+     "bodyFull": "Commission on the Limits of the Continental Shelf",
+     "title": "Meetings of the subcommissions",
+     "session": "Sixty-eighth session",
+     "room": "Geographic Information System laboratories DOALOS (DC2, 4th Fl)",
+     "roomCode": "",
+     "from": "2026-11-17T09:30:00",
+     "to": "2026-11-17T19:30:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/d4f1cff8-4512-402e-9433-eaf044428ed4/2026-11-17"
+    },
+    {
+     "id": "8b79056b-37e6-4472-bc0c-d0462e808bba",
+     "body": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
+     "bodyFull": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
+     "title": "3rd meeting",
+     "session": "Seventh session",
+     "room": "Conference Room 12",
+     "roomCode": "12",
+     "from": "2026-11-17T10:00:00",
+     "to": "2026-11-17T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/8b79056b-37e6-4472-bc0c-d0462e808bba/2026-11-17"
+    },
+    {
+     "id": "e9f302fc-fa9a-4520-bb65-ae56a223e664",
+     "body": "Fourth Committee",
+     "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
+     "title": "27th plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Conference Room 4",
+     "roomCode": "4",
+     "from": "2026-11-17T10:00:00",
+     "to": "2026-11-17T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/e9f302fc-fa9a-4520-bb65-ae56a223e664/2026-11-17"
+    },
+    {
+     "id": "fc00300f-a996-4e38-aa58-0eb6d4caaa81",
+     "body": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
+     "bodyFull": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
+     "title": "4th meeting",
+     "session": "Seventh session",
+     "room": "Conference Room 12",
+     "roomCode": "12",
+     "from": "2026-11-17T15:00:00",
+     "to": "2026-11-17T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/fc00300f-a996-4e38-aa58-0eb6d4caaa81/2026-11-17"
     }
    ]
   }
