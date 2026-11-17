@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-16T21:11:37.419Z",
+ "fetched_at": "2026-11-17T03:54:36.886Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -314,6 +314,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/e9f302fc-fa9a-4520-bb65-ae56a223e664/2026-11-17"
+    },
+    {
+     "id": "614b8c51-9734-4a53-bb4e-b2f0bb6f9846",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10274th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-17T10:00:00",
+     "to": "2026-11-17T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/614b8c51-9734-4a53-bb4e-b2f0bb6f9846/2026-11-17"
     },
     {
      "id": "bf0afae4-15a1-4406-825c-d7d82cad168c",
