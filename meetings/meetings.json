@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-17T21:29:34.911Z",
+ "fetched_at": "2026-11-18T03:06:05.425Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -240,25 +240,6 @@
      "link": "https://journal.un.org/en/meeting/Officials/9ad4e1c4-e1f2-4306-9458-7274eb61c24f/2026-11-18"
     },
     {
-     "id": "3e56e5ef-185f-46db-96f8-65b15f33f04b",
-     "body": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
-     "bodyFull": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
-     "title": "5th meeting",
-     "session": "Seventh session",
-     "room": "Conference Room 12",
-     "roomCode": "12",
-     "from": "2026-11-18T10:00:00",
-     "to": "2026-11-18T13:00:00",
-     "showFrom": true,
-     "showTo": true,
-     "intergov": true,
-     "closed": true,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/3e56e5ef-185f-46db-96f8-65b15f33f04b/2026-11-18"
-    },
-    {
      "id": "8f1df9d7-98a0-4e0d-82d5-bad04d49c6c8",
      "body": "Fourth Committee",
      "bodyFull": "Special Political and Decolonization Committee (Fourth Committee)",
@@ -281,7 +262,7 @@
      "id": "755edf57-3a55-4d31-aa5e-d6638803217a",
      "body": "General Assembly",
      "bodyFull": "General Assembly",
-     "title": "",
+     "title": "Informal consultations on the draft resolution on agenda item 74 (b) (Oceans and the law of the sea: BBNJ Agreement)",
      "session": "Eighty-first session",
      "room": "Conference Room 6",
      "roomCode": "6",
@@ -293,7 +274,7 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/755edf57-3a55-4d31-aa5e-d6638803217a/2026-11-18"
     },
     {
@@ -376,11 +357,11 @@
      "id": "af6f8b5c-4cbb-4c9b-9522-f5b0be6c3576",
      "body": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
      "bodyFull": "Conference on the Establishment of a Middle East Zone Free of Nuclear Weapons and Other Weapons of Mass Destruction",
-     "title": "6th meeting",
+     "title": "5th meeting",
      "session": "Seventh session",
      "room": "Conference Room 12",
      "roomCode": "12",
-     "from": "2026-11-18T15:00:00",
+     "from": "2026-11-18T16:00:00",
      "to": "2026-11-18T18:00:00",
      "showFrom": true,
      "showTo": true,
