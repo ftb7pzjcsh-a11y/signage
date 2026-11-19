@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-18T19:36:44.580Z",
+ "fetched_at": "2026-11-19T01:30:07.943Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -259,6 +259,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/e6c7af41-031d-419e-859f-486742cff33f/2026-11-19"
     },
     {
+     "id": "f056052d-43ee-430e-ae7c-0e5111181e39",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "Consultations of the whole",
+     "session": "",
+     "room": "Security Council Consultations Room",
+     "roomCode": "SCC",
+     "from": "2026-11-19T10:00:00",
+     "to": "2026-11-19T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/f056052d-43ee-430e-ae7c-0e5111181e39/2026-11-19"
+    },
+    {
      "id": "d4d4bdc9-8fe2-415f-b711-4f689b810eba",
      "body": "Third Committee",
      "bodyFull": "Third Committee",
@@ -314,6 +333,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/37a51f60-6eeb-4825-bd05-8dda6798a136/2026-11-19"
+    },
+    {
+     "id": "deb628bd-e695-47ac-8f3e-e85cf2b6f3fe",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10276th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-19T15:00:00",
+     "to": "2026-11-19T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/deb628bd-e695-47ac-8f3e-e85cf2b6f3fe/2026-11-19"
     },
     {
      "id": "27dfcec4-83f2-46ea-9681-b3b551c8efcd",
