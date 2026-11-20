@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-20T08:03:06.022Z",
+ "fetched_at": "2026-11-20T16:57:17.812Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -183,6 +183,25 @@
    "date": "2026-11-23",
    "meetings": [
     {
+     "id": "0cfb7b47-ce23-4394-b15f-97b168757d55",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-23T10:00:00",
+     "to": "2026-11-23T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/0cfb7b47-ce23-4394-b15f-97b168757d55/2026-11-23"
+    },
+    {
      "id": "90b06ff8-5600-4bff-aacb-a8d86d8cfcc6",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -240,6 +259,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/303f40ae-e9da-4d56-8abf-c92f0f25a5c6/2026-11-23"
     },
     {
+     "id": "b6818999-d664-40d2-b4ac-dbb333c7dffa",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (also with virtual participation)",
+     "session": "",
+     "room": "Conference Room 10",
+     "roomCode": "10",
+     "from": "2026-11-23T15:00:00",
+     "to": "2026-11-23T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/b6818999-d664-40d2-b4ac-dbb333c7dffa/2026-11-23"
+    },
+    {
      "id": "c94cf2bb-300d-4fd6-87e3-ff91b19477d3",
      "body": "Second Committee",
      "bodyFull": "Second Committee",
@@ -257,6 +295,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/c94cf2bb-300d-4fd6-87e3-ff91b19477d3/2026-11-23"
+    },
+    {
+     "id": "11dc3470-6a86-4a93-92d0-02ff3b84837f",
+     "body": "Committee on the Exercise of the Inalienable Rights of the Palestinian People",
+     "bodyFull": "Committee on the Exercise of the Inalienable Rights of the Palestinian People",
+     "title": "Special meeting in observance of the International Day of Solidarity with the Palestinian People",
+     "session": "",
+     "room": "Economic and Social Council Chamber",
+     "roomCode": "ECOSOC",
+     "from": "2026-11-23T15:00:00",
+     "to": "2026-11-23T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/11dc3470-6a86-4a93-92d0-02ff3b84837f/2026-11-23"
     }
    ]
   }
