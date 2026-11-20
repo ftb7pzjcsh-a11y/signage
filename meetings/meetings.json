@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-20T16:57:17.812Z",
+ "fetched_at": "2026-11-20T22:58:58.950Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -140,6 +140,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/fb4249d0-dbc7-4e40-95d3-cfd6c38b849b/2026-11-20"
     },
     {
+     "id": "01a1fa05-4ff5-7ae8-bdbe-b7818ff51332",
+     "body": "Sixth Committee",
+     "bodyFull": "Sixth Committee",
+     "title": "43rd plenary meeting",
+     "session": "Eighty-first session",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-11-20T15:00:00",
+     "to": "2026-11-20T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/01a1fa05-4ff5-7ae8-bdbe-b7818ff51332/2026-11-20"
+    },
+    {
      "id": "73fa3215-7f21-4acb-a251-0d613be2b68e",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
@@ -219,25 +238,6 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/90b06ff8-5600-4bff-aacb-a8d86d8cfcc6/2026-11-23"
-    },
-    {
-     "id": "71970ae8-1d13-4056-a5f6-189e94b31357",
-     "body": "General Assembly",
-     "bodyFull": "General Assembly",
-     "title": "42nd plenary meeting",
-     "session": "Eighty-first session",
-     "room": "General Assembly Hall",
-     "roomCode": "GA",
-     "from": "2026-11-23T10:00:00",
-     "to": "2026-11-23T13:00:00",
-     "showFrom": true,
-     "showTo": false,
-     "intergov": true,
-     "closed": false,
-     "cancelled": false,
-     "following": false,
-     "informal": false,
-     "link": "https://journal.un.org/en/meeting/Officials/71970ae8-1d13-4056-a5f6-189e94b31357/2026-11-23"
     },
     {
      "id": "303f40ae-e9da-4d56-8abf-c92f0f25a5c6",
