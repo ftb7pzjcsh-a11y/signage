@@ -1,12 +1,8 @@
 {
- "fetched_at": "2026-11-23T01:02:07.338Z",
+ "fetched_at": "2026-11-23T09:01:50.751Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
-  {
-   "date": "2026-11-22",
-   "meetings": []
-  },
   {
    "date": "2026-11-23",
    "meetings": [
@@ -123,6 +119,30 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/11dc3470-6a86-4a93-92d0-02ff3b84837f/2026-11-23"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-24",
+   "meetings": [
+    {
+     "id": "716fde2e-a1e1-4acf-9bd8-1f7334ecfc03",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-24T10:00:00",
+     "to": "2026-11-24T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/716fde2e-a1e1-4acf-9bd8-1f7334ecfc03/2026-11-24"
     }
    ]
   }
