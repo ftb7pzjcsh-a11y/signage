@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-24T05:25:35.020Z",
+ "fetched_at": "2026-11-24T16:08:22.277Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -143,6 +143,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/e93fdc05-bf2d-4d13-9f4c-38ea96345514/2026-11-25"
+    },
+    {
+     "id": "1a42089e-0167-4566-a56e-c9cc7d53840d",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held via video-teleconference)",
+     "session": "",
+     "room": "Virtual meeting",
+     "roomCode": "",
+     "from": "2026-11-25T10:00:00",
+     "to": "2026-11-25T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/1a42089e-0167-4566-a56e-c9cc7d53840d/2026-11-25"
     },
     {
      "id": "a9652283-cc90-44fb-a2b5-4fed1b9f282a",
