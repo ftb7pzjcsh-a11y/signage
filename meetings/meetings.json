@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-25T09:14:01.679Z",
+ "fetched_at": "2026-11-25T19:20:54.736Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -126,10 +126,29 @@
    "date": "2026-11-27",
    "meetings": [
     {
+     "id": "04db8478-6483-494b-a5c2-f6694a15065a",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held remotely without physical presence)",
+     "session": "",
+     "room": "",
+     "roomCode": "",
+     "from": "2026-11-27T10:00:00",
+     "to": "2026-11-27T13:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/04db8478-6483-494b-a5c2-f6694a15065a/2026-11-27"
+    },
+    {
      "id": "2dbe733d-3dbb-4d26-95e9-203a67d43cdc",
      "body": "Security Council Committee established pursuant to resolution 1591 (2005) concerning the Sudan",
      "bodyFull": "Security Council Committee established pursuant to resolution 1591 (2005) concerning the Sudan",
-     "title": "",
+     "title": "Informal consultations",
      "session": "",
      "room": "Conference Room 7",
      "roomCode": "7",
@@ -141,8 +160,27 @@
      "closed": true,
      "cancelled": false,
      "following": false,
-     "informal": false,
+     "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/2dbe733d-3dbb-4d26-95e9-203a67d43cdc/2026-11-27"
+    },
+    {
+     "id": "7f9a6205-cac4-46af-a0d6-cbb18a44efd1",
+     "body": "ACABQ",
+     "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
+     "title": "Meeting (to be held remotely without physical presence)",
+     "session": "",
+     "room": "",
+     "roomCode": "",
+     "from": "2026-11-27T15:00:00",
+     "to": "2026-11-27T18:00:00",
+     "showFrom": true,
+     "showTo": true,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/7f9a6205-cac4-46af-a0d6-cbb18a44efd1/2026-11-27"
     }
    ]
   }
