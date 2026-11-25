@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-24T16:08:22.277Z",
+ "fetched_at": "2026-11-25T00:43:04.127Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -145,6 +145,25 @@
      "link": "https://journal.un.org/en/meeting/Officials/e93fdc05-bf2d-4d13-9f4c-38ea96345514/2026-11-25"
     },
     {
+     "id": "3b16387a-85e9-462e-94a1-783553fcc141",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "Consultations of the whole",
+     "session": "",
+     "room": "Security Council Consultations Room",
+     "roomCode": "SCC",
+     "from": "2026-11-25T10:00:00",
+     "to": "2026-11-25T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/3b16387a-85e9-462e-94a1-783553fcc141/2026-11-25"
+    },
+    {
      "id": "1a42089e-0167-4566-a56e-c9cc7d53840d",
      "body": "ACABQ",
      "bodyFull": "Advisory Committee on Administrative and Budgetary Questions",
@@ -181,6 +200,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/a9652283-cc90-44fb-a2b5-4fed1b9f282a/2026-11-25"
+    },
+    {
+     "id": "01a20f78-5925-7448-a999-1b5b4f2e96f1",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10278th meeting (resumed)",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-25T15:00:00",
+     "to": "2026-11-25T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/01a20f78-5925-7448-a999-1b5b4f2e96f1/2026-11-25"
     }
    ]
   }
