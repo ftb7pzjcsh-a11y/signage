@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-27T21:31:20.775Z",
+ "fetched_at": "2026-11-28T03:31:37.717Z",
  "source": "Journal of the United Nations — Official meetings (journal.un.org)",
  "location": "New York",
  "days": [
@@ -145,6 +145,44 @@
      "link": "https://journal.un.org/en/meeting/Officials/c697bb2a-0aa5-424c-ae5c-a8fdd2a46507/2026-11-30"
     },
     {
+     "id": "fee015b8-3888-4ced-8fbb-a441dbc7b3e7",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10279th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-30T10:00:00",
+     "to": "2026-11-30T11:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/fee015b8-3888-4ced-8fbb-a441dbc7b3e7/2026-11-30"
+    },
+    {
+     "id": "a76ae132-9e2a-4f32-aa38-7aee455f69b1",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "Consultations of the whole",
+     "session": "",
+     "room": "Security Council Consultations Room",
+     "roomCode": "SCC",
+     "from": "2026-11-30T11:00:01",
+     "to": "2026-11-30T12:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": true,
+     "cancelled": false,
+     "following": false,
+     "informal": true,
+     "link": "https://journal.un.org/en/meeting/Officials/a76ae132-9e2a-4f32-aa38-7aee455f69b1/2026-11-30"
+    },
+    {
      "id": "2b5e9fa4-7c8b-4b3a-9416-f7d6b984c89d",
      "body": "Fifth Committee",
      "bodyFull": "Fifth Committee",
@@ -162,6 +200,25 @@
      "following": false,
      "informal": true,
      "link": "https://journal.un.org/en/meeting/Officials/2b5e9fa4-7c8b-4b3a-9416-f7d6b984c89d/2026-11-30"
+    },
+    {
+     "id": "21581569-0bba-4516-bf12-0db65e9517c7",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "10280th meeting",
+     "session": "",
+     "room": "Security Council Chamber",
+     "roomCode": "SCC",
+     "from": "2026-11-30T12:00:01",
+     "to": "2026-11-30T13:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/21581569-0bba-4516-bf12-0db65e9517c7/2026-11-30"
     },
     {
      "id": "19850551-bd62-4b23-9cb2-61df08025938",
@@ -238,6 +295,25 @@
      "following": false,
      "informal": false,
      "link": "https://journal.un.org/en/meeting/Officials/ff22bbed-f553-442b-a0cb-aae7d8645ab0/2026-11-30"
+    },
+    {
+     "id": "c5e6144d-5e50-408c-bdb8-c19b8217b476",
+     "body": "Security Council",
+     "bodyFull": "Security Council",
+     "title": "Briefing to non-Council members",
+     "session": "",
+     "room": "Trusteeship Council Chamber",
+     "roomCode": "TRI",
+     "from": "2026-11-30T16:30:00",
+     "to": "2026-11-30T18:00:00",
+     "showFrom": true,
+     "showTo": false,
+     "intergov": true,
+     "closed": false,
+     "cancelled": false,
+     "following": false,
+     "informal": false,
+     "link": "https://journal.un.org/en/meeting/Officials/c5e6144d-5e50-408c-bdb8-c19b8217b476/2026-11-30"
     }
    ]
   }
